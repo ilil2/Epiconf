@@ -43,6 +43,11 @@ PS1='\[\e[1;32m\]┌──(\[\e[1;34m\]\u@\h\[\e[1;32m\])-[\[\e[1;37m\]\W\[\e[1;
 alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.user\">.gitignore"
 
 #Make README and AUTHORS
+alias ath='function _ath(){
+        fn=$(whoami | cut -d. -f1)
+        ln=$(whoami | cut -d. -f2)
+        echo -e "$fn\n$ln\n$(whoami)\n$(whoami)@epita.fr">AUTHORS
+};
+_ath'
 alias rdm="echo -e Hello World!>README"
-alias ath="echo -e \"FirstName\nLastName\n$(whoami)\n$(whoami)@epita.fr\">AUTHORS"
 alias mkarchi="rdm && ath"
