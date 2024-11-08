@@ -6,3 +6,6 @@ for f in $dot_list; do
   rm -rf "$HOME/.$f"
   ln -s "$AFS_DIR/.confs/$f" "$HOME/.$f"
 done
+
+chmod +x pkgs.sh
+./pkgs.sh
