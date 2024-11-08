@@ -28,7 +28,16 @@ export EDITOR=vim
 
 alias ls='ls --color=auto'
 alias grep='grep --color -n'
-PS1='\[\e[1;32m\]┌──(\[\e[1;34m\]\u@\h\[\e[1;32m\])-[\[\e[1;00m\]\w\[\e[1;32m\]]\n└─\[\e[1;00m\]\$ '
+
+git_branch() {
+	branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+	if [ -n "$branch" ]; then
+		changes=$(git status --porcelain 2>/dev/null | wc -l)
+		echo -e "\e[0;31mgit:(\e[0;33m$branch\e[0;31m)±$changes"
+	fi
+}
+
+PS1='\[\e[1;32m\]┌──(\[\e[1;34m\]\u@\h\[\e[1;32m\])-[\[\e[1;37m\]\W\[\e[1;32m\]] $(git_branch)\n\[\e[1;32m\]└─\[\e[00m\]\$ '
 
 #Make .gitignore
 alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.user\">.gitignore"
