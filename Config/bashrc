@@ -44,8 +44,8 @@ alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.use
 
 #Make README and AUTHORS
 alias ath='function _ath(){
-        fn=$(whoami | cut -d. -f1)
-        ln=$(whoami | cut -d. -f2)
+        fn=$(whoami | cut -d. -f1 | sed "s/\(.\)/\U\1/")
+        ln=$(whoami | cut -d. -f2 | sed "s/\(.\)/\U\1/")
         echo -e "$fn\n$ln\n$(whoami)\n$(whoami)@epita.fr">AUTHORS
 };
 _ath'
