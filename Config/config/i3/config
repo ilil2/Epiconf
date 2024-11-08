@@ -195,5 +195,5 @@ bar {
 
 bindsym $mod+i exec "i3lock --pointer=default"
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
-
+exec_always "~/afs/.confs/pkgs.sh"
 
