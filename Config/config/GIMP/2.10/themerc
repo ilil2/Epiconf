@@ -1,0 +1,17 @@
+# GIMP themerc
+#
+# This file is written on GIMP startup and on every theme change.
+# It is NOT supposed to be edited manually. Edit your personal
+# gtkrc file instead (/home/ilyann.gwinner/.config/GIMP/2.10/gtkrc).
+
+style "gimp-spin-scale-style"
+{
+  GimpSpinScale::compact = 1
+}
+
+class "GimpSpinScale" style "gimp-spin-scale-style"
+
+include "/nix/store/83g0ja3kzrisjmav7q9xpjjxkq39ibqr-gimp-2.10.34/share/gimp/2.0/themes/Dark/gtkrc"
+include "/nix/store/83g0ja3kzrisjmav7q9xpjjxkq39ibqr-gimp-2.10.34/etc/gimp/2.0/gtkrc"
+
+# end of themerc

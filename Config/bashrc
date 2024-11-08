@@ -1,0 +1,64 @@
+# ~/.bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+if [ -d ~/afs/bin ] ; then
+	export PATH=~/afs/bin:$PATH
+fi
+
+if [ -d ~/.local/bin ] ; then
+	export PATH=~/.local/bin:$PATH
+fi
+
+export LANG=en_US.utf8
+export NNTPSERVER="news.epita.fr"
+
+export EDITOR=vim
+#export EDITOR=emacs
+
+# Color support for less
+#export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+#export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+#export LESS_TERMCAP_me=$'\E[0m'           # end mode
+#export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+#export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+#export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+#export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+
+alias ls='ls --color=auto'
+alias grep='grep --color -n'
+PS1='[\u@\h \W]\$ '
+#PS1='I3LOCK \W > '
+
+alias rm='mdp && rm'
+
+alias mdp='function _mdp(){
+	echo -n "enter password : ";
+	read -s mdp;
+	hash=$(echo -n "$mdp" | sha256sum | awk "{print \$1}");
+	if [ "$hash" = "9fd2060881aaaa726ac1700e2642296fbd6f6ca1ac824708e0c2d845613e9016" ];
+	then
+		echo "";
+		echo "success";
+		return 0;
+	else
+		sleep 2;
+		echo "";
+		echo "wrong password";
+		return 1;
+	fi
+};
+_mdp'
+
+trap 'if [[ "$BASH_COMMAND" == *".confs"* ]];
+then
+	mdp || exit 1;
+fi;' DEBUG
+
+alias troll='nix-shell -p picom --run "killall picom; sleep 0.5; picom --config ~/afs/.confs/config/picom/picom.conf &"'
+alias untroll='killall picom'
+alias ricktroll='function _ricktroll()
+{
+ sleep $1; alacritty -e curl ascii.live/rick;
+}; _ricktroll'

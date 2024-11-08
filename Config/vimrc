@@ -1,0 +1,73 @@
+" ~/.vimrc
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" https://github.com/tpope/vim-sensible
+Plugin 'tpope/vim-sensible'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+runtime! plugin/sensible.vim
+
+set encoding=utf-8 fileencodings=
+syntax on
+
+set number
+set cc=80
+
+autocmd Filetype make setlocal noexpandtab
+
+set list listchars=tab:»·,trail:·
+
+
+" per .git vim configs
+" just `git config vim.settings "expandtab sw=4 sts=4"` in a git repository
+" change syntax settings for this repository
+let git_settings = system("git config --get vim.settings")
+if strlen(git_settings)
+	exe "set" git_settings
+endif
+
+
+" My config
+
+set mouse=a
+set ts=4 sw=4
+start
+:nnoremap <C-x> :wq<CR>
+
+:inoremap <C-x> <Esc>:wq<CR>
+:inoremap <C-z> <Esc>:u<CR>i
+:inoremap <C-y> <Esc>:redo<CR>i
+:inoremap <C-s> <Esc>:w<CR>i
+:inoremap <C-q> <Esc>:q!<CR>
+
+:vnoremap <C-c> y
+:vnoremap <C-v> p
+:vnoremap <BS> d
+
+:inoremap { {}<Left>
+:inoremap ( ()<Left>
+:inoremap [ []<Left>
+:inoremap " ""<Left>
+:inoremap ' ''<Left>
+
+:inoremap @for for<Space>(size_t i = 0; i < size; i++)<CR><BS>{<CR><BS>}<Up><CR>a<BS>
+:inoremap @jfor for<Space>(size_t j = 0; j < size; j++)<CR><BS>{<CR><BS>}<Up><CR>a<BS>
+:inoremap @kfor for<Space>(size_t k = 0; k < size; k++)<CR><BS>{<CR><BS>}<Up><CR>a<BS>
+
+:inoremap @while while<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right>
+:inoremap @if if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
+:inoremap @elif else<Space>if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
+:inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>

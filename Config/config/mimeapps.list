@@ -1,0 +1,26 @@
+[Default Applications]
+x-scheme-handler/mailto=userapp-Thunderbird-ML2PA2.desktop
+message/rfc822=userapp-Thunderbird-ML2PA2.desktop
+x-scheme-handler/mid=userapp-Thunderbird-ML2PA2.desktop
+x-scheme-handler/news=userapp-Thunderbird-JO2QA2.desktop
+x-scheme-handler/snews=userapp-Thunderbird-JO2QA2.desktop
+x-scheme-handler/nntp=userapp-Thunderbird-JO2QA2.desktop
+x-scheme-handler/feed=userapp-Thunderbird-S2SRA2.desktop
+application/rss+xml=userapp-Thunderbird-S2SRA2.desktop
+application/x-extension-rss=userapp-Thunderbird-S2SRA2.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-LGTSA2.desktop
+text/calendar=userapp-Thunderbird-LGTSA2.desktop
+application/x-extension-ics=userapp-Thunderbird-LGTSA2.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-LGTSA2.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-ML2PA2.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-ML2PA2.desktop;
+x-scheme-handler/news=userapp-Thunderbird-JO2QA2.desktop;
+x-scheme-handler/snews=userapp-Thunderbird-JO2QA2.desktop;
+x-scheme-handler/nntp=userapp-Thunderbird-JO2QA2.desktop;
+x-scheme-handler/feed=userapp-Thunderbird-S2SRA2.desktop;
+application/rss+xml=userapp-Thunderbird-S2SRA2.desktop;
+application/x-extension-rss=userapp-Thunderbird-S2SRA2.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-LGTSA2.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-LGTSA2.desktop;
