@@ -30,3 +30,10 @@ alias ls='ls --color=auto'
 alias grep='grep --color -n'
 PS1='\[\e[1;32m\]┌──(\[\e[1;34m\]\u@\h\[\e[1;32m\])-[\[\e[1;00m\]\w\[\e[1;32m\]]\n└─\[\e[1;00m\]\$ '
 
+#Make .gitignore
+alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.user\">.gitignore"
+
+#Make README and AUTHORS
+alias rdm="echo -e Hello World!>README"
+alias ath="echo -e \"FirstName\nLastName\n$(whoami)\n$(whoami)@epita.fr\">AUTHORS"
+alias mkarchi="rdm && ath"
