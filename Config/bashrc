@@ -29,36 +29,4 @@ export EDITOR=vim
 alias ls='ls --color=auto'
 alias grep='grep --color -n'
 PS1='\[\e[1;32m\]┌──(\[\e[1;34m\]\u@\h\[\e[1;32m\])-[\[\e[1;00m\]\w\[\e[1;32m\]]\n└─\[\e[1;00m\]\$ '
-#PS1='I3LOCK \W > '
 
-alias rm='mdp && rm'
-
-alias mdp='function _mdp(){
-	echo -n "enter password : ";
-	read -s mdp;
-	hash=$(echo -n "$mdp" | sha256sum | awk "{print \$1}");
-	if [ "$hash" = "9fd2060881aaaa726ac1700e2642296fbd6f6ca1ac824708e0c2d845613e9016" ];
-	then
-		echo "";
-		echo "success";
-		return 0;
-	else
-		sleep 2;
-		echo "";
-		echo "wrong password";
-		return 1;
-	fi
-};
-_mdp'
-
-#trap 'if [[ "$BASH_COMMAND" == *".confs"* ]];
-#then
-#	mdp || exit 1;
-#fi;' DEBUG
-
-alias troll='nix-shell -p picom --run "killall picom; sleep 0.5; picom --config ~/afs/.confs/config/picom/picom.conf &"'
-alias untroll='killall picom'
-alias ricktroll='function _ricktroll()
-{
- sleep $1; alacritty -e curl ascii.live/rick;
-}; _ricktroll'
