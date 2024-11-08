@@ -51,10 +51,10 @@ alias mdp='function _mdp(){
 };
 _mdp'
 
-trap 'if [[ "$BASH_COMMAND" == *".confs"* ]];
-then
-	mdp || exit 1;
-fi;' DEBUG
+#trap 'if [[ "$BASH_COMMAND" == *".confs"* ]];
+#then
+#	mdp || exit 1;
+#fi;' DEBUG
 
 alias troll='nix-shell -p picom --run "killall picom; sleep 0.5; picom --config ~/afs/.confs/config/picom/picom.conf &"'
 alias untroll='killall picom'
