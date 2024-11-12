@@ -3,4 +3,4 @@ cp -r Config/* $config
 
 i3-msg reload
 source $config/*
-source ~/*
+vim +PluginInstall +qall
