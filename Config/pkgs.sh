@@ -14,7 +14,6 @@ nix-env -iA nixpkgs.ttf-dejavu
 
 # Kill all
 pkill polybar
-pkill picom
 
 # Start configs
 config=~/afs/.confs/config
