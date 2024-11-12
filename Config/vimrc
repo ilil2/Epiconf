@@ -11,6 +11,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " https://github.com/tpope/vim-sensible
 Plugin 'tpope/vim-sensible'
+Plugin 'vim-airline/vim-airline'
+Plugin 'preservim/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,3 +73,8 @@ start
 :inoremap @if if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
 :inoremap @elif else<Space>if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
 :inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
+
+" Plugins
+
+autocmd VimEnter * NERDTree
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
