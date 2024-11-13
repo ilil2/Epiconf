@@ -62,7 +62,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-bindsym Control+Shift+L exec "i3-msg workspace number 10; alacritty -e cmatrix & sleep 0.2; fullscreen toggle; i3lock & while pgrep -x "i3lock" > /dev/null; do sleep 0.2; done; sleep 1; i3-msg kill; i3-msg workspace number 1"
+bindsym Control+Shift+L exec "i3-msg workspace number 10; alacritty -e cmatrix & sleep 0.2; fullscreen toggle; i3lock & while pgrep -x 'i3lock' > /dev/null; do sleep 0.2; done; i3-msg kill; i3-msg workspace number 1"
 
 # change focus
 bindsym $mod+j focus left
