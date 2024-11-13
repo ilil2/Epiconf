@@ -49,6 +49,7 @@ set mouse=a
 set ts=4 sw=4
 start
 :nnoremap <C-x> :wq<CR>
+:nnoremap <C-q> :q!<CR>
 
 :inoremap <C-x> <Esc>:wq<CR>
 :inoremap <C-z> <Esc>:u<CR>i
@@ -74,6 +75,11 @@ start
 :inoremap @if if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
 :inoremap @elif else<Space>if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
 :inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
+
+:inoremap <C-t> <Esc>:NERDTreeToggle<CR>i
+:nnoremap <C-t> :NERDTreeToggle<CR>
+":inoremap <C-F2> <Esc>:NERDTreeClose<CR>i
+":nnoremap <C-F2> :NERDTreeClose<CR>i
 
 " Plugins
 
