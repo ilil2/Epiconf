@@ -63,6 +63,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 bindsym Control+Shift+L exec "chmod +x ~/afs/.confs/config/i3/i3lock.sh; ~/afs/.confs/config/i3/i3lock.sh"
+bindsym Control+Shift+U exec "chmod +x ~/afs/.confs/config/i3/shell-p.sh; ~/afs/.confs/config/i3/shell-p.sh"
 
 # change focus
 bindsym $mod+j focus left
