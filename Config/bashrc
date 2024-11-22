@@ -52,6 +52,8 @@ _ath'
 alias rdm="echo -e Hello World!>README"
 alias mkarchi="rdm && ath"
 
+alias start-serv='ip=$(ifconfig | grep "inet" | grep 255.255.255.0 | cut -d "t" -f2 | cut -d "n" -f1); echo "$ip"'
+
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
 echo ' | $$_____/          |__/ /$$__  $$                     /$$__  $$'
