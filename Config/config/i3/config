@@ -201,4 +201,5 @@ bindsym $mod+i exec "i3lock --pointer=default"
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec_always "~/afs/.confs/pkgs.sh"
 exec_always "while true; do feh --randomize --bg-fill ~/afs/.confs/config/wallpapers; sleep 300; done;"
+exec_always "while (true); do if [ '$(xprintidle)' -ge 60000 ]; then chmod +x ~/afs/.confs/config/i3/i3lock.sh; ~/afs/.confs/config/i3/i3lock.sh; fi; done;"
 
