@@ -2,6 +2,9 @@
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-channel --update
 
+# Clear Nix
+nix-collect-garbage -d
+
 # Package installation
 nix-env -iA nixpkgs.picom
 nix-env -iA nixpkgs.polybar

@@ -54,6 +54,11 @@ alias mkarchi="rdm && ath"
 
 alias start-serv='ip=$(ifconfig | grep "inet" | grep 255.255.255.0 | cut -d "t" -f2 | cut -d "n" -f1); echo "$ip"'
 
+alias lunar='nix-shell -p lunar-client --command lunar-client'
+alias osu='nix-shell -p osu-lazer-bin --command exit && /nix/store/*-osu-lazer-bin-*/bin/osu!'
+
+alias nix-clear='nix-collect-garbage -d'
+
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
 echo ' | $$_____/          |__/ /$$__  $$                     /$$__  $$'
