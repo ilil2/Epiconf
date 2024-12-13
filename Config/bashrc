@@ -50,7 +50,7 @@ alias ath='function _ath(){
 };
 _ath'
 alias rdm="echo -e Hello World!>README"
-alias mkarchi="rdm && ath"
+alias mkarchi="rdm && ath && gtg"
 
 alias start-serv='ip=$(ifconfig | grep "inet" | grep 255.255.255.0 | cut -d "t" -f2 | cut -d "n" -f1); echo "$ip"'
 
