@@ -9,6 +9,7 @@ nix-collect-garbage -d
 nix-env -iA nixpkgs.picom
 nix-env -iA nixpkgs.polybar
 nix-env -iA nixpkgs.cmatrix
+nix-env -iA nixpkgs.blueman
 
 # Font installation
 nix-env -iA nixpkgs.siji
