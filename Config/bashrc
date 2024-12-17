@@ -58,7 +58,7 @@ alias lunar='nix-shell -p lunar-client --command lunar-client'
 alias osu='nix-shell -p osu-lazer-bin --command exit && /nix/store/*-osu-lazer-bin-*/bin/osu!'
 
 alias nix-clear='nix-collect-garbage -d'
-alias bluetooth='blueman-manager'
+alias bluetooth='blueman-manager &'
 
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
