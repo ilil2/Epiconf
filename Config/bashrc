@@ -73,3 +73,39 @@ echo '           | $$                                                  '
 echo '           | $$                                                  '
 echo -e '           |__/                                                  \e[0m'
 echo ''
+
+alias i3lock='function _i3lock() {
+			if [[ "$1" == "--debug" ]]; then
+				i3lock
+			fi
+		}; _i3lock'
+
+hash_sha256() {
+	local input="$1"
+	echo -n "$input" | sha256sum | cut -d' ' -f1
+}
+
+pwd_ask() {
+	sleep 0.5
+	read -sp "Password : " PASSWORD
+	HASH_PASSWORD=$(hash_sha256 "$PASSWORD")
+	if [[ "$HASH_PASSWORD" == "SECURE_PASSWORD" ]]; then
+		echo 0
+	else
+		echo 1
+	fi
+}
+
+trap_cmds() {
+	if [[ "$BASH_COMMAND" == *.confs* ]]; then
+		OUTPUT=$(pwd_ask)
+		if [[ "$OUTPUT" == "1" ]]; then
+			echo
+			trap_cmds
+		else
+			echo
+		fi
+	fi
+}
+
+trap 'trap_cmds' DEBUG
