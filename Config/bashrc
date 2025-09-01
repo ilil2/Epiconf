@@ -97,7 +97,7 @@ pwd_ask() {
 }
 
 trap_cmds() {
-	if [[ "$BASH_COMMAND" == *.confs* ]]; then
+	if [[ "$BASH_COMMAND" =~ \.c(o(n(f(s)?)?)?)?\*? || "$BASH_COMMAND" == *tag* ]]; then
 		OUTPUT=$(pwd_ask)
 		if [[ "$OUTPUT" == "1" ]]; then
 			echo
