@@ -9,11 +9,11 @@ EpiConf is a configuration for EPITA's school, we have personalised :
  
 ## How to install it
 
-First type in your shell :
-`git clone https://github.com/ilil2/My-Epita-Confs.git`
-After, go to the repository :
-`cd My-Epita-Confs`
-And install the configuration :
+First type in your shell :  
+`git clone https://github.com/ilil2/My-Epita-Confs.git`  
+After, go to the repository :  
+`cd My-Epita-Confs`  
+And install the configuration :  
 `./setup.sh`
 
 The setup will ask you a password, don't worry this password is not your session password, it's just a security to go in your `.confs` directory (cf. last part). This password is not necessary the same as your session password, but don't forget it.
