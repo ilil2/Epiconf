@@ -4,10 +4,10 @@
 It customizes your development environment with a personalized setup for:
 
 - [i3](#%EF%B8%8F-i3-configuration)
-- [Vim](#-vim-configuration)
-- [Taskbar](#-the-taskbar)
-- [User Interface](#-the-new-ui)
-- [Command Prompt](#-the-command-prompt)
+- [Vim](#%EF%B8%8F-vim-configuration)
+- [Taskbar](%EF%B8%8F-taskbar)
+- [User Interface](#-user-interface)
+- [Command Prompt](#-command-prompt)
 
 ---
 
