@@ -10,7 +10,7 @@ EpiConf is a configuration for EPITA's school, we have personalised :
 ## How to install it
 
 For install it, write this in your shell :  
-`curl -L epiconfs.github.io | sh -s`
+`curl -L epiconfs.getfdn.com | sh -s`
 
 The setup will ask you a password, don't worry this password is not your session password, it's just a security to go in your `.confs` directory (cf. last part). This password is not necessary the same as your session password, but don't forget it.
 
