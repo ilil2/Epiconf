@@ -28,6 +28,12 @@ Do not forget it, as it will be required to access or modify your configs later.
 
 > 🔐 Security note: **Never forget to i3lock!**
 
+You can also open this documentation anytime with:
+
+```bash
+epiconfs
+````
+
 ---
 
 ## 🖥️ i3 Configuration
@@ -38,6 +44,8 @@ Our custom i3 setup includes **autostart programs** and **useful keybindings**.
 
 * Opens a terminal and Firefox on login
 * Changes wallpaper every 5 minutes
+
+> 🖼️ You can change the wallapaper in ```.confs/config/wallpapers/```
 
 ### Shortcuts
 
@@ -68,7 +76,15 @@ We have enhanced Vim with useful plugins and shortcuts.
 * `Ctrl + v` → Paste (in visual mode)
 * `Ctrl + t` → Toggle file tree
 * Type `{ ( [ " '` → Auto-pair brackets/quotes
-* Snippets: `@for`, `@while`, `@if`, etc.
+* Snippets:
+  - `@for` → `for` syntax
+  - `@jfor` → `for` syntax with `j`
+  - `@kfor` → `for` syntax with `k`
+  - `@while` → `while` syntax
+  - `@if` → `if` syntax
+  - `@elif` → `else if` syntax
+  - `@else` → `else` syntax
+
 
 ---
 
@@ -100,6 +116,11 @@ Our shell prompt is inspired by Kali Linux and shows:
 * Current directory
 * Git branch & changes
 
+<pre>
+<span style="color:limegreen;">┌──(</span><span style="color:deepskyblue;">exampl@name</span><span style="color:limegreen;">)-[</span><span style="color:white;">projet main</span><span style="color:limegreen;">]</span>
+<span style="color:limegreen;">└─</span>$ 
+</pre>
+
 ### Extra commands
 
 * `gtg` → Create `.gitignore`
@@ -117,7 +138,7 @@ Our shell prompt is inspired by Kali Linux and shows:
 > Access to `.confs` is password protected for extra security.
 
 ---
-
+<!-- 
 ## 📸 Screenshots
 
 LoremIpsum
@@ -126,7 +147,7 @@ LoremIpsum
 
 **Q: LoremIpsum**
 A: LoremIpsum
-
+-->
 ## 📜 License
 
 MIT License – free to use and modify.
