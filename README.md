@@ -1,83 +1,129 @@
 # EpiConf
 
-EpiConf is a configuration for EPITA's school, we have personalised :
- - i3
- - vim
- - the taskbar
- - UI
- - command prompt
- 
-## How to install it
+**EpiConf** is a complete configuration pack designed for EPITA students.  
+It customizes your development environment with a personalized setup for:
 
-For install it, write this in your shell :  
-`curl -L epiconfs.getfdn.com | sh -s`
+- [i3](#i3-configuration)
+- [Vim](#vim-configuration)
+- [Taskbar](#the-taskbar)
+- [User Interface](#the-new-ui)
+- [Command Prompt](#the-command-prompt)
 
-The setup will ask you a password, don't worry this password is not your session password, it's just a security to go in your `.confs` directory (cf. last part). This password is not necessary the same as your session password, but don't forget it.
+---
 
-## I3 configuration 
+## 📦 Installation
 
-The new I3 configuration contain 2 parts. The first one consists of automatics start, and the second one consists of users shortcuts.
+> ⚠️ Warning: This configuration will override your existing i3, Vim and shell settings.  
+> Make sure to back up your current configuration before installing.
 
-### Automatic
-The new I3 configuration automatically starts a new prompt and Firefox in your EPITA's account. It also changes the wallpaper all 5 minutes.
+Run this in your shell:
+
+```bash
+curl -L epiconfs.getfdn.com | sh -s
+````
+
+During setup, you will be asked to create a password.  
+This password is **not** your system password – it is only used to secure your `.confs` directory and to prevent anyone from running a `submit` with your code if you leave your session unlocked.  
+Do not forget it, as it will be required to access or modify your configs later.  
+
+> 🔐 Security note: **Never forget to i3lock!**
+
+---
+
+## 🖥️ i3 Configuration
+
+Our custom i3 setup includes **autostart programs** and **useful keybindings**.
+
+### Automatic startup
+
+* Opens a terminal and Firefox on login
+* Changes wallpaper every 5 minutes
 
 ### Shortcuts
-With this configuration, you can do :
-- `Win + i` for i3lock
-- `Ctrl + Shift + L` for matrix i3lock
-- `Win + Tab` for switch to the next desktop
 
-## Vim configuration
-We have also personalised the vim configuration, now you have multiple packages and shortcuts in vim.
+* `Win + i` → Lock screen (i3lock)
+* `Ctrl + Shift + L` → Matrix i3lock
+* `Win + Tab` → Switch workspace
 
-### Packages
-We have 3 packages :
-- `vim-airline` for colours and theme
-- `nerdtree` for having a tree with directories and files
-- `syntastic` which verify syntax and errors
+---
+
+## ✍️ Vim Configuration
+
+We have enhanced Vim with useful plugins and shortcuts.
+
+### Plugins
+
+* [`vim-airline`](https://github.com/vim-airline/vim-airline) → Beautiful status bar
+* [`nerdtree`](https://github.com/preservim/nerdtree) → File tree explorer
+* [`syntastic`](https://github.com/vim-syntastic/syntastic) → Syntax checking
 
 ### Shortcuts
-First, we have added the click of the mouse in vim. After, when you open a file on vim, you are automatically in insert mode. Finally we have different shortcuts :
-- `Ctrl + x` for save and exit
-- `Crtl + q` for exit without save
-- `Ctrl + s` for save
-- `Ctrl + z` for undo
-- `Ctrl + y` for redo
-- `Ctrl + c` for copy
-- `Ctrl + v` for paste (need to be in selection mode)
-- `Ctrl + t` to hide or show the tree
-- You can type `{`, `(`, `[`, `"` or `'` to write `{}`, `()`, `[]`, `""` or `''`
-- `@for` to have the `for` syntax
-- `@jfor` and `@kfor` to have the `for` syntax with `j` and `k`
-- `@while` for having the `while` syntax
-- `@if` for the `if` syntax
-- `@elif` for the `else if` syntax
-- `@else` for the `else` syntax
 
-## The taskbar
+* `Ctrl + x` → Save and exit
+* `Ctrl + q` → Quit without saving
+* `Ctrl + s` → Save
+* `Ctrl + z` → Undo
+* `Ctrl + y` → Redo
+* `Ctrl + c` → Copy (in visual mode)
+* `Ctrl + v` → Paste (in visual mode)
+* `Ctrl + t` → Toggle file tree
+* Type `{ ( [ " '` → Auto-pair brackets/quotes
+* Snippets: `@for`, `@while`, `@if`, etc.
 
-The taskbar, is a new taskbar at the top of the screen with the used desktop, the clock, the used space in your `afs`, the RAM utilisation and the CPU utilisation.
+---
 
-## The new UI
+## 🛠️ Taskbar
 
-Now, the unused app is a little bit transparent, the corners are rounded, and you have a little animation when your desktop change.
+A new **top taskbar** displays:
 
-## The command prompt
-This new command prompt is reimagined and have new commands.
+* Current workspace
+* Clock
+* AFS storage usage
+* RAM usage
+* CPU usage
 
-### The visual
-For this shell, we were inspired by Kali Linux shell. You have :
-- your name
-- your emplacement in the pc
-- the git branch and the number of different files compared to the repository
+---
 
-### The new commands
-- `gtg` to do a basic `.gitignore`
-- `ath` to do the `AUTHORS` file
-- `rdm` to do a basic `README`
-- `mkarchi` to do `gtg`, `ath` and `rdm` in one command
-- `lunar` to play minecraft
-- `osu` to play OSU
-- `nix-clear` to delete removed libraries
-- `bluetooth` to start a Bluetooth manager
-We also add a password when a people tried to do something in your `.confs` directory.
+## 🎨 User Interface
+
+* Inactive windows are slightly transparent
+* Rounded corners
+* Smooth desktop switching animations
+
+---
+
+## 🐚 Command Prompt
+
+Our shell prompt is inspired by Kali Linux and shows:
+
+* Username
+* Current directory
+* Git branch & changes
+
+### Extra commands
+
+* `gtg` → Create `.gitignore`
+* `ath` → Create `AUTHORS` file
+* `rdm` → Create basic `README`
+* `mkarchi` → Run all the above at once
+* `lunar` → Play Minecraft
+* `osu` → Play OSU
+* `nix-clear` → Remove orphaned libraries
+* `bluetooth` → Start Bluetooth manager
+
+> Access to `.confs` is password protected for extra security.
+
+---
+
+## 📸 Screenshots
+
+LoremIpsum
+
+## ❓ FAQ
+
+**Q: LoremIpsum**
+A: LoremIpsum
+
+## 📜 License
+
+MIT License – free to use and modify.
