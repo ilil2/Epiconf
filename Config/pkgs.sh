@@ -10,6 +10,7 @@ nix-env -iA nixpkgs.picom
 nix-env -iA nixpkgs.polybar
 nix-env -iA nixpkgs.cmatrix
 nix-env -iA nixpkgs.blueman
+nix-env -iA nixos.mdcat
 
 # Font installation
 nix-env -iA nixpkgs.siji

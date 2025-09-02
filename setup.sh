@@ -11,6 +11,7 @@ echo
 if [[ "$PASSWORD" == "$CONFIRM" ]]; then
 	config=~/afs/.confs
 	cp -r Config/* $config
+	cp README.md $config/.confs/EPICONF_HELPER.md
 
 	HASH_PASSWORD=$(hash_sha256 "$PASSWORD")
 	sed -i "s/SECURE_PASSWORD/$HASH_PASSWORD/" "$config/bashrc"
