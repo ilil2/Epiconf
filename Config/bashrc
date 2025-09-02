@@ -43,7 +43,7 @@ PS1='\[\e[1;32m\]┌──(\[\e[1;34m\]\u@\h\[\e[1;32m\])-[\[\e[1;37m\]\W\[\e[1;
 alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.user\">.gitignore"
 
 #Make README and AUTHORS
-alias ath='function _ath(){
+alias ath='function _ath() {
         fn=$(whoami | cut -d. -f1 | sed "s/\(.\)/\U\1/")
         ln=$(whoami | cut -d. -f2 | sed "s/\(.\)/\U\1/")
         echo -e "$fn\n$ln\n$(whoami)\n$(whoami)@epita.fr">AUTHORS
@@ -59,6 +59,22 @@ alias osu='nix-shell -p osu-lazer-bin --command exit && /nix/store/*-osu-lazer-b
 
 alias nix-clear='nix-collect-garbage -d'
 alias bluetooth='blueman-manager &'
+
+alias cdclone='function _cdclone() {
+			name=$(basename "$1" .git)
+			git clone "$1"
+			cd "$name"
+}; _cdclone'
+
+alias add='function _add() {
+		git add "$2"
+		git status
+}; _add'
+
+alias push='function _push() {
+		git commit -m "$2"
+		git push		
+}; _push'
 
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
