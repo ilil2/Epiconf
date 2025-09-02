@@ -5,7 +5,7 @@ It customizes your development environment with a personalized setup for:
 
 - [i3](#%EF%B8%8F-i3-configuration)
 - [Vim](#%EF%B8%8F-vim-configuration)
-- [Taskbar](%EF%B8%8F-the-taskbar)
+- [Taskbar](#%EF%B8%8F-the-taskbar)
 - [User Interface](#-user-interface)
 - [Command Prompt](#-command-prompt)
 
