@@ -110,6 +110,9 @@ Our shell prompt is inspired by Kali Linux and shows:
 * `osu` → Play OSU
 * `nix-clear` → Remove orphaned libraries
 * `bluetooth` → Start Bluetooth manager
+* `cdclone` → Clone a git repository and go inside
+* `add` → Do git add and git status _(ex: add *)_
+* `push` → Do git commit -m and git push _(ex: push "Init")_
 
 > Access to `.confs` is password protected for extra security.
 
