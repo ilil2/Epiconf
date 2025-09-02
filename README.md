@@ -3,11 +3,11 @@
 **EpiConf** is a complete configuration pack designed for EPITA students.  
 It customizes your development environment with a personalized setup for:
 
-- [i3](#i3-configuration)
-- [Vim](#vim-configuration)
-- [Taskbar](#the-taskbar)
-- [User Interface](#the-new-ui)
-- [Command Prompt](#the-command-prompt)
+- [i3](#%EF%B8%8F-i3-configuration)
+- [Vim](#-vim-configuration)
+- [Taskbar](#-the-taskbar)
+- [User Interface](#-the-new-ui)
+- [Command Prompt](#-the-command-prompt)
 
 ---
 
