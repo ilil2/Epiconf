@@ -89,10 +89,17 @@ echo ' | $$$$$$$$| $$$$$$$/| $$|  $$$$$$/|  $$$$$$/| $$  | $$| $$      '
 echo ' |________/| $$____/ |__/ \______/  \______/ |__/  |__/|__/      '
 echo '           | $$                                                  '
 echo '           | $$                                                  '
-echo -e '           |__/                                                  \e[0m'
+echo '           |__/                                                  '
 echo ''
-echo 'by ilil2, Narth42, Darkrentin, Otto303'
+echo -e ' by ilil2, Narth42, Darkrentin, Otto303\e[0m'
 echo ''
+
+FLAG_FILE='~/tmp_flag'
+if [ ! -f "$FLAG_FILE" ]; then
+	echo -e '\033[31mWrite "epiconf" for config help\033[0m'
+	echo ''
+	touch "$FLAG_FILE"
+fi
 
 alias i3lock='function _i3lock() {
 			if [[ "$1" == "--debug" ]]; then
