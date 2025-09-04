@@ -3,23 +3,47 @@ hash_sha256() {
 	echo -n "$input" | sha256sum | cut -d' ' -f1
 }
 
-read -sp "Password         : " PASSWORD
-echo
-read -sp "Confirm Password : " CONFIRM
-echo
+config=~/afs/.confs
+password_file=$config/.user
 
-if [[ "$PASSWORD" == "$CONFIRM" ]]; then
-	config=~/afs/.confs
-	cp -r Config/* $config
-	cp README.md ~/afs/EPICONF_HELPER.md
-
+if [[ -f $password_file ]]; then
+	sleep 0.5
+	read -sp "Password : " PASSWORD
 	HASH_PASSWORD=$(hash_sha256 "$PASSWORD")
-	sed -i "s/SECURE_PASSWORD/$HASH_PASSWORD/" "$config/bashrc"
-
-	i3-msg reload
-	source $config/*
-	vim +PluginInstall +qall
-
+	SECURE_PASSWORD=$(cat ~/afs/.confs/.user)
+	if [[ "$HASH_PASSWORD" == "$SECURE_PASSWORD" ]]; then
+		echo 'Installing in progress'
+	else
+		echo 'fail wrong password'
+		exit 1
+	fi
 else
-	echo "Wrong Password"
+	echo 'Installing in progress'
 fi
+
+cp -r Config/* $config
+cp README.md ~/afs/EPICONF_HELPER.md
+
+read -p "Do you want a password for protect your config files? (y/[n])" WANTED
+
+if [[ "$WANTED" == "Y" || "$WANTED" == "y" ]]; then
+	read -sp "New Password         : " PASSWORD
+	echo
+	read -sp "Confirm New Password : " CONFIRM
+	echo
+
+	if [[ "$PASSWORD" == "$CONFIRM" ]]; then
+		HASH_PASSWORD=$(hash_sha256 "$PASSWORD")
+		touch $password_file
+		echo "$HASH_PASSWORD" > $password_file
+
+	else
+		echo "Wrong Confirm Password, no password will be add"
+	fi
+fi
+
+i3-msg reload
+source $config/*
+vim +PluginInstall +qall
+
+echo 'EpiConf is succefully install'

@@ -116,7 +116,8 @@ pwd_ask() {
 	sleep 0.5
 	read -sp "Password : " PASSWORD
 	HASH_PASSWORD=$(hash_sha256 "$PASSWORD")
-	if [[ "$HASH_PASSWORD" == "SECURE_PASSWORD" ]]; then
+	SECURE_PASSWORD=$(cat ~/afs/.confs/.user)
+	if [[ "$HASH_PASSWORD" == "$SECURE_PASSWORD" ]]; then
 		echo 0
 	else
 		echo 1
