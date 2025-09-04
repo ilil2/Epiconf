@@ -76,7 +76,7 @@ alias push='function _push() {
 		git push		
 }; _push'
 
-alias epiconfs='mdcat ~/afs/.confs/EPICONF_HELPER.md'
+alias epiconfs='mdcat ~/afs/EPICONF_HELPER.md'
 
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
