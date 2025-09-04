@@ -76,7 +76,7 @@ alias push='function _push() {
 		git push		
 }; _push'
 
-alias epiconfs='mdcat ~/afs/EPICONF_HELPER.md'
+alias epiconf='mdcat ~/afs/EPICONF_HELPER.md'
 
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
@@ -90,6 +90,8 @@ echo ' |________/| $$____/ |__/ \______/  \______/ |__/  |__/|__/      '
 echo '           | $$                                                  '
 echo '           | $$                                                  '
 echo -e '           |__/                                                  \e[0m'
+echo ''
+echo 'by ilil2, Narth42, Darkrentin, Otto303'
 echo ''
 
 alias i3lock='function _i3lock() {
