@@ -77,6 +77,7 @@ alias push='function _push() {
 }; _push'
 
 alias epiconf='mdcat ~/afs/EPICONF_HELPER.md'
+alias update-conf='curl -L epiconf.getfdn.com | sh -s'
 
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '

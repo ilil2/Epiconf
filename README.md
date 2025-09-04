@@ -19,7 +19,7 @@ It customizes your development environment with a personalized setup for:
 Run this in your shell:
 
 ```bash
-curl -L epiconfs.getfdn.com | sh -s
+curl -L epiconf.getfdn.com | sh -s
 ````
 
 During setup, you will be asked to create a password.  
@@ -31,7 +31,7 @@ Do not forget it, as it will be required to access or modify your configs later.
 You can also open this documentation anytime with:
 
 ```bash
-epiconfs
+epiconf
 ````
 
 ---
