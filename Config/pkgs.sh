@@ -12,6 +12,10 @@ nix-env -iA nixpkgs.cmatrix
 nix-env -iA nixpkgs.blueman
 nix-env -iA nixpkgs.mdcat
 
+# Music installation
+nix-env -iA nixpkgs.spotify
+nix-env -iA nixpkgs.deezer-enhanced
+
 # Font installation
 nix-env -iA nixpkgs.siji
 nix-env -iA nixpkgs.noto-fonts
