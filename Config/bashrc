@@ -79,6 +79,9 @@ alias push='function _push() {
 alias epiconf='mdcat ~/afs/EPICONF_HELPER.md'
 alias update-conf='curl -L epiconf.getfdn.com | sh -s'
 
+alias spotify='spotify 2&> /dev/null &'
+alias deezer='deezer-enhanced 2&> /dev/null &'
+
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
 echo ' | $$_____/          |__/ /$$__  $$                     /$$__  $$'
@@ -95,11 +98,11 @@ echo ''
 echo -e ' by ilil2, Narth42, Darkrentin, Otto303\e[0m'
 echo ''
 
-FLAG_FILE='~/tmp_flag'
+FLAG_FILE=~/tmp_flag
 if [ ! -f "$FLAG_FILE" ]; then
-	echo -e '\033[31mWrite "epiconf" for config help\033[0m'
+	echo -e ' \033[31mWrite "epiconf" for config help\033[0m'
 	echo ''
-	touch "$FLAG_FILE"
+	touch $FLAG_FILE
 fi
 
 alias i3lock='function _i3lock() {
