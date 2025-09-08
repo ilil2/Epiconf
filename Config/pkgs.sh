@@ -13,8 +13,10 @@ nix-env -iA nixpkgs.blueman
 nix-env -iA nixpkgs.mdcat
 
 # Music installation
-nix-env -iA nixpkgs.spotify
-nix-env -iA nixpkgs.deezer-enhanced
+if [ "$MUSIC_LOADER" == "1" ]; then
+    nix-env -iA nixpkgs.spotify
+    nix-env -iA nixpkgs.deezer-enhanced
+fi
 
 # Font installation
 nix-env -iA nixpkgs.siji
