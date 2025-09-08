@@ -23,6 +23,7 @@ fi
 
 cp -r Config/* $config
 cp README.md ~/afs/EPICONF_HELPER.md
+rm $password_file
 
 read -p "Do you want a password for protect your config files? (y/[n])" WANTED
 

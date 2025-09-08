@@ -79,8 +79,8 @@ alias push='function _push() {
 alias epiconf='mdcat ~/afs/EPICONF_HELPER.md'
 alias update-conf='curl -L epiconf.getfdn.com | sh -s'
 
-alias spotify='spotify 2&> /dev/null &'
-alias deezer='deezer-enhanced 2&> /dev/null &'
+alias spotify='spotify 2&> /dev/null & disown'
+alias deezer='deezer-enhanced 2&> /dev/null & disown'
 
 echo ''
 echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
