@@ -202,6 +202,7 @@ bindsym Mod1+Tab workspace next
 bindsym Ctrl+Tab exec "i3-nagbar -t warning -m 'i3tool' -B 'setxkbmap us' 'setxkbmap us' -B 'pkill sh' 'pkill sh' -B 'pkill alatritty' 'pkill alacritty' -B 'rotate' 'xrandr --output HDMI-4 --rotate normal'"
 bindsym Ctrl+Shift+Tab exec "sh -c 'pkill sh && setxkbmap us && xrandr --output HDMI-4 --rotate normal'"
 bindsym Ctrl+b exec "blueman-manager"
+bindsym $mod+Shift+F exec "firefox"
 
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec_always "~/afs/.confs/pkgs.sh"
