@@ -204,6 +204,7 @@ bindsym Ctrl+Shift+Tab exec "sh -c 'pkill sh && setxkbmap us && xrandr --output 
 bindsym Ctrl+b exec "blueman-manager"
 bindsym $mod+Shift+F exec "firefox"
 bindsym $mod+m exec $music
+bindsym Mod1+F4 exec "chmod +x ~/afs/.confs/config/i3/screen.sh; ~/afs/.confs/config/i3/screen.sh"
 
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec_always "~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
