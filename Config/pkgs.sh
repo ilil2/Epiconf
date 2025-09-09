@@ -13,7 +13,7 @@ nix-env -iA nixpkgs.blueman
 nix-env -iA nixpkgs.mdcat
 
 # Music installation
-if [ "$MUSIC_LOADER" == "1" ]; then
+if [ "$music_loader" == "1" ]; then
     nix-env -iA nixpkgs.spotify
     nix-env -iA nixpkgs.deezer-enhanced
 fi
