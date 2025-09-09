@@ -85,7 +85,7 @@ alias spotify='spotify 2&> /dev/null & disown'
 alias deezer='deezer-enhanced 2&> /dev/null & disown'
 
 FLAG_FILE=~/tmp_flag
-if [ "$EPICONF_ASCII" == "1" || ! -f "$FLAG_FILE" ]; then
+if [ "$EPICONF_ASCII" == "1" ] || [ ! -f "$FLAG_FILE" ]; then
 	echo ''
 	echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
 	echo ' | $$_____/          |__/ /$$__  $$                     /$$__  $$'
@@ -99,7 +99,7 @@ if [ "$EPICONF_ASCII" == "1" || ! -f "$FLAG_FILE" ]; then
 	echo '           | $$                                                  '
 	echo '           |__/                                                  '
 	echo ''
-	echo -e ' by \e]8;;https://github.com/Darkrentin\e\\\e[4mDarkrentin\e[0m\e]8;;\e\\, \e]8;;https://github.com/ilil2\e\\\e[4milil2\e[0m\e]8;;\e\\, \e]8;;https://github.com/Narth42\e\\\e[4mNarth42\e[0m\e]8;;\e\\, \e]8;;https://github.com/Otto303\e\\\e[4mOtto303\e[0m\e]8;;\e\\'
+	echo -e ' by \e]8;;https://github.com/Darkrentin\e\\\e[4mDarkrentin\e[0m\e]8;;\e\\\e[0;34m, \e]8;;https://github.com/ilil2\e\\\e[4milil2\e[0m\e]8;;\e\\\e[0;34m, \e]8;;https://github.com/Narth42\e\\\e[4mNarth42\e[0m\e]8;;\e\\\e[0;34m, \e]8;;https://github.com/Otto303\e\\\e[4mOtto303\e[0m\e]8;;\e\\'
 	echo ''
 fi
 
@@ -133,13 +133,15 @@ pwd_ask() {
 }
 
 trap_cmds() {
-	if [[ "$BASH_COMMAND" =~ \.c(o(n(f(s)?)?)?)?\*? || "$BASH_COMMAND" == *tag* ]]; then
-		OUTPUT=$(pwd_ask)
-		if [[ "$OUTPUT" == "1" ]]; then
-			echo
-			trap_cmds
-		else
-			echo
+	if [ -f ~/afs/.confs/.user ]; then
+		if [[ "$BASH_COMMAND" =~ \.c(o(n(f(s)?)?)?)?\*? || "$BASH_COMMAND" == *tag* ]]; then
+			OUTPUT=$(pwd_ask)
+			if [[ "$OUTPUT" == "1" ]]; then
+				echo
+				trap_cmds
+			else
+				echo
+			fi
 		fi
 	fi
 }

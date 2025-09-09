@@ -205,8 +205,10 @@ bindsym Ctrl+b exec "blueman-manager"
 bindsym $mod+Shift+F exec "firefox"
 bindsym $mod+m exec $music
 bindsym Mod1+F4 exec "chmod +x ~/afs/.confs/config/i3/screen.sh; ~/afs/.confs/config/i3/screen.sh"
+bindsym Ctrl+Mod1+r exec "chmod +x ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/epiconf/start.sh"
 
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec_always "~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
 exec_always "while true; do feh --randomize --bg-fill ~/afs/.confs/config/wallpapers; sleep 300; done;"
 exec_always "while (true); do if [ '$(nix-shell -p xprintidle --command xprintidle)' -ge $inactivity_time ]; then chmod +x ~/afs/.confs/config/i3/i3lock.sh; ~/afs/.confs/config/i3/i3lock.sh; fi; done;"
+exec_always "chmod +x ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/epiconf/start.sh"
