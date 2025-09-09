@@ -10,7 +10,7 @@ if [[ -f $password_file ]]; then
 	sleep 0.5
 	read -sp "Password : " PASSWORD
 	HASH_PASSWORD=$(hash_sha256 "$PASSWORD")
-	SECURE_PASSWORD=$(cat ~/afs/.confs/.user)
+	SECURE_PASSWORD=$(cat $config/.user)
 	if [[ "$HASH_PASSWORD" == "$SECURE_PASSWORD" ]]; then
 		echo 'Installing in progress'
 	else
@@ -22,7 +22,7 @@ else
 fi
 
 cp -r Config/* $config
-cp README.md ~/afs/EPICONF_HELPER.md
+cp README.md $config/../EPICONF_HELPER.md
 rm $password_file
 
 read -p "Do you want a password for protect your config files? (y/[n])" WANTED
