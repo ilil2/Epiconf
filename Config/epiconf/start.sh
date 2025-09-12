@@ -1,18 +1,16 @@
 #!/bin/sh
 
-file=~/afs/.confs/epiconf/config
-i3conf=~/afs/.confs/epiconf/i3_vars.conf
+file=~/afs/.confs/epiconf/config.ini
 
-: > "$i3conf"
-
-while IFS= read -r line; do
-    [ -z "$line" ] && continue
-    var_name=$(cut -d'=' -f1 <<< "$line" | tr '[:upper:]' '[:lower:]')
-    var_value=$(cut -d'=' -f2- <<< "$line")
-
-    export "$var_name=$var_value"
-
-    echo "set \$$var_name $var_value" >> "$i3conf"
-done < "$file"
+section=""
+while IFS='= ' read -r key value; do
+    if [[ $key =~ ^\[(.*)\]$ ]]; then
+        section="${BASH_REMATCH[1]}"
+    elif [[ -n $key && $key != \#* && $key != \;* ]]; then
+        var=$key  #"${section}_${key}"
+        declare "$var=$value"
+        export "$var"
+    fi
+done < $file
 
 i3-msg reload

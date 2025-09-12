@@ -56,7 +56,7 @@ alias mkarchi="rdm && ath && gtg"
 
 alias start-serv='ip=$(ifconfig | grep "inet" | grep 255.255.255.0 | cut -d "t" -f2 | cut -d "n" -f1); echo "$ip"'
 
-if [ "$games" == "1" ]; then
+if [ "$GAMES" == "enable" ]; then
 	alias lunar='nix-shell -p lunar-client --command lunar-client'
 	alias osu='nix-shell -p osu-lazer-bin --command exit && /nix/store/*-osu-lazer-bin-*/bin/osu!'
 fi
@@ -87,7 +87,7 @@ alias spotify='spotify 2&> /dev/null & disown'
 alias deezer='deezer-enhanced 2&> /dev/null & disown'
 
 FLAG_FILE=~/tmp_flag
-if [ "$epiconf_ascii" == "1" ] || [ ! -f "$FLAG_FILE" ]; then
+if [ "$EPICONF_ASCII" == "enable" ] || [ ! -f "$FLAG_FILE" ]; then
 	echo ''
 	echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
 	echo ' | $$_____/          |__/ /$$__  $$                     /$$__  $$'
