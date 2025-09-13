@@ -2,9 +2,9 @@
 
 file=~/afs/.confs/epiconf/config.ini
 
-template=~/.confs/config/i3/config.template
-preconfig=~/.confs/config/i3/preconfig
-config=~/.confs/config/i3/config
+template=~/afs/.confs/config/i3/config.template
+preconfig=~/afs/.confs/config/i3/preconfig
+config=~/afs/.confs/config/i3/config
 
 section=""
 while IFS= read -r line || [ -n "$line" ]; do
