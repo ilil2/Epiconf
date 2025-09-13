@@ -2,6 +2,10 @@
 
 file=~/afs/.confs/epiconf/config.ini
 
+template=~/.confs/config/i3/config.template
+preconfig=~/.confs/config/i3/preconfig
+config=~/.confs/config/i3/config
+
 section=""
 while IFS= read -r line || [ -n "$line" ]; do
     # Trim espaces début/fin
@@ -43,9 +47,12 @@ while IFS= read -r line || [ -n "$line" ]; do
         # var="${section}_${key}"
         var="$key"
 
+        sed "s|__$key__|$value|g" "$template" > "$preconfig"
         declare "$var=$value"
         export "$var"
     fi
 done < "$file"
+
+cp "$preconfig" "$config"
 
 i3-msg reload
