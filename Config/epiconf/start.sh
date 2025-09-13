@@ -49,12 +49,13 @@ while IFS= read -r line || [ -n "$line" ]; do
         # var="${section}_${key}"
         var="$key"
 
-        sed "s|__$key\__|$value|g" "$preconfig" > "$preconfig"
+        sed "s|__$key__|$value|g" "$preconfig" > "$preconfig.tmp"
+        mv "$preconfig.tmp" "$preconfig"
         declare "$var=$value"
         export "$var"
     fi
 done < "$file"
 
-cp "$preconfig" "$config"
+mv "$preconfig" "$config"
 
 i3-msg reload
