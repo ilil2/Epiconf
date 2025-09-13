@@ -9,7 +9,7 @@ while IFS= read -r line || [ -n "$line" ]; do
     line="${line%"${line##*[![:space:]]}"}"   # supprime espaces fin
 
     # Ignore lignes vides ou commentaires
-    [[ -z "$line" || "$line" =~ ^[;\#] ]] && continue
+    [[ -z "$line" || "$line" =~ ^[;#] ]] && continue
 
     # Section [XXX]
     if [[ $line =~ ^\[(.*)\]$ ]]; then
