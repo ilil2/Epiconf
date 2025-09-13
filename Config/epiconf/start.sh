@@ -31,6 +31,14 @@ while IFS= read -r line || [ -n "$line" ]; do
         value="${value#"${value%%[![:space:]]*}"}"
         value="${value%"${value##*[![:space:]]}"}"
 
+        # Supprimer commentaires inline (tout après ; ou #)
+        value="${value%%;*}"
+        value="${value%%#*}"
+
+        # Trim encore les espaces autour
+        value="${value#"${value%%[![:space:]]*}"}"
+        value="${value%"${value##*[![:space:]]}"}"
+
         # Si tu veux inclure le nom de la section dans la variable :
         # var="${section}_${key}"
         var="$key"
