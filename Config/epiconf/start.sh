@@ -47,7 +47,7 @@ while IFS= read -r line || [ -n "$line" ]; do
         # var="${section}_${key}"
         var="$key"
 
-        sed "s|__$key__|$value|g" "$template" > "$preconfig"
+        sed "s|__$key\__|$value|g" "$template" > "$preconfig"
         declare "$var=$value"
         export "$var"
     fi
