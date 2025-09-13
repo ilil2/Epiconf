@@ -6,6 +6,8 @@ template=~/afs/.confs/config/i3/config.template
 preconfig=~/afs/.confs/config/i3/preconfig
 config=~/afs/.confs/config/i3/config
 
+cp "$template" "$preconfig"
+
 section=""
 while IFS= read -r line || [ -n "$line" ]; do
     # Trim espaces début/fin
@@ -47,7 +49,7 @@ while IFS= read -r line || [ -n "$line" ]; do
         # var="${section}_${key}"
         var="$key"
 
-        sed "s|__$key\__|$value|g" "$template" > "$preconfig"
+        sed "s|__$key\__|$value|g" "$preconfig" > "$preconfig"
         declare "$var=$value"
         export "$var"
     fi
