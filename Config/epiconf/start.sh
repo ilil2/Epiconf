@@ -94,5 +94,5 @@ if [[ $modif == "yes" ]]; then
 
     i3-msg reload
     pkill polybar
-    polybar --config=~/afs/.confs/config/polybar/config.ini 2> /dev/null & disown
+    nohup polybar --config=~/afs/.confs/config/polybar/config.ini >/dev/null 2>&1 &
 fi
