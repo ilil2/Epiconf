@@ -74,6 +74,9 @@ while IFS= read -r line || [ -n "$line" ]; do
     fi
 done < "$file"
 
+declare "polybar_left=$polybar_left"
+declare "polybar_center=$polybar_center"
+declare "polybar_right=$polybar_right"
 export $polybar_left
 export $polybar_center
 export $polybar_right
