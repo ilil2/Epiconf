@@ -54,13 +54,13 @@ while IFS= read -r line || [ -n "$line" ]; do
         # var="${section}_${key}"
         var="$key"
 
-        if [[ "$section" == "Polybar_left" && "$key" == "enable" ]]; then
+        if [[ "$section" == "Polybar_left" && "$value" == "enable" ]]; then
             polybar_left="$polybar_left $var"
         fi
-        if [[ "$section" == "Polybar_center" && "$key" == "enable" ]]; then
+        if [[ "$section" == "Polybar_center" && "$value" == "enable" ]]; then
             polybar_center="$polybar_center $var"
         fi
-        if [[ "$section" == "Polybar_right" && "$key" == "enable" ]]; then
+        if [[ "$section" == "Polybar_right" && "$value" == "enable" ]]; then
             polybar_right="$polybar_right $var"
         fi
 
