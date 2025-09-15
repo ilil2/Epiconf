@@ -9,6 +9,10 @@ config=~/afs/.confs/config/i3/config
 cp "$template" "$preconfig"
 
 section=""
+polybar_left=""
+polybar_center=""
+polybar_right=""
+
 while IFS= read -r line || [ -n "$line" ]; do
     # Trim espaces début/fin
     line="${line#"${line%%[![:space:]]*}"}"   # supprime espaces début
@@ -49,6 +53,16 @@ while IFS= read -r line || [ -n "$line" ]; do
         # var="${section}_${key}"
         var="$key"
 
+        if [[ "$section" == "Polybar_left" && "$key" == "enable" ]]; then
+            $polybar_left="$polybar_left $var"
+        fi
+        if [[ "$section" == "Polybar_center" && "$key" == "enable" ]]; then
+            $polybar_center="$polybar_center $var"
+        fi
+        if [[ "$section" == "Polybar_right" && "$key" == "enable" ]]; then
+            $polybar_right="$polybar_right $var"
+        fi
+
         sed "s|__$key\__|$value|g" "$preconfig" > "$preconfig.tmp"
         mv "$preconfig.tmp" "$preconfig"
         declare "$var=$value"
@@ -56,6 +70,11 @@ while IFS= read -r line || [ -n "$line" ]; do
     fi
 done < "$file"
 
+export $polybar_left
+export $polybar_center
+export $polybar_right
+
 mv "$preconfig" "$config"
 
 i3-msg reload
+polybar-msg cmd restart
