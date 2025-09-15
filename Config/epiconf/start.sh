@@ -55,13 +55,13 @@ while IFS= read -r line || [ -n "$line" ]; do
         var="$key"
 
         if [[ "$section" == "Polybar_left" && "$key" == "enable" ]]; then
-            $polybar_left="$polybar_left $var"
+            polybar_left="$polybar_left $var"
         fi
         if [[ "$section" == "Polybar_center" && "$key" == "enable" ]]; then
-            $polybar_center="$polybar_center $var"
+            polybar_center="$polybar_center $var"
         fi
         if [[ "$section" == "Polybar_right" && "$key" == "enable" ]]; then
-            $polybar_right="$polybar_right $var"
+            polybar_right="$polybar_right $var"
         fi
 
         if [[ $(diff "$epiconf/config.ini" "$epiconf/.config") != "" || ! -f "$FLAG_FILE" ]]; then
