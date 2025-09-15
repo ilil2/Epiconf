@@ -1,6 +1,9 @@
 #!/bin/bash
 
 file=~/afs/.confs/epiconf/config.ini
+file2=~/afs/.confs/epiconf/.config
+
+cp "$file" "$file2"
 
 template=~/afs/.confs/config/i3/config.template
 preconfig=~/afs/.confs/config/i3/preconfig

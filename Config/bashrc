@@ -11,7 +11,12 @@ if [ -d ~/.local/bin ] ; then
 	export PATH=~/.local/bin:$PATH
 fi
 
-source ~/afs/.confs/epiconf/start.sh > /dev/null
+epiconf=~/afs/.confs/epiconf
+FLAG_FILE=~/tmp_flag
+
+if [[ $(diff "$epiconf/config.ini" "$epiconf/.config") != "" || ! -f "$FLAG_FILE" ]]; then
+	source $epiconf/start.sh > /dev/null
+fi
 
 export LANG=en_US.utf8
 export NNTPSERVER="news.epita.fr"
@@ -86,7 +91,6 @@ alias update-conf='curl -L epiconf.getfdn.com | sh -s'
 alias spotify='spotify 2&> /dev/null & disown'
 alias deezer='deezer-enhanced 2&> /dev/null & disown'
 
-FLAG_FILE=~/tmp_flag
 if [ "$EPICONF_ASCII" == "enable" ] || [ ! -f "$FLAG_FILE" ]; then
 	echo ''
 	echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
