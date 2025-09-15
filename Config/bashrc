@@ -14,9 +14,8 @@ fi
 epiconf=~/afs/.confs/epiconf
 FLAG_FILE=~/tmp_flag
 
-if [[ $(diff "$epiconf/config.ini" "$epiconf/.config") != "" || ! -f "$FLAG_FILE" ]]; then
-	source $epiconf/start.sh > /dev/null
-fi
+source $epiconf/start.sh > /dev/null
+
 
 export LANG=en_US.utf8
 export NNTPSERVER="news.epita.fr"
