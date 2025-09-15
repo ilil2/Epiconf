@@ -3,6 +3,14 @@
 file=~/afs/.confs/epiconf/config.ini
 file2=~/afs/.confs/epiconf/.config
 
+modif="no"
+
+if [[ $(diff "$epiconf/config.ini" "$epiconf/.config") != "" || ! -f "$FLAG_FILE" ]]; then
+    modif="yes"
+fi
+
+cp "$file" "$file2"
+
 template=~/afs/.confs/config/i3/config.template
 preconfig=~/afs/.confs/config/i3/preconfig
 config=~/afs/.confs/config/i3/config
@@ -64,7 +72,7 @@ while IFS= read -r line || [ -n "$line" ]; do
             polybar_right="$polybar_right $var"
         fi
 
-        if [[ $(diff "$epiconf/config.ini" "$epiconf/.config") != "" || ! -f "$FLAG_FILE" ]]; then
+        if [[ $modif == "yes" ]]; then
             sed "s|__$key\__|$value|g" "$preconfig" > "$preconfig.tmp"
             mv "$preconfig.tmp" "$preconfig"
         fi
@@ -81,11 +89,10 @@ export polybar_left
 export polybar_center
 export polybar_right
 
-if [[ $(diff "$epiconf/config.ini" "$epiconf/.config") != "" || ! -f "$FLAG_FILE" ]]; then
+if [[ $modif == "yes" ]]; then
     mv "$preconfig" "$config"
 
     i3-msg reload
-    polybar-msg cmd restart
+    pkill polybar
+    polybar --config=$config/polybar/config.ini --reload --enable-ipc &
 fi
-
-cp "$file" "$file2"
