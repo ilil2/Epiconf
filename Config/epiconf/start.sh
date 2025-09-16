@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 file=~/afs/.confs/epiconf/config.ini
 file2=~/afs/.confs/epiconf/.config
 
 modif="no"
 
-if [[ $(diff "$epiconf/config.ini" "$epiconf/.config") != "" || ! -f "$FLAG_FILE" ]]; then
+if [[ $(diff "$file1" "$file2") != "" || ! -f "$FLAG_FILE" ]]; then
     modif="yes"
 fi
 
