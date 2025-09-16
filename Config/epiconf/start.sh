@@ -15,7 +15,9 @@ template=~/afs/.confs/config/i3/config.template
 preconfig=~/afs/.confs/config/i3/preconfig
 config=~/afs/.confs/config/i3/config
 
-cp "$template" "$preconfig"
+if [[ "$modif" == "yes" ]]; then
+    cp "$template" "$preconfig"
+fi
 
 section=""
 polybar_left=""
@@ -72,7 +74,7 @@ while IFS= read -r line || [ -n "$line" ]; do
             polybar_right="$polybar_right $var"
         fi
 
-        if [[ $modif == "yes" ]]; then
+        if [[ "$modif" == "yes" ]]; then
             sed "s|__$key\__|$value|g" "$preconfig" > "$preconfig.tmp"
             mv "$preconfig.tmp" "$preconfig"
         fi
@@ -89,7 +91,7 @@ export polybar_left
 export polybar_center
 export polybar_right
 
-if [[ $modif == "yes" ]]; then
+if [[ "$modif" == "yes" ]]; then
     mv "$preconfig" "$config"
 
     i3-msg reload
