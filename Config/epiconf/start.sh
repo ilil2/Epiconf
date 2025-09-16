@@ -5,7 +5,7 @@ file2=~/afs/.confs/epiconf/.config
 
 modif="no"
 
-if [[ $(diff "$file1" "$file2") != "" || ! -f "$FLAG_FILE" ]]; then
+if [[ $(diff "$file" "$file2") != "" || ! -f "$FLAG_FILE" ]]; then
     modif="yes"
 fi
 
