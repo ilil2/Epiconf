@@ -207,6 +207,6 @@ bindsym $mod+m exec __MUSIC__
 bindsym Mod1+F4 exec "chmod +x ~/afs/.confs/config/i3/screen.sh; ~/afs/.confs/config/i3/screen.sh"
 bindsym Ctrl+Mod1+r exec "source ~/afs/.confs/epiconf/start.sh"
 
-exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
-exec_always "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
-exec_always "sh -c 'chmod +x ~/afs/.confs/config/i3/start_service.sh; ~/afs/.confs/config/i3/start_service.sh'"
+exec_ "i3-sensible-terminal & firefox intra.forge.epita.fr"
+exec "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
+exec_always ~/afs/.confs/config/i3/start_service.sh

@@ -25,6 +25,8 @@ cp -r Config/* $config
 cp README.md $config/../EPICONF_HELPER.md
 rm $password_file
 
+find $config -type f -name "*.sh" -exec chmod +x {} \;
+
 read -p "Do you want a password for protect your config files? (y/[n])" WANTED
 
 if [[ "$WANTED" == "Y" || "$WANTED" == "y" ]]; then
