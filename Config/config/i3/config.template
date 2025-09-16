@@ -209,4 +209,4 @@ bindsym Ctrl+Mod1+r exec "source ~/afs/.confs/epiconf/start.sh"
 
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec_always "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
-exec_always --no-startup-id /home/epiconf/.config/i3/start_i3_services.sh
+exec_always --no-startup-id ~/afs/.confs/config/i3/start_service.sh
