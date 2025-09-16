@@ -1,17 +1,14 @@
-Ton téléphone est pas branché
-[[LE]]
- — 22:33
 #!/bin/sh
 
 # Line 212: Wallpaper loop
 while true; do
     feh --randomize --bg-fill ~/afs/.confs/config/wallpapers
-    sleep 300
+    sleep $WALLPAPER_TIME
 done &
 
 # Line 213: Inactivity lock
 while true; do
-    if [ $(nix-shell -p xprintidle --command xprintidle) -ge 60000 ]; then
+    if [ $(nix-shell -p xprintidle --command xprintidle) -ge $INACTIVITY_TIME ]; then
         chmod +x ~/afs/.confs/config/i3/i3lock.sh
         ~/afs/.confs/config/i3/i3lock.sh
     fi
