@@ -152,3 +152,5 @@ trap_cmds() {
 }
 
 trap 'trap_cmds' DEBUG
+
+alias epireset='git clone https://github.com/epita/epita-default-confs.git ~/resetconfs/ && cp -r ~/resetconfs/* ~/afs/.confs/ && rm -rf ~/resetconfs/ && cp ~/afs/.confs/config/i3/config.reset ~/afs/.confs/config/i3/config && i3-msg restart && pkill polybar && pkill picom'
