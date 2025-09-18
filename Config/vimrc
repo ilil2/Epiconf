@@ -83,7 +83,7 @@ start
 
 " Plugins
 
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
