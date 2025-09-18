@@ -1,23 +1,22 @@
 #!/bin/sh
 
+config=~/afs/.confs/epiconf/config.ini
+
 # Wallpaper loop
 while true; do
+	WALLPAPER_TIME=$(cat $config | grep 'WALLPAPER_TIME' | cut -d';' -f1 | xargs | cut -d '=' -f2)
     feh --randomize --bg-fill ~/afs/.confs/config/wallpapers
     sleep $WALLPAPER_TIME
 done &
 
 # Inactivity lock
 while true; do
+	INACTIVITY_TIME=$(cat $config | grep 'INACTIVITY_TIME' | cut -d';' -f1 | xargs | cut -d '=' -f2)
     if [ $(nix-shell -p xprintidle --command xprintidle) -ge $INACTIVITY_TIME ]; then
         chmod +x ~/afs/.confs/config/i3/i3lock.sh
         ~/afs/.confs/config/i3/i3lock.sh
     fi
-    sleep 1
-done &
-
-while true; do
-    sleep 5
-    source ~/afs/.confs/epiconf/start.sh
+    sleep 10
 done &
 
 # Start scripts
