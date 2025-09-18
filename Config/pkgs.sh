@@ -11,6 +11,7 @@ nix-env -iA nixpkgs.polybar
 nix-env -iA nixpkgs.cmatrix
 nix-env -iA nixpkgs.blueman
 nix-env -iA nixpkgs.mdcat
+nix-env -iA nixpkgs.xprintidle
 
 # Music installation
 if [ "$MUSIC_LOADER" == "enable" ]; then

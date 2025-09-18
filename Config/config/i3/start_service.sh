@@ -12,7 +12,7 @@ done &
 # Inactivity lock
 while true; do
 	INACTIVITY_TIME=$(cat $config | grep 'INACTIVITY_TIME' | cut -d';' -f1 | xargs | cut -d '=' -f2)
-	if [ $(nix-shell -p xprintidle --command xprintidle) -ge $(( $INACTIVITY_TIME*1000 )) ]; then
+	if [ $(xprintidle) -ge $(( $INACTIVITY_TIME*1000 )) ]; then
         chmod +x ~/afs/.confs/config/i3/i3lock.sh
         ~/afs/.confs/config/i3/i3lock.sh
     fi
