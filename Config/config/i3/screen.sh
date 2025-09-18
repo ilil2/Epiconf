@@ -1,6 +1,7 @@
 #!/bin/sh
 
-mkdir -p ~/afs/screenshots
+DIR=~/afs/screenshots
+mkdir -p $DIR
 
 BASE="image"
 EXT=".png"
