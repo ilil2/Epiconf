@@ -34,7 +34,25 @@ You can also open this documentation anytime with:
 epiconf
 ````
 
+You can update the config with:
+
+```bash
+update-conf
+````
+
+And if you want to delete Epiconf and get back to the [default config of epita](https://github.com/epita/epita-default-confs):
+
+```bash
+reset-conf
+````
+
+> reset the config also remove Epiconf settings, wallpapers and startup script.
+
 ---
+
+## Epiconf Settings
+
+you can change the main settings of the config in ````.confs/epiconf/config.ini````
 
 ## 🖥️ i3 Configuration
 
@@ -44,8 +62,10 @@ Our custom i3 setup includes **autostart programs** and **useful keybindings**.
 
 * Opens a terminal and Firefox on login
 * Changes wallpaper every 5 minutes
+* automatically start the scripts located in ````.confs/epiconf/start_script/````
 
-> 🖼️ You can change the wallapaper in ```.confs/config/wallpapers/```
+> 🖼️ You can change the wallapaper in ````.confs/config/wallpapers/````
+> ⚙️ All startup scripts must be Bash files with execution permissions already set.
 
 ### Shortcuts
 
@@ -106,6 +126,10 @@ A new **top taskbar** displays:
 * Rounded corners
 * Smooth desktop switching animations
 
+![User Interface Example 1](screenshots/epiconf_desktop_1.png)
+
+![User Interface Example 2](screenshots/epiconf_desktop_2.png)
+
 ---
 
 ## 🐚 Command Prompt
@@ -116,10 +140,7 @@ Our shell prompt is inspired by Kali Linux and shows:
 * Current directory
 * Git branch & changes
 
-<pre>
-<span style="color:limegreen;">┌──(</span><span style="color:deepskyblue;">exampl@name</span><span style="color:limegreen;">)-[</span><span style="color:white;">projet main</span><span style="color:limegreen;">]</span>
-<span style="color:limegreen;">└─</span>$ 
-</pre>
+![shell prompt image](screenshots/epiconf_terminal.png)
 
 ### Extra commands
 
@@ -138,16 +159,7 @@ Our shell prompt is inspired by Kali Linux and shows:
 > Access to `.confs` is password protected for extra security.
 
 ---
-<!-- 
-## 📸 Screenshots
 
-LoremIpsum
-
-## ❓ FAQ
-
-**Q: LoremIpsum**
-A: LoremIpsum
--->
 ## 📜 License
 
 MIT License – free to use and modify.
