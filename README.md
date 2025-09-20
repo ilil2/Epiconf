@@ -28,19 +28,19 @@ Do not forget it, as it will be required to access or modify your configs later.
 
 > 🔐 Security note: **Never forget to i3lock!**
 
-You can also open this documentation anytime with:
+You can also open this documentation anytime with :
 
 ```bash
 epiconf
 ````
 
-You can update the config with:
+You can update the config with :
 
 ```bash
 update-conf
 ````
 
-And if you want to delete Epiconf and get back to the [default config of epita](https://github.com/epita/epita-default-confs):
+And if you want to delete Epiconf and get back to the [default config of epita](https://github.com/epita/epita-default-confs) :
 
 ```bash
 reset-conf
@@ -64,7 +64,7 @@ Our custom i3 setup includes **autostart programs** and **useful keybindings**.
 * Changes wallpaper every 5 minutes
 * automatically start the scripts located in ````.confs/epiconf/start_script/````
 
-> 🖼️ You can change the wallapaper in ````.confs/config/wallpapers/````
+> 🖼️ You can change the wallapaper in ````.confs/config/wallpapers/````.
 > ⚙️ All startup scripts must be Bash files with execution permissions already set.
 
 ### Shortcuts
@@ -126,10 +126,6 @@ A new **top taskbar** displays:
 * Rounded corners
 * Smooth desktop switching animations
 
-![User Interface Example 1](screenshots/epiconf_desktop_1.png)
-
-![User Interface Example 2](screenshots/epiconf_desktop_2.png)
-
 ---
 
 ## 🐚 Command Prompt
@@ -139,8 +135,6 @@ Our shell prompt is inspired by Kali Linux and shows:
 * Username
 * Current directory
 * Git branch & changes
-
-![shell prompt image](screenshots/epiconf_terminal.png)
 
 ### Extra commands
 
@@ -159,6 +153,10 @@ Our shell prompt is inspired by Kali Linux and shows:
 > Access to `.confs` is password protected for extra security.
 
 ---
+
+## 📷 Screenshots
+
+![User Interface Example 2](screenshots/epiconf_desktop_2.png)
 
 ## 📜 License
 
