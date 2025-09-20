@@ -65,6 +65,7 @@ Our custom i3 setup includes **autostart programs** and **useful keybindings**.
 * automatically start the scripts located in ````.confs/epiconf/start_script/````
 
 > 🖼️ You can change the wallapaper in ````.confs/config/wallpapers/````.
+
 > ⚙️ All startup scripts must be Bash files with execution permissions already set.
 
 ### Shortcuts
