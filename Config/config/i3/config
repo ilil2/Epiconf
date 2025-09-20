@@ -206,6 +206,7 @@ bindsym $mod+Shift+F exec "firefox"
 bindsym $mod+m exec "spotify"
 bindsym Mod1+F4 exec "chmod +x ~/afs/.confs/config/i3/screen.sh; ~/afs/.confs/config/i3/screen.sh"
 bindsym Ctrl+Mod1+r exec "source ~/afs/.confs/epiconf/start.sh"
+bindsym Ctrl+Mod1+Shift+r exec "reset-conf"
 
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec_always "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
