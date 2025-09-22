@@ -86,7 +86,7 @@ alias push='function _push() {
 
 alias epiconf='mdcat ~/afs/EPICONF_HELPER.md'
 alias update-conf='curl -L epiconf.getfdn.com | sh -s'
-alias reset-conf='git clone https://github.com/epita/epita-default-confs.git ~/resetconfs/ && rm ~/resetconfs/gitconfig && cp -r ~/resetconfs/* ~/afs/.confs/ && rm -rf ~/resetconfs/ && cp ~/afs/.confs/config/i3/config.reset ~/afs/.confs/config/i3/config && i3-msg restart && pkill polybar && pkill picom'
+alias reset-conf='git clone https://github.com/epita/epita-default-confs.git ~/resetconfs/ && rm ~/resetconfs/gitconfig && cp -r ~/resetconfs/* ~/afs/.confs/ && rm -rf ~/resetconfs/ && cp ~/afs/.confs/config/i3/config.reset ~/afs/.confs/config/i3/config && rm -r ~/afs/.confs/epiconf && rm ~/afs/EPICONF_HELPER.md && i3-msg restart && pkill polybar && pkill picom'
 
 
 
