@@ -1,4 +1,6 @@
 git clone https://github.com/ilil2/My-Epita-Confs.git ~/epiconf
-chmod +x ~/epiconf/setup.sh
-~/epiconf/setup.sh
+cd ~/epiconf
+chmod +x setup.sh
+./setup.sh
+cd
 rm -rf ~/epiconf
