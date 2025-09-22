@@ -3,4 +3,6 @@ cd ~/epiconf
 chmod +x setup.sh
 ./setup.sh
 cd
+echo "rm"
 rm -rf ~/epiconf
+echo "rm"
