@@ -1,5 +1,4 @@
-git clone https://github.com/ilil2/My-Epita-Confs.git
-cd My-Epita-Confs
-./setup.py
-cd ..
-rm -rf My-Epita-Confs
+git clone https://github.com/ilil2/My-Epita-Confs.git ~/epiconf
+chmod +x ~/epiconf/setup.sh
+~/epiconf/setup.sh
+rm -rf ~/epiconf
