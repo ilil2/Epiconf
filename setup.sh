@@ -41,7 +41,7 @@ if [[ "$WANTED" == "Y" || "$WANTED" == "y" ]]; then
 		echo "$HASH_PASSWORD" > $password_file
 
 	else
-		echo "Wrong Confirm Password, no password will be add"
+		echo "Wrong Confirm Password, no password will be added"
 	fi
 fi
 
@@ -49,4 +49,4 @@ i3-msg reload
 source $config/*
 vim +PluginInstall +qall
 
-echo 'EpiConf is succefully install'
+echo 'EpiConf is succefully installed'
