@@ -72,7 +72,7 @@ Our custom i3 setup includes **autostart programs** and **useful keybindings**.
 
 * `Win + i` → Lock screen (i3lock)
 * `Ctrl + Shift + L` → Matrix i3lock
-* `Win + Tab` → Switch workspace
+* `Alt + Tab` → Switch workspace
 
 ---
 
