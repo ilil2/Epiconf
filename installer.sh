@@ -1,4 +1,4 @@
-git clone https://github.com/ilil2/My-Epita-Confs.git ~/epiconf
+git clone https://github.com/ilil2/Epiconf.git ~/epiconf
 (
   cd ~/epiconf || exit 1
   chmod +x setup.sh

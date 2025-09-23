@@ -85,14 +85,14 @@ alias push='function _push() {
 }; _push'
 
 alias epiconf='mdcat ~/afs/EPICONF_HELPER.md'
-alias update-conf='git clone https://github.com/ilil2/My-Epita-Conf.git ~/epiconf/ &&
+alias update-conf='git clone https://github.com/ilil2/Epiconf.git ~/epiconf/ &&
 	rm ~/epiconf/Config/epiconf/config.ini &&
 	if [ -d ~/afs/.confs/config/wallpapers ]; then
 		rm -r ~/epiconf/Config/config/wallpapers
 	fi &&
-	cp -r ~/epiconf/Config/* ~afs/.confs/*
+	cp -r ~/epiconf/Config ~/afs/.confs
 	rm -rf ~/epiconf'
-alias reset-conf='git clone https://github.com/epita/epita-default-confs.git ~/resetconfs/ && rm ~/resetconfs/gitconfig && cp -r ~/resetconfs/* ~/afs/.confs/ && rm -rf ~/resetconfs/ && cp ~/afs/.confs/config/i3/config.reset ~/afs/.confs/config/i3/config && rm -r ~/afs/.confs/epiconf && rm ~/afs/EPICONF_HELPER.md && i3-msg restart && pkill polybar && pkill picom'
+alias reset-conf='git clone https://github.com/epita/epita-default-confs.git ~/resetconfs/ && rm ~/resetconfs/gitconfig && cp -r ~/resetconfs/* ~/afs/.confs/ && rm -rf ~/resetconfs/ && cp ~/afs/.confs/config/i3/config.reset ~/afs/.confs/config/i3/config && rm -r ~/afs/.confs/epiconf && rm ~/afs/EPICONF_HELPER.md && rm ~/afs/.confs/pkgs.sh && rm ~/afs/.confs/.user && i3-msg restart && pkill polybar && pkill picom'
 
 
 
