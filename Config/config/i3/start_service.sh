@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sleep 5
+
 config=~/afs/.confs/epiconf/config.ini
 
 # Wallpaper loop
