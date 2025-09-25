@@ -46,13 +46,43 @@ And if you want to delete Epiconf and get back to the [default config of epita](
 reset-conf
 ````
 
-> reset the config also remove Epiconf settings, wallpapers and startup script.
+> reset the config also remove Epiconf settings and startup script.
 
 ---
 
 ## Epiconf Settings
 
-you can change the main settings of the config in ````.confs/epiconf/config.ini````
+You can change the main settings of the config in ````.confs/epiconf/config.ini````
+
+### General
+
+* `MOD = MOD4` → Keycaps for I3 (Mod4 = Win, Mod1 = Alt)
+* `EPICONF_ASCII = enable` → Write EPICONF in the top of shell
+* `INACTIVITY_TIME = 60` → Time before auto i3lock (in second)
+
+### Wallpaper
+
+* `WALLPAPER_TIME = 300` → Time before change wallpaper (in second)
+
+### Game
+
+* `GAMES = disable` → Activate games commands (lunar, osu)
+
+### Music
+
+* `MUSIC_LOADER = enable` → Install Spotify and Deezer
+* `MUSIC = spotify` → Main music app (spotify, deezer)
+
+### Polybar Left
+
+* `xworkspaces = enable` → Show active and used workspaces
+
+### Polybar Right
+
+* `afssize = enable` → Show the afs size
+* `memory = enable` → Show the RAM utilisation
+* `cpu = enable` → Show the CPU utilisation
+* `date = enable` → Show the date and hour
 
 ## 🖥️ i3 Configuration
 
@@ -62,7 +92,7 @@ Our custom i3 setup includes **autostart programs** and **useful keybindings**.
 
 * Opens a terminal and Firefox on login
 * Changes wallpaper every 5 minutes
-* automatically start the scripts located in ````.confs/epiconf/start_script/````
+* Automatically start the scripts located in ````.confs/epiconf/start_script/````
 
 > 🖼️ You can change the wallapaper in ````.confs/config/wallpapers/````.
 
