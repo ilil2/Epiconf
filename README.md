@@ -56,33 +56,33 @@ You can change the main settings of the config in ````.confs/epiconf/config.ini`
 
 ### General
 
-* `MOD = MOD4` → Keycaps for I3 (Mod4 = Win, Mod1 = Alt)
-* `EPICONF_ASCII = enable` → Write EPICONF in the top of shell
-* `INACTIVITY_TIME = 60` → Time before auto i3lock (in second)
+* `MOD` → Keycaps for I3 (Mod4 = Win, Mod1 = Alt)
+* `EPICONF_ASCII` → Write EPICONF in the top of shell
+* `INACTIVITY_TIME` → Time before auto i3lock (in second)
 
 ### Wallpaper
 
-* `WALLPAPER_TIME = 300` → Time before change wallpaper (in second)
+* `WALLPAPER_TIME` → Time before change wallpaper (in second)
 
 ### Game
 
-* `GAMES = disable` → Activate games commands (lunar, osu)
+* `GAMES` → Activate games commands (lunar, osu)
 
 ### Music
 
-* `MUSIC_LOADER = enable` → Install Spotify and Deezer
-* `MUSIC = spotify` → Main music app (spotify, deezer)
+* `MUSIC_LOADER` → Install Spotify and Deezer
+* `MUSIC` → Main music app (spotify, deezer)
 
 ### Polybar Left
 
-* `xworkspaces = enable` → Show active and used workspaces
+* `xworkspaces` → Show active and used workspaces
 
 ### Polybar Right
 
-* `afssize = enable` → Show the afs size
-* `memory = enable` → Show the RAM utilisation
-* `cpu = enable` → Show the CPU utilisation
-* `date = enable` → Show the date and hour
+* `afssize` → Show the afs size
+* `memory` → Show the RAM utilisation
+* `cpu` → Show the CPU utilisation
+* `date` → Show the date and hour
 
 ## 🖥️ i3 Configuration
 
