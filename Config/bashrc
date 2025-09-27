@@ -67,6 +67,7 @@ fi
 
 alias nix-clear='nix-collect-garbage -d'
 alias bluetooth='blueman-manager &'
+alias run-polybar='polybar 2&> /dev/null & disown'
 
 alias cdclone='function _cdclone() {
 			name=$(basename "$1" .git)
