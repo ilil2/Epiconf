@@ -47,7 +47,7 @@ endif
 
 set mouse=a
 set ts=4 sw=4
-start
+
 :nnoremap <C-x> :wq<CR>
 :nnoremap <C-q> :q!<CR>
 
