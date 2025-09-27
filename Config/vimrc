@@ -63,6 +63,10 @@ start
 :inoremap <C-v> <Esc>vp<Esc>i
 :vnoremap cc "+y
 
+:nnoremap < gT
+:nnoremap > gt
+:nnoremap + :tabe<CR>
+
 :inoremap { {}<Left>
 :inoremap ( ()<Left>
 :inoremap [ []<Left>
