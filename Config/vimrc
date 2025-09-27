@@ -60,7 +60,8 @@ start
 :vnoremap <C-c> y
 :vnoremap <C-v> p
 :vnoremap <BS> d
-:inoremap <C-v> <Esc>vpi
+:inoremap <C-v> <Esc>vp<Esc>i
+:vnoremap cc "+y
 
 :inoremap { {}<Left>
 :inoremap ( ()<Left>
