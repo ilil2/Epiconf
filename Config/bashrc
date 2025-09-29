@@ -165,3 +165,4 @@ trap_cmds() {
 trap 'trap_cmds' DEBUG
 
 alias gcw="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla"
+alias cf="clang-format -i"
