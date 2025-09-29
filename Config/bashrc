@@ -167,3 +167,4 @@ trap 'trap_cmds' DEBUG
 alias gcw="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla"
 alias cf="clang-format -i"
 alias cfe="cp ~/afs/.confs/epiconf/.clang-format ./ && clang-format-epita && rm .clang-format"
+alias carchi="~/afs/.confs/epiconf/archi_c.sh"
