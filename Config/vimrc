@@ -86,12 +86,11 @@ set ts=4 sw=4
 	:inoremap @for for<Space>(size_t i = 0; i < size; i++)<CR><BS>{<CR><BS>}<Left><CR><Up>a<BS>
 	:inoremap @jfor for<Space>(size_t j = 0; j < size; j++)<CR><BS>{<CR><BS>}<Left><CR><Up>a<BS>
 	:inoremap @kfor for<Space>(size_t k = 0; k < size; k++)<CR><BS>{<CR><BS>}<Left><CR><Up>a<BS>
+	:inoremap @while while<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right>
+	:inoremap @if if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
+	:inoremap @elif else<Space>if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
+	:inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
 :endif
-
-:inoremap @while while<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right>
-:inoremap @if if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
-:inoremap @elif else<Space>if<Space>()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
-:inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
 
 :inoremap <C-t> <Esc>:NERDTreeToggle<CR>i
 :nnoremap <C-t> :NERDTreeToggle<CR>
