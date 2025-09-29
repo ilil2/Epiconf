@@ -163,3 +163,5 @@ trap_cmds() {
 }
 
 trap 'trap_cmds' DEBUG
+
+alias gcc="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla"
