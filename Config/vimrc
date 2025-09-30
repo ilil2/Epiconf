@@ -90,7 +90,10 @@ set ts=4 sw=4
 	:inoremap @if if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
 	:inoremap @elif else if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
 	:inoremap @else else<CR><CR><BS>{<CR><BS>}<Up><CR>a<BS>
-	:inoremap @main int main(int argc, char *argv[])<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;
+	:inoremap @main int main(int argc, char *argv[])<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
+	:inoremap @std #include <stddef.h><CR>#include <stdio.h><CR><CR>
+	:inoremap @pf printf();<Left><Left>
+	:inoremap @struct struct  =<CR>{<CR>}<Up><Up><Right><Right><Right><Right><Right><Right>
 :endif
 
 :inoremap <C-t> <Esc>:NERDTreeToggle<CR>i
