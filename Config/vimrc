@@ -94,7 +94,7 @@ set ts=4 sw=4
 	:inoremap @vmain int main(void)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
 	:inoremap @std #include <stddef.h><CR>#include <stdio.h><CR><CR>
 	:inoremap @pf printf("");<Left><Left><Left>
-	:inoremap @struct struct  =<CR>{<CR>};<Up><Up><Right><Right><Right><Right><Right>
+	:inoremap @struct struct <CR>{<CR>};<Up><Up><Right><Right><Right><Right><Right>
 :endif
 
 :inoremap <C-t> <Esc>:NERDTreeToggle<CR>i
