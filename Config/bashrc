@@ -166,5 +166,13 @@ trap 'trap_cmds' DEBUG
 
 alias gcw="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla"
 alias cf="clang-format -i"
-alias cfe="cp ~/afs/.confs/epiconf/.clang-format ./ && clang-format-epita && rm .clang-format"
+alias cfe='function _cfe() {
+	here=$(pwd)
+	cd $(git rev-parse --show-toplevel)
+	cp ~/afs/.confs/epiconf/.clang-format ./
+	clang-format-epita
+	rm .clang-format
+	cd $here
+}; _cfe'
+
 alias carchi="~/afs/.confs/epiconf/archi_c.sh"
