@@ -15,3 +15,5 @@ H="_H"
 
 echo -e "#ifndef $UPPER$H\n#define $UPPER$H\n\n#endif /* ! $UPPER$H */" > "$1.h"
 echo -e "#include \"$1.h\"\n" > "$1.c"
+
+vim -p "$1.c" "$1.h"
