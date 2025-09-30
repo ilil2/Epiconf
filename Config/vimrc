@@ -83,17 +83,18 @@ set ts=4 sw=4
 :endif
 
 :if $SNIPPETS == "enable"
-	:inoremap @for for (size_t i = 0; i < size; i++)<CR><CR><BS>{<CR><BS>}<Left><CR><Up><Tab>
-	:inoremap @jfor for (size_t j = 0; j < size; j++)<CR><CR><BS>{<CR><BS>}<Left><CR><Up><Tab>
-	:inoremap @kfor for (size_t k = 0; k < size; k++)<CR><CR><BS>{<CR><BS>}<Left><CR><Up><Tab>
+	:inoremap @for for (size_t i = 0; i < size; i++)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>
+	:inoremap @jfor for (size_t j = 0; j < size; j++)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>
+	:inoremap @kfor for (size_t k = 0; k < size; k++)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>
 	:inoremap @while while ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right>
 	:inoremap @if if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
 	:inoremap @elif else if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
-	:inoremap @else else<CR><CR><BS>{<CR><BS>}<Up><CR>a<BS>
+	:inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
 	:inoremap @main int main(int argc, char *argv[])<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
+	:inoremap @main int main(void)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
 	:inoremap @std #include <stddef.h><CR>#include <stdio.h><CR><CR>
 	:inoremap @pf printf("");<Left><Left><Left>
-	:inoremap @struct struct  =<CR>{<CR>}<Up><Up><Right><Right><Right><Right><Right><Right>
+	:inoremap @struct struct  =<CR>{<CR>};<Up><Up><Right><Right><Right><Right><Right><Right>
 :endif
 
 :inoremap <C-t> <Esc>:NERDTreeToggle<CR>i
