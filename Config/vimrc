@@ -75,8 +75,8 @@ set ts=4 sw=4
 :nnoremap > gt
 :nnoremap + :tabe<CR>
 
-:nnoremap <C-f> :!clang-format -i % <Enter><Enter>
-:inoremap <C-f> <Esc>:!clang-format -i %<Enter><Enter>i
+:nnoremap <C-f> :w<Enter>:!clang-format -i % <Enter><Enter>
+:inoremap <C-f> <Esc>:w<Enter>:!clang-format -i %<Enter><Enter>i
 
 :if $CLOSE_BRACKET == "enable"
 	:inoremap { {}<Left>
