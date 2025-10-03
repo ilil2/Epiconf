@@ -106,7 +106,11 @@ set ts=4 sw=4
 :nnoremap <C-t> :NERDTreeToggle<CR>
 ":inoremap <C-F2> <Esc>:NERDTreeClose<CR>i
 ":nnoremap <C-F2> :NERDTreeClose<CR>i
-
+:highlight Search NONE
+:highlight SpellBad NONE
+:highlight CurSearch NONE
+:highlight DiffChange NONE
+:highlight SpellRare NONE
 " Plugins
 
 "autocmd VimEnter * NERDTree
