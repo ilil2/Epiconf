@@ -1,1 +1,21 @@
 
+
+[window]
+decorations           = "None"
+
+[cursor.style]
+shape                 = "Beam"
+blinking              = "Always"
+
+[cursor]
+blink_interval        = 700
+blink_timeout         = 0
+#unfocused_hollow      = true
+#thickness             = 0.05
+
+[mouse]
+hide_when_typing      = true
+bindings = [
+  { mouse = "Middle", action = "PasteSelection" },
+]
+
