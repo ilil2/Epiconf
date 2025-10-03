@@ -14,7 +14,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'vim-airline/vim-airline'
 Plugin 'preservim/nerdtree'
 Plugin 'scrooloose/syntastic'
-" Plugin 'ervandew/supertab'
+Plugin 'maralla/completor.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -111,6 +111,7 @@ set ts=4 sw=4
 :highlight CurSearch NONE
 :highlight DiffChange NONE
 :highlight SpellRare NONE
+:highlight Pmenu cterm=NONE ctermfg=black ctermbg=grey
 " Plugins
 
 "autocmd VimEnter * NERDTree
