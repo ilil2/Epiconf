@@ -10,3 +10,4 @@ cp -rT ~/epiconf/Config ~/afs/.confs/
 cp ~/epiconf/README.md ~/afs/EPICONF_HELPER.md
 rm -rf ~/epiconf
 vim +PluginInstall +qal
+sh ~/afs/.confs/install.sh
