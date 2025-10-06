@@ -94,12 +94,13 @@ set ts=4 sw=4
 	:inoremap @if if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
 	:inoremap @elif else if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
 	:inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
-	:inoremap @main int main(int argc, char *argv[])<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
-	:inoremap @vmain int main(void)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
+	:inoremap @marg int main(int argc, char *argv[])<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
+	:inoremap @main int main(void)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
 	:inoremap @std #include <stddef.h><CR>#include <stdio.h><CR>#include <stdlib.h><CR><CR>
 	:inoremap @pf printf("\n");<Left><Left><Left><Left><Left>
 	:inoremap @struct struct <CR>{<CR>};<Up><Up><Right><Right><Right><Right><Right>
 	:inoremap @dbp #include <stdio.h><CR>int main(void)<CR><BS>{<CR>printf("%\n",);<CR>}<Up><Right><C-Right><Right><Right><Right>
+    :inoremap -- ->
 :endif
 
 :inoremap <C-t> <Esc>:NERDTreeToggle<CR>i
