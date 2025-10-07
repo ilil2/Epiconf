@@ -113,6 +113,7 @@ set ts=4 sw=4
 :highlight DiffChange NONE
 :highlight SpellRare NONE
 :highlight Pmenu cterm=NONE ctermfg=white ctermbg=darkgrey
+:highlight MatchParen cterm=NONE ctermfg=blue ctermbg=NONE
 " Plugins
 
 "autocmd VimEnter * NERDTree
