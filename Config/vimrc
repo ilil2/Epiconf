@@ -107,13 +107,23 @@ set ts=4 sw=4
 :nnoremap <C-t> :NERDTreeToggle<CR>
 ":inoremap <C-F2> <Esc>:NERDTreeClose<CR>i
 ":nnoremap <C-F2> :NERDTreeClose<CR>i
-:highlight Search NONE
-:highlight SpellBad NONE
+
+" Highlight
+
+:highlight Search cterm=bold ctermfg=yellow ctermbg=NONE
+:highlight IncSearch cterm=underline ctermfg=yellow ctermbg=NONE
+:highlight SpellBad cterm=bold ctermfg=red ctermbg=NONE
+:highlight QuickFixLine cterm=NONE ctermfg=white
+:highlight ColorColumn term=NONE cterm=NONE ctermbg=darkgrey ctermfg=white
 :highlight CurSearch NONE
 :highlight DiffChange NONE
 :highlight SpellRare NONE
-:highlight Pmenu cterm=NONE ctermfg=white ctermbg=darkgrey
-:highlight MatchParen cterm=NONE ctermfg=blue ctermbg=NONE
+:highlight Pmenu cterm=NONE ctermfg=white ctermbg=236
+:highlight MatchParen cterm=NONE ctermfg=lightblue ctermbg=NONE
+:highlight SignColumn NONE
+:highlight SyntasticErrorSign cterm=bold ctermfg=red ctermbg=black
+:highlight vimError cterm=bold ctermfg=red ctermbg=black
+
 " Plugins
 
 "autocmd VimEnter * NERDTree
