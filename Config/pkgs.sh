@@ -5,6 +5,9 @@ nix-channel --update
 # Clear Nix
 nix-collect-garbage -d
 
+# Priority package
+nix-env -iA nixpkgs.rofi
+
 # Package installation
 nix-env -iA nixpkgs.picom
 nix-env -iA nixpkgs.polybar
