@@ -1,7 +1,7 @@
 
 
 [window]
-#decorations           = "None"
+decorations           = "None"
 
 [cursor.style]
 shape                 = "Beam"
