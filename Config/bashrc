@@ -15,7 +15,7 @@ epiconf=~/afs/.confs/epiconf
 FLAG_FILE=~/tmp_flag
 
 source $epiconf/start.sh > /dev/null
-
+source ~/.ble/out/ble.sh
 
 export LANG=en_US.utf8
 export NNTPSERVER="news.epita.fr"
