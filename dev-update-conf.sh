@@ -1,5 +1,6 @@
 #!/bin/sh
 
+git pull
 mkdir ~/epiconf
 cp -r ./* ~/epiconf/
 rm ~/epiconf/Config/epiconf/config.ini
