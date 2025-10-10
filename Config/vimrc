@@ -142,7 +142,7 @@ let g:syntastic_enable_signs = 1
 
 let g:move_key_modifier = 'C'
 let g:indentLine_char = '|'
-let g:indentLine_color_term = 235
+let g:indentLine_color_term = 239
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 1
 
