@@ -112,7 +112,7 @@ set ts=4 sw=4
 " Highlight
 
 :highlight Search cterm=bold ctermfg=lightblue ctermbg=NONE
-:highlight IncSearch cterm=underline ctermfg=yellow ctermbg=NONE
+:highlight IncSearch cterm=bold,underline ctermfg=lightblue ctermbg=NONE
 :highlight SpellBad cterm=bold ctermfg=red ctermbg=NONE
 :highlight QuickFixLine cterm=NONE ctermfg=white
 :highlight ColorColumn term=NONE cterm=NONE ctermbg=darkgrey ctermfg=white
