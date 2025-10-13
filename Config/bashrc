@@ -186,3 +186,18 @@ genhtml coverage.info --output-directory coverage
 rm *.gcno *.gcda coverage.info a.out
 firefox coverage/index.html
 }; _lc'
+
+xfifo() {
+    fifo=~/.fifo
+    >$fifo
+    ~/.xinitrc
+    while true; do
+        while IFS= read -r line; do
+            $line
+            > $fifo
+        done < $fifo
+        sleep 0.2
+    done
+}
+
+xfifo &> /dev/null & disown

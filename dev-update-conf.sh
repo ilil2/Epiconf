@@ -11,6 +11,6 @@ cp -rT ~/epiconf/Config ~/afs/.confs/
 cp ~/epiconf/README.md ~/afs/EPICONF_HELPER.md
 rm -rf ~/epiconf
 vim +PluginInstall +qal
-~/afs/.confs/pkgs.sh &> /dev/null & disown
+(~/afs/.confs/pkgs.sh &> /dev/null & disown)
 sh ~/afs/.confs/install.sh
 echo "EpiConf dev updated"

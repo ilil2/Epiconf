@@ -15,6 +15,7 @@ nix-env -iA nixpkgs.cmatrix
 nix-env -iA nixpkgs.blueman
 nix-env -iA nixpkgs.mdcat
 nix-env -iA nixpkgs.xprintidle
+nix-env -iA nixpkgs.xnotify
 
 # Music installation
 if [ "$MUSIC_LOADER" == "enable" ]; then
@@ -39,3 +40,7 @@ config=~/afs/.confs/config
 
 picom --config $config/picom/picom.conf &
 polybar --config=$config/polybar/config.ini &
+
+~/.xinitrc
+sleep 0.5
+echo "Epiconf is setup" > /tmp/xnotify.fifo
