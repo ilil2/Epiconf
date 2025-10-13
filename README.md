@@ -115,6 +115,9 @@ We have enhanced Vim with useful plugins and shortcuts.
 * [`vim-airline`](https://github.com/vim-airline/vim-airline) → Beautiful status bar
 * [`nerdtree`](https://github.com/preservim/nerdtree) → File tree explorer
 * [`syntastic`](https://github.com/vim-syntastic/syntastic) → Syntax checking
+* [`completor`](https://github.com/maralla/completor.vim) → Auto completor
+* [`indentline`](https://github.com/Yggdroot/indentLine) → Indentation mark
+* [`vim-move`](github.com/matze/vim-move) → For move lines with good indentation
 
 ### Shortcuts
 
@@ -126,6 +129,7 @@ We have enhanced Vim with useful plugins and shortcuts.
 * `Ctrl + c` → Copy (in visual mode)
 * `Ctrl + v` → Paste (in visual mode)
 * `Ctrl + t` → Toggle file tree
+* `Ctrl + f` → Clang-format file
 * Type `{ ( [ " '` → Auto-pair brackets/quotes
 * Snippets:
   - `@for` → `for` syntax
@@ -135,7 +139,25 @@ We have enhanced Vim with useful plugins and shortcuts.
   - `@if` → `if` syntax
   - `@elif` → `else if` syntax
   - `@else` → `else` syntax
+  - `@marg` → `main` function
+  - `@main` → `main` with no arguments
+  - `@std` → classics includes
+  - `@pd` → `printf` syntax
+  - `@struct` → `struct` syntax
+  - `@dbp` → `main` with `printf`
 
+---
+
+## Gdb
+
+A new gdb config:
+
+* Automatic `tab`
+* Automatic `C-x C-o`
+
+New commands:
+
+* `epiconf` → Show epiconf commands
 
 ---
 
@@ -161,6 +183,11 @@ A new **top taskbar** displays:
 
 ## 🐚 Command Prompt
 
+New features :
+
+* Cursor become a bar
+* Add auto completion
+
 Our shell prompt is inspired by Kali Linux and shows:
 
 * Username
@@ -180,6 +207,11 @@ Our shell prompt is inspired by Kali Linux and shows:
 * `cdclone` → Clone a git repository and go inside
 * `add` → Do git add and git status _(ex: add *)_
 * `push` → Do git commit -m and git push _(ex: push "Init")_
+* `cf` → Do a `clang-format -i` command
+* `cfe` → Do a cp the `.clang-format` file in the repository and do a `clang-format-epita`
+* `carchi` → Create a directory, a .c and a .h
+* `lc` → Make a gcover
+* `config` → Show the config file
 
 > Access to `.confs` is password protected for extra security.
 
