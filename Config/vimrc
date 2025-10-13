@@ -111,7 +111,7 @@ set ts=4 sw=4
 
 " Highlight
 
-:highlight Search cterm=bold ctermfg=yellow ctermbg=NONE
+:highlight Search cterm=bold ctermfg=lightblue ctermbg=NONE
 :highlight IncSearch cterm=underline ctermfg=yellow ctermbg=NONE
 :highlight SpellBad cterm=bold ctermfg=red ctermbg=NONE
 :highlight QuickFixLine cterm=NONE ctermfg=white
@@ -122,6 +122,8 @@ set ts=4 sw=4
 :highlight Pmenu cterm=NONE ctermfg=white ctermbg=236
 :highlight MatchParen cterm=NONE ctermfg=lightblue ctermbg=NONE
 :highlight SignColumn NONE
+:highlight SpellCap cterm=bold ctermfg=yellow ctermbg=black
+:highlight SyntasticWarningSign cterm=bold ctermfg=yellow ctermbg=black
 :highlight SyntasticErrorSign cterm=bold ctermfg=red ctermbg=black
 :highlight vimError cterm=bold ctermfg=red ctermbg=black
 
