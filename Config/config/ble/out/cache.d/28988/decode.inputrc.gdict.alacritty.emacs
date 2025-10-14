@@ -1,0 +1,8 @@
+ble-decode-key/bind 'emacs' '134217819 53 68' 'ble/widget/backward-cword'
+ble-decode-key/bind 'emacs' '1114133' 'ble/widget/history-beginning'
+ble-decode-key/bind 'emacs' '1114132' 'ble/widget/beginning-of-line'
+ble-decode-key/bind 'emacs' '1114136' 'ble/widget/history-end'
+ble-decode-key/bind 'emacs' '1114135' 'ble/widget/end-of-line'
+ble-decode-key/bind 'emacs' '1114135' 'ble/widget/end-of-line'
+ble-decode-key/bind 'emacs' '134217819 53 67' 'ble/widget/forward-cword'
+ble-decode-key/bind 'emacs' '1114131' 'ble/widget/quoted-insert'
