@@ -1,4 +1,7 @@
 
+[colors.primary]
+#foreground = "#000000"
+background = "#222222"
 
 [window]
 decorations           = "None"
