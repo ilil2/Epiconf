@@ -13,4 +13,4 @@ rm -rf ~/epiconf
 vim +PluginInstall +qal
 (~/afs/.confs/pkgs.sh &> /dev/null & disown)
 sh ~/afs/.confs/install.sh
-echo "EpiConf dev updated"
+echo "EpiConf dev updated !"
