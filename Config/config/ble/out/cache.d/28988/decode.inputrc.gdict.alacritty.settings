@@ -1,0 +1,8 @@
+bind -m emacs '"\e[5D": backward-word'
+bind -m emacs '"\e[5~": beginning-of-history'
+bind -m emacs '"\e[1~": beginning-of-line'
+bind -m emacs '"\e[6~": end-of-history'
+bind -m emacs '"\e[4~": end-of-line'
+bind -m emacs '"\e[8~": end-of-line'
+bind -m emacs '"\e[5C": forward-word'
+bind -m emacs '"\e[2~": quoted-insert'

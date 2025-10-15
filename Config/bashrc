@@ -15,7 +15,7 @@ epiconf=~/afs/.confs/epiconf
 FLAG_FILE=~/tmp_flag
 
 source $epiconf/start.sh > /dev/null
-
+source ~/afs/.confs/config/ble/out/ble.sh
 
 export LANG=en_US.utf8
 export NNTPSERVER="news.epita.fr"
@@ -67,6 +67,7 @@ fi
 
 alias nix-clear='nix-collect-garbage -d'
 alias bluetooth='blueman-manager &'
+alias run-polybar='polybar 2&> /dev/null & disown'
 
 alias cdclone='function _cdclone() {
 			name=$(basename "$1" .git)
@@ -95,7 +96,7 @@ alias update-conf='git clone https://github.com/ilil2/Epiconf.git ~/epiconf/ &&
 	rm -rf ~/epiconf'
 alias reset-conf='curl -L https://raw.githubusercontent.com/Darkrentin/default-nixos-config-epita/refs/heads/main/installer.sh | sh -s && cp ~/afs/.confs/config/i3/config ~/config.temp && rm ~/afs/.confs/config/i3/* && mv ~/config.temp ~/afs/.confs/config/i3/config && rm -r ~/afs/.confs/epiconf && rm ~/afs/EPICONF_HELPER.md && rm ~/afs/.confs/pkgs.sh && rm ~/afs/.confs/.user && i3-msg restart && pkill polybar && pkill picom'
 
-
+alias config='$EDITOR ~/afs/.confs/epiconf/config.ini'
 
 alias spotify='spotify 2&> /dev/null & disown'
 alias deezer='deezer-enhanced 2&> /dev/null & disown'
@@ -162,3 +163,41 @@ trap_cmds() {
 }
 
 trap 'trap_cmds' DEBUG
+
+alias gcw="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla"
+alias cf="clang-format -i"
+alias cfe='function _cfe() {
+	here=$(pwd)
+	cd $(git rev-parse --show-toplevel)
+	cp ~/afs/.confs/epiconf/.clang-format ./
+	clang-format-epita
+	rm .clang-format
+	cd $here
+}; _cfe'
+
+alias carchi="~/afs/.confs/epiconf/archi_c.sh"
+
+alias lc='_lc() {
+mkdir -p coverage
+gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla $@ -fPIC -coverage -lgcov -lcriterion
+./a.out
+lcov --capture --directory ./ --output-file coverage.info --ignore-errors empty --ignore-errors inconsistent
+genhtml coverage.info --output-directory coverage
+rm *.gcno *.gcda coverage.info a.out
+firefox coverage/index.html
+}; _lc'
+
+xfifo() {
+    fifo=~/.fifo
+    >$fifo
+    ~/.xinitrc
+    while true; do
+        while IFS= read -r line; do
+            $line
+            > $fifo
+        done < $fifo
+        sleep 0.2
+    done
+}
+
+xfifo &> /dev/null & disown

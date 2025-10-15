@@ -1,0 +1,19 @@
+-A equivalent to -vET
+-b number nonempty output lines, overrides -n
+-E display $ at end of each line
+-e equivalent to -vE
+--help display this help and exit
+-n number all output lines
+--number [1m[[0;36m-n[0;1m][m number all output lines
+--number-nonblank [1m[[0;36m-b[0;1m][m number nonempty output lines, overrides -n
+--show-all [1m[[0;36m-A[0;1m][m equivalent to -vET
+--show-ends [1m[[0;36m-E[0;1m][m display $ at end of each line
+--show-nonprinting [1m[[0;36m-v[0;1m][m use ^ and M- notation, except for LFD and TAB
+--show-tabs [1m[[0;36m-T[0;1m][m display TAB characters as ^I
+--squeeze-blank [1m[[0;36m-s[0;1m][m suppress repeated empty output lines
+-s suppress repeated empty output lines
+-T display TAB characters as ^I
+-t equivalent to -vT
+-u (ignored)
+--version output version information and exit
+-v use ^ and M- notation, except for LFD and TAB
