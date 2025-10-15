@@ -24,8 +24,8 @@ if [ "$MUSIC_LOADER" == "enable" ]; then
 fi
 
 # Git-repositories installation
-git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git ~/.ble
-make -C ~/.ble
+#git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git ~/.ble
+#make -C ~/.ble
 
 # Font installation
 nix-env -iA nixpkgs.siji
