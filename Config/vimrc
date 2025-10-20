@@ -58,6 +58,7 @@ set ts=4 sw=4
 :endif
 
 :nnoremap <C-x> :wq<CR>
+:nnoremap <C-s> :w<CR>
 :nnoremap <C-q> :q!<CR>
 
 :inoremap <C-x> <Esc>:wq<CR>
