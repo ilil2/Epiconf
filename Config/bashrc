@@ -177,6 +177,7 @@ alias cfe='function _cfe() {
 
 alias carchi="~/afs/.confs/epiconf/archi_c.sh"
 alias mksh="~/afs/.confs/epiconf/mksh.sh"
+alias rm="~/afs/.confs/epiconf/remove_to_bin.sh"
 
 alias lc='_lc() {
 mkdir -p coverage
