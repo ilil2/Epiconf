@@ -77,8 +77,15 @@ set ts=4 sw=4
 :nnoremap > gt
 :nnoremap + :tabe<CR>
 
-:nnoremap <C-f> :w<Enter>:!clang-format -i % <Enter><Enter>
-:inoremap <C-f> <Esc>:w<Enter>:!clang-format -i %<Enter><Enter>i
+function ClangFormat()
+    :w
+    :if expand("%:e") == "c"
+        :!clang-format -i %
+    :endif
+endfunction
+
+:nnoremap <C-f> :call ClangFormat()<Enter><Enter>
+inoremap <C-f> <Esc>:call ClangFormat()<Enter><Enter>i
 
 :if $CLOSE_BRACKET == "enable"
 	:inoremap { {}<Left>
