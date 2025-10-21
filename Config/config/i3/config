@@ -208,6 +208,7 @@ bindsym Mod1+F4 exec "chmod +x ~/afs/.confs/config/i3/screen.sh; ~/afs/.confs/co
 bindsym Ctrl+Mod1+r exec "source ~/afs/.confs/epiconf/start.sh"
 bindsym Ctrl+Mod1+Shift+r exec "reset-conf"
 
+exec_always autotiling -w 1 3 5 7 9
 exec_always "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec_always "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
 exec_always "while true; do feh --randomize --bg-fill ~/afs/.confs/config/wallpapers; sleep 300; done;"

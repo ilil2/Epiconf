@@ -16,6 +16,7 @@ nix-env -iA nixpkgs.blueman
 nix-env -iA nixpkgs.mdcat
 nix-env -iA nixpkgs.xprintidle
 nix-env -iA nixpkgs.xnotify
+nix-env -iA nixpkgs.autotiling
 
 # Music installation
 if [ "$MUSIC_LOADER" == "enable" ]; then
