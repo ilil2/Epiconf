@@ -208,6 +208,8 @@ bindsym $mod+m exec __MUSIC__
 bindsym Mod1+F4 exec "chmod +x ~/afs/.confs/config/i3/screen.sh; ~/afs/.confs/config/i3/screen.sh"
 bindsym Ctrl+Mod1+r exec "source ~/afs/.confs/epiconf/start.sh"
 
+exec_always autotiling -w 1 3 5 7 9
+
 exec "i3-sensible-terminal & firefox intra.forge.epita.fr"
 exec "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
 exec ~/afs/.confs/config/i3/start_service.sh
