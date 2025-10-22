@@ -17,6 +17,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'maralla/completor.vim'
 Plugin 'yggdroot/indentline'
 Plugin 'matze/vim-move'
+Plugin 'rhysd/vim-clang-format'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -58,14 +59,16 @@ set ts=4 sw=4
 :endif
 
 :nnoremap <C-x> :wq<CR>
-:nnoremap <C-s> :call ClangFormat()<Enter><Enter>
+:nnoremap <C-s> :w<CR>
 :nnoremap <C-q> :q!<CR>
+:nnoremap <C-f> :ClangFormat<CR>
 
 :inoremap <C-x> <Esc>:wq<CR>
+:inoremap <C-s> <Esc>:w<CR>i
+:inoremap <C-q> <Esc>:q!<CR>
+:inoremap <C-f> <Esc>:ClangFormat<CR>i
 :inoremap <C-z> <Esc>:u<CR>i
 :inoremap <C-y> <Esc>:redo<CR>i
-:inoremap <C-s> <Esc>:call ClangFormat()<Enter><Enter>i
-:inoremap <C-q> <Esc>:q!<CR>
 
 :vnoremap <C-c> y
 :vnoremap <C-v> p
@@ -76,13 +79,6 @@ set ts=4 sw=4
 :nnoremap < gT
 :nnoremap > gt
 :nnoremap + :tabe<CR>
-
-function ClangFormat()
-    :w
-    :if expand("%:e") == "c" || expand("%:e") == "h"
-        :!clang-format -i %
-    :endif
-endfunction
 
 :if $CLOSE_BRACKET == "enable"
 	:inoremap { {}<Left>
