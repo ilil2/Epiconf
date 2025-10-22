@@ -41,6 +41,7 @@ config=~/afs/.confs/config
 
 picom --config $config/picom/picom.conf &
 polybar --config=$config/polybar/config.ini &
+autotiling
 
 ~/.xinitrc
 sleep 0.5
