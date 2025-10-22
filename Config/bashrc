@@ -196,3 +196,5 @@ xfifo() {
 }
 
 xfifo &> /dev/null & disown
+
+alias movie="\i3lock; ssh -o StrictHostKeyChecking=no watch.ascii.theater && pkill i3lock"
