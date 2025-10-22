@@ -80,6 +80,17 @@ set ts=4 sw=4
 :nnoremap > gt
 :nnoremap + :tabe<CR>
 
+function GCC()
+    :!gcc %
+    :!echo $(./a.out) > output.txt
+    set splitbelow
+    :sview output.txt
+    :!rm -rf output.txt a.out
+    :tabp
+endfunction
+:nnoremap <C-r> :call GCC()<CR>
+:inoremap <C-r> <Esc>:call GCC()<CR>i
+
 :if $CLOSE_BRACKET == "enable"
 	:inoremap { {}<Left>
 	:inoremap ( ()<Left>
