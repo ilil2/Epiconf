@@ -82,21 +82,21 @@ set ts=4 sw=4
 
 function Run()
     if expand("%:e") == "c"
-        :!gcc % -std=c99 -pedantic -Werror -Wall -Wextra -Wvla
-        :!echo $(./a.out) > output.txt
+        :!gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla %:p
+        :!echo $(./a.out) > output
         :!rm -rf a.out
     elseif expand("%:e") == "sh"
-        :!echo $(./%) > output.txt
+        :!echo $(%:p) > output
     else
-        :!echo "Unknown file extension" > output.txt
+        :!echo "Error: Unknown file extension." > output
     endif
     set splitbelow
-    :sview output.txt
-    :!rm -rf output.txt
+    :sview output
+    :!rm -rf output
     :tabp
 endfunction
-:nnoremap <C-r> :call Run()<CR>
-:inoremap <C-r> <Esc>:call Run()<CR>i
+:nnoremap <C-r> :call Run()<CR><Esc>
+:inoremap <C-r> <Esc>:call Run()<CR><Esc>i
 
 :if $CLOSE_BRACKET == "enable"
 	:inoremap { {}<Left>
