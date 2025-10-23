@@ -81,12 +81,15 @@ set ts=4 sw=4
 :nnoremap + :tabe<CR>
 
 function Run()
+    :w
     if expand("%:e") == "c"
         :!gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla %:p
         :!echo $(./a.out) > output
         :!rm -rf a.out
     elseif expand("%:e") == "sh"
         :!echo $(%:p) > output
+    elseif expand("%:e") == "py"
+        :!echo $(python3 %:p) > output
     else
         :!echo "Error: Unknown file extension." > output
     endif
