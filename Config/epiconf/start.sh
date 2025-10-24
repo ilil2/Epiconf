@@ -2,10 +2,11 @@
 
 file=~/afs/.confs/epiconf/config.ini
 file2=~/afs/.confs/epiconf/.config
+TMP_FLAG=/tmp/tmp_flag
 
 modif="no"
 
-if [[ $(diff "$file" "$file2") != "" ]]; then
+if [ "$(diff "$file" "$file2")" != "" ] || [ ! -f "$TMP_FLAG" ]; then
     modif="yes"
 fi
 

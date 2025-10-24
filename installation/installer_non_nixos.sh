@@ -12,6 +12,14 @@ while IFS= read -r line || [ -n "$line" ] ; do
 done < pkgs
 
 git clone $repo ~/.epiconf-repo
+if [ -n "$2" ]; then
+    here="$(pwd)"
+    echo "werwedf"
+    cd $config
+    git switch "$2"
+    cd $here
+fi
+
 if [ -f ~/.epiconf/config.ini ]; then
     cp ~/.epiconf/config.ini $config/epiconf/config.ini
 fi
@@ -39,8 +47,7 @@ while IFS= read -r line || [ -n "$line" ]; do
     getdir $line
 done < directories
 
-echo -e "exec 'picom ~/.config/picom/picom.conf'" >> ~/.config/i3/config.template
-echo -e "exec_always 'polybar --config=~/.config/polybar/config.ini'" >> ~/.config/i3/config.template
+echo -e "exec \"picom ~/.config/picom/picom.conf\"" >> ~/.config/i3/config.template
 
 rm ~/tmp_flag
 source ~/.bashrc

@@ -12,7 +12,7 @@ if [ -d ~/.local/bin ] ; then
 fi
 
 epiconf=~/afs/.confs/epiconf
-FLAG_FILE=~/tmp_flag
+FLAG_FILE=/tmp/tmp_flag
 
 source $epiconf/start.sh > /dev/null
 source ~/afs/.confs/config/ble/out/ble.sh
