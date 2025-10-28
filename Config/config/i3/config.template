@@ -212,7 +212,7 @@ exec_always "autotiling"
 
 exec "alacritty & firefox intra.forge.epita.fr"
 exec "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
-exec ~/afs/.confs/config/i3/start_service.sh
+exec --no-startup-id "sh -x ~/afs/.confs/config/i3/start_service.sh"
 
 default_border none
 gaps inner 7
