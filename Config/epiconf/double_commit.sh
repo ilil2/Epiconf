@@ -1,6 +1,10 @@
 #!/bin/sh
 
-if [ "$1" = "--link" ] || [ "$1" = "-l" ]; then
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+    echo "Use '$0 --link <master> <slave>' to link <master> with <slave>."
+    echo "Then use '$0 <message>' in <master> to push on both repo."
+    exit 0
+elif [ "$1" = "--link" ] || [ "$1" = "-l" ]; then
     if [ $# -ne 3 ]; then
         echo "Invalid arguments: have $0 $1 'master' 'slave'"
         exit 1
@@ -37,3 +41,4 @@ git commit -m "$1"
 git push
 
 echo "Done."
+exit 0
