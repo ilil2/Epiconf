@@ -1,8 +1,12 @@
 #!/bin/sh
 
+LINK_FILE=~/afs/.link
+
+# Manage flags
 if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
-    echo "Use '$0 --link <master> <slave>' to link <master> with <slave>."
-    echo "Then use '$0 <message>' in <master> to push on both repo."
+    echo "'$0 --link <master> <slave>' to link <master> with <slave>."
+    echo "'$0 <message>' in <master> to push on both repos."
+    echo "'$0 --delete' to unlink all repos."
     exit 0
 elif [ "$1" = "--link" ] || [ "$1" = "-l" ]; then
     if [ $# -ne 3 ]; then
@@ -15,10 +19,13 @@ elif [ "$1" = "--link" ] || [ "$1" = "-l" ]; then
     echo "$(pwd)/$2;$(pwd)/$3" >> ~/afs/.link
     echo "$2 and $3 successfully linked."
     exit 0
+elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
+    rm "$LINK_FILE"
+    exit 0
 fi
 
 # Get other repo
-line=$(grep -e "$(pwd);*" ~/afs/.link)
+line=$(grep -e "$(pwd);*" "$LINK_FILE")
 if [ "$line" = "" ]; then
     echo "Repo not linked."
     exit 1
