@@ -200,3 +200,7 @@ xfifo() {
 xfifo &> /dev/null & disown
 
 alias movie="\i3lock; ssh -o StrictHostKeyChecking=no watch.ascii.theater && pkill i3lock"
+
+if [ "$START_AT_AFS" = "enable" ]; then
+    cd ~/afs
+fi
