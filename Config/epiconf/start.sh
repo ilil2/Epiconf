@@ -103,4 +103,5 @@ fi
 
 if [ "$(test -s $config; echo $?)" == "1" ]; then
     cp $saveconf $config
+    i3-msg restart
 fi
