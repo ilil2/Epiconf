@@ -15,6 +15,7 @@ cp "$file" "$file2"
 template=~/afs/.confs/config/i3/config.template
 preconfig=~/afs/.confs/config/i3/preconfig
 config=~/afs/.confs/config/i3/config
+saveconf=~/afs/.confs/config/i3/config.bak
 
 if [[ "$modif" == "yes" ]]; then
     cp "$template" "$preconfig"
@@ -98,4 +99,8 @@ if [[ "$modif" == "yes" ]]; then
     i3-msg reload
     pkill polybar
     nohup polybar --config=~/afs/.confs/config/polybar/config.ini >/dev/null 2>&1 &
+fi
+
+if [ "$(test -s $config; echo $?)" == "1" ]; then
+    cp $saveconf $config
 fi
