@@ -14,6 +14,7 @@ document epiconf
         dlistPrint   : print double linked list
         llistPrint   : print linked list
         intlistPrint : print n first element of a int list
+        preload      : load arg as dynamic library (whithout '.so')
 end
 
 define dlistPrint
@@ -42,4 +43,8 @@ define intlistPrint
         print $arg0[$i]
         set var $i = $i-1
     end
+end
+
+define preload
+    set exec-wrapper env LD_PRELOAD=./$arg0.so
 end
