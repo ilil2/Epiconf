@@ -15,6 +15,7 @@ document epiconf
         llistPrint   : print linked list
         intlistPrint : print n first element of a int list
         preload      : load arg as dynamic library (whithout '.so')
+        libPath      : load dynamic library
 end
 
 define dlistPrint
@@ -47,4 +48,8 @@ end
 
 define preload
     set exec-wrapper env LD_PRELOAD=./$arg0.so
+end
+
+define libPath
+    set env LD_LIBRARY_PATH=.
 end
