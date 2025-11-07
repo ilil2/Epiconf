@@ -1,8 +1,8 @@
 #tui enable
 
-layout src
+#layout src
 
-focus cmd
+#focus cmd
 
 
 define epiconf
