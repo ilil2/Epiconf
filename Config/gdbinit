@@ -4,6 +4,7 @@
 
 #focus cmd
 
+set debuginfod enabled on
 
 define epiconf
     help epiconf
