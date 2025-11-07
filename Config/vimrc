@@ -119,6 +119,15 @@ set ts=4 sw=4
 ":inoremap <C-F2> <Esc>:NERDTreeClose<CR>i
 ":nnoremap <C-F2> :NERDTreeClose<CR>i
 
+" Compile c files from vim
+" (adding i at the end of inoremap breaks it)
+:nnoremap <F5> :call CompileRunGcc()<CR>
+:inoremap <F5> <Esc>:call CompileRunGcc()<CR>
+func! CompileRunGcc()
+  exec "w"
+  :w !gcc *.c&&./a.out&&rm a.out
+endfunc
+
 " Highlight
 
 :highlight Search cterm=bold ctermfg=lightblue ctermbg=NONE
