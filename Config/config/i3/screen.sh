@@ -13,5 +13,9 @@ done
 
 FILE="$DIR/$BASE$NUM$EXT"
 
-import -window root $FILE
-import -window clipboard:
+if [ "$1" == "fullscreen" ]; then
+    import -window root $FILE
+    import -window clipboard:
+else
+    import $FILE
+fi
