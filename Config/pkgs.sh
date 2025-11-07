@@ -40,7 +40,7 @@ pkill polybar
 config=~/afs/.confs/config
 
 picom --config $config/picom/picom.conf &
-polybar --config=$config/polybar/config.ini example &
+polybar --config=$config/polybar/config.ini $POLYBAR_NAME &
 autotiling
 
 ~/.xinitrc
