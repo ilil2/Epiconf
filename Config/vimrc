@@ -123,9 +123,16 @@ set ts=4 sw=4
 " (adding i at the end of inoremap breaks it)
 :nnoremap <F5> :call CompileRunGcc()<CR>
 :inoremap <F5> <Esc>:call CompileRunGcc()<CR>
+
 func! CompileRunGcc()
   exec "w"
-  :w !gcc *.c&&./a.out&&rm a.out
+  if &filetype ==# 'c'
+    let args = input("Enter argument values: ","")
+    let cmd = "gcc *.c && ( ./a.out " . args . "; echo output: $?; rm a.out )"
+  else
+    let cmd = "echo File extention not supported"
+  endif
+  exec ":w !" . cmd
 endfunc
 
 " Highlight
