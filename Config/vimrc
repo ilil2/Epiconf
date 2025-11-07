@@ -103,6 +103,8 @@ set ts=4 sw=4
 	:inoremap @if if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
 	:inoremap @elif else if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
 	:inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
+	:inoremap @switch switch()<CR><BS>{<CR><BS>default:<CR>break;<CR><BS>}<Up><Up><Up><Up><Right><Right><Right><Right><Right><Right>
+	:inoremap @case case :<CR>break;<Up><Left>
 	:inoremap @marg int main(int argc, char *argv[])<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
 	:inoremap @main int main(void)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
 	:inoremap @std #include <stddef.h><CR>#include <stdio.h><CR>#include <stdlib.h><CR><CR>
