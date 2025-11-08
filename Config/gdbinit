@@ -17,6 +17,7 @@ document epiconf
         intlistPrint : print n first element of a int list
         preload      : load arg as dynamic library (whithout '.so')
         libPath      : load dynamic library
+        short        : hide most unused part of dashboard
 end
 
 define dlistPrint
@@ -53,6 +54,11 @@ end
 
 define libPath
     set env LD_LIBRARY_PATH=.
+end
+
+define short
+    dashboard assembly
+    dashboard registers
 end
 
 # ============ PYTHON ==========
