@@ -212,7 +212,7 @@ bindsym Ctrl+Mod1+r exec "source ~/afs/.confs/epiconf/start.sh"
 exec_always "autotiling"
 
 exec "alacritty & firefox intra.forge.epita.fr"
-exec "source ~/afs/.confs/epiconf/start.sh; ~/afs/.confs/pkgs.sh"
+exec "sh ~/afs/.confs/pkgs.sh"
 exec --no-startup-id "sh -x ~/afs/.confs/config/i3/start_service.sh"
 
 exec "setxkbmap __START_KB__"

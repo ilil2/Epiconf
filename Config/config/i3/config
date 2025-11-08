@@ -209,6 +209,6 @@ bindsym Ctrl+Mod1+r exec "source ~/afs/.confs/epiconf/start.sh"
 bindsym Ctrl+Mod1+Shift+r exec "reset-conf"
 
 exec_always "alacritty & firefox intra.forge.epita.fr"
-exec_always "~/afs/.confs/pkgs.sh"
+exec_always "sh ~/afs/.confs/pkgs.sh"
 exec_always "while true; do feh --randomize --bg-fill ~/afs/.confs/config/wallpapers; sleep 300; done;"
 exec_always "while (true); do if [ '$(nix-shell -p xprintidle --command xprintidle)' -ge $inactivity_time ]; then chmod +x ~/afs/.confs/config/i3/i3lock.sh; ~/afs/.confs/config/i3/i3lock.sh; fi; done;"
