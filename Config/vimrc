@@ -64,7 +64,7 @@ set ts=4 sw=4
 :nnoremap <C-f> :ClangFormat<CR>
 :nnoremap <C-y> :redo<CR>
 
-:if $IMASHIT == "enable"
+:if $IMASHIT == "disable"
 	:nnoremap <C-z> :u<CR>
 	:nnoremap <C-r> :sus<CR>
 :endif
@@ -121,14 +121,22 @@ set ts=4 sw=4
 
 " Compile c files from vim
 " (adding i at the end of inoremap breaks it)
-:nnoremap <F5> :call CompileRunGcc()<CR>
-:inoremap <F5> <Esc>:call CompileRunGcc()<CR>
+:nnoremap <F5> :call CompileRun(0)<CR>
+:inoremap <F5> <Esc>:call CompileRun(0)<CR>
+:nnoremap <F6> :call CompileRun(1)<CR>
+:inoremap <F6> <Esc>:call CompileRun(1)<CR>
 
-func! CompileRunGcc()
+func! CompileRun(get_args)
   exec "w"
-  if &filetype ==# 'c'
+  if a:get_args == 1
     let args = input("Enter argument values: ","")
+  else
+    let args = ""
+  endif
+  if &filetype ==# 'c'
     let cmd = "gcc *.c && ( ./a.out " . args . "; echo output: $?; rm a.out )"
+  elseif &filetype ==# "sh"
+    let cmd = "sh -- % " . args
   else
     let cmd = "echo File extention not supported"
   endif
