@@ -126,6 +126,7 @@ set ts=4 sw=4
 :nnoremap <F6> :call CompileRun(1)<CR>
 :inoremap <F6> <Esc>:call CompileRun(1)<CR>
 
+" Compatible with C, Java, Python, Shell
 func! CompileRun(get_args)
   exec "w"
   if a:get_args == 1
@@ -133,10 +134,14 @@ func! CompileRun(get_args)
   else
     let args = ""
   endif
-  if &filetype ==# 'c'
+  if &filetype ==# "c"
     let cmd = "gcc *.c && ( ./a.out " . args . "; echo output: $?; rm a.out )"
+  elseif &filetype ==# "java"
+    let cmd = "javac *.java && (java Main; rm *.class)"
   elseif &filetype ==# "sh"
     let cmd = "sh -- % " . args
+  elseif &filetype ==# "python"
+    let cmd = "python3 %"
   else
     let cmd = "echo File extention not supported"
   endif
