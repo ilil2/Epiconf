@@ -77,11 +77,10 @@ set ts=4 sw=4
 :inoremap <C-y> <Esc>:redo<CR>i
 :inoremap <C-r> <Esc>:sus<CR>
 
-:vnoremap <C-c> y
-:vnoremap <C-v> p
+:vnoremap <C-c> "+y
+:vnoremap <C-v> "+p
 :vnoremap <BS> d
-:inoremap <C-v> <Esc>vp<Esc>i
-:vnoremap cc "+y
+:inoremap <C-v> <Esc>v"+p<Esc>i
 
 :nnoremap < gT
 :nnoremap > gt
