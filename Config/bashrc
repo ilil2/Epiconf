@@ -23,6 +23,8 @@ export NNTPSERVER="news.epita.fr"
 export EDITOR=vim
 #export EDITOR=emacs
 
+export BAT_THEME="Visual Studio Dark+"
+
 # Color support for less
 #export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 #export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
@@ -204,3 +206,6 @@ alias movie="\i3lock; ssh -o StrictHostKeyChecking=no watch.ascii.theater && pki
 if [ "$START_AT_AFS" = "enable" ]; then
     cd ~/afs
 fi
+
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat --paging=always -p -lman --theme=Coldark-Dark'"
+alias cat='bat --paging=never --style=plain'

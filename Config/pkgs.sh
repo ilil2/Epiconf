@@ -8,6 +8,7 @@ nix-collect-garbage -d
 # Priority package
 nix-env -iA nixpkgs.rofi
 nix-env -iA nixpkgs.rofi-power-menu
+nix-env -iA nixpkgs.bat
 
 # Package installation
 nix-env -iA nixpkgs.picom
