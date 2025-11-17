@@ -12,12 +12,12 @@ end
 
 document epiconf
     list of command:
-        dlistPrint   : print double linked list
-        llistPrint   : print linked list
-        intlistPrint : print n first element of a int list
-        preload      : load arg as dynamic library (whithout '.so')
-        libPath      : load dynamic library
-        short        : hide most unused part of dashboard
+        dlistPrint       : print double linked list
+        llistPrint       : print linked list
+        intlistPrint     : print n first element of a int list
+        preload          : load arg as dynamic library (whithout '.so')
+        libPath          : load dynamic library
+        toggle-dashboard : hide or show most unused part of dashboard
 end
 
 define dlistPrint
@@ -56,9 +56,14 @@ define libPath
     set env LD_LIBRARY_PATH=.
 end
 
-define short
+define toggle-dashboard
     dashboard assembly
     dashboard registers
+    dashboard expression
+    dashboard history
+    dashboard memory
+    dashboard stack
+    dashboard thread
 end
 
 # ============ PYTHON ==========
@@ -2452,3 +2457,5 @@ python import sys; sys.modules['readline'] = None
 # Local Variables:
 # mode: python
 # End:
+
+toggle-dashboard
