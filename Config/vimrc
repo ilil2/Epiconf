@@ -64,7 +64,7 @@ set ts=4 sw=4
 :nnoremap <C-f> :ClangFormat<CR>
 :nnoremap <C-y> :redo<CR>
 
-:if $IMASHIT == "disable"
+:if $IMASHIT != "enable"
 	:nnoremap <C-z> :u<CR>
 	:nnoremap <C-r> :sus<CR>
 :endif
@@ -79,6 +79,7 @@ set ts=4 sw=4
 
 :vnoremap <C-c> "+y
 :vnoremap <C-v> "+p
+:vnoremap <C-x> "+d
 :vnoremap <BS> d
 :inoremap <C-v> <Esc>v"+p<Esc>i
 
