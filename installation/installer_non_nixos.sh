@@ -7,7 +7,7 @@ config=~/.epiconf-repo/Config
 source ./"$os".sh
 
 while IFS= read -r line || [ -n "$line" ] ; do
-    #$command $line
+    command $line
     sleep 0.01
 done < pkgs
 
