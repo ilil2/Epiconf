@@ -45,7 +45,7 @@ git_branch() {
 	fi
 }
 
-PS1='\[\e[1;32m\]┌──(\[\e[1;34m\]\u@\h\[\e[1;32m\])-[\[\e[1;37m\]\W\[\e[1;32m\]] $(git_branch)\n\[\e[1;32m\]└─\[\e[00m\]\$ '
+source ~/afs/.confs/bash/ps1.sh
 
 #Make .gitignore
 alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.user\">.gitignore"
@@ -211,3 +211,5 @@ export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08
 alias cat='bat --paging=never --style=plain'
 alias rm='rip'
 alias mr='rip -u'
+
+bind -x '"\C-l":clear'
