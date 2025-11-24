@@ -136,32 +136,8 @@ set ts=4 sw=4
 
 " Compile c files from vim
 " (adding i at the end of inoremap breaks it)
-:nnoremap <F5> :call CompileRun(0)<CR>
-:inoremap <F5> <Esc>:call CompileRun(0)<CR>
-:nnoremap <F6> :call CompileRun(1)<CR>
-:inoremap <F6> <Esc>:call CompileRun(1)<CR>
-
-" Compatible with C, Java, Python, Shell
-func! CompileRun(get_args)
-  exec "w"
-  if a:get_args == 1
-    let args = input("Enter argument values: ","")
-  else
-    let args = ""
-  endif
-  if &filetype ==# "c"
-    let cmd = "gcc *.c && ( ./a.out " . args . "; echo output: $?; rm a.out )"
-  elseif &filetype ==# "java"
-    let cmd = "javac *.java && (java Main; rm *.class)"
-  elseif &filetype ==# "sh"
-    let cmd = "sh -- % " . args
-  elseif &filetype ==# "python"
-    let cmd = "python3 %"
-  else
-    let cmd = "echo File extention not supported"
-  endif
-  exec ":w !" . cmd
-endfunc
+:nnoremap <F5> :w !~/afs/.confs/epiconf/vimgcc.sh<CR>
+:inoremap <F5> <Esc>:w !~/afs/.confs/epiconf/vimgcc.sh<CR>
 
 " Highlight
 
