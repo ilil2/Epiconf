@@ -5,7 +5,7 @@ TMP_FLAG=/tmp/tmp_flag
 
 modif="no"
 
-if [ ! -f "$TMP_FLAG" ]; then
+if [ ! -f "$TMP_FLAG" ] && [ "$1" == "update" ]; then
     modif="yes"
 fi
 
