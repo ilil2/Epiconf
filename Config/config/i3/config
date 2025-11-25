@@ -211,7 +211,7 @@ bindsym Ctrl+Mod1+r exec "rm /tmp/tmp_flag; sh ~/afs/.confs/epiconf/start.sh; to
 
 exec_always "autotiling"
 
-exec --no-startup-id "sh ~/afs/.confs/config/i3/start-nix.sh; sh ~/afs/.confs/config/i3/start_service.sh"
+exec --no-startup-id "alacritty -e 'clear; sh ~/afs/.confs/config/i3/start-nix.sh; sleep 1'; sleep 1; sh ~/afs/.confs/config/i3/start_service.sh"
 
 default_border none
 gaps inner 7
