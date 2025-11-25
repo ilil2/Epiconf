@@ -1,6 +1,13 @@
 #!/bin/sh
 
+# Start process
+alacritty & firefox intra.forge.epita.fr
+
 config=~/afs/.confs/epiconf/config.ini
+
+# Set config keyboard
+setxkbmap $(cat $config | grep 'START_KB' | cut -d';' -f1 | xargs | cut -d '=' -f2)
+setxkbmap -option caps:$(cat $config | grep 'CAPS_TO' | cut -d';' -f1 | xargs | cut -d '=' -f2)
 
 # Wallpaper loop
 while true; do
