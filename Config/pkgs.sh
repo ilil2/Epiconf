@@ -27,9 +27,9 @@ nix-env -iA nixpkgs.autotiling > /dev/null 2>&1
 
 # Music installation
 if [ "$MUSIC_LOADER" == "enable" ]; then
-    echo "Installing music packages"
-    nix-env -iA nixpkgs.spotify > /dev/null 2>&1
-    nix-env -iA nixpkgs.deezer-enhanced > /dev/null 2>&1
+    echo "Installing Music packages"
+    nix-env -iA nixpkgs.spotify
+    nix-env -iA nixpkgs.deezer-enhanced
 fi
 
 # Git-repositories installation
