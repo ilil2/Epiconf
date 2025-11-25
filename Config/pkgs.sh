@@ -52,7 +52,7 @@ config=~/afs/.confs/config
 
 picom --config $config/picom/picom.conf > /dev/null 2>&1 &
 polybar --config=$config/polybar/config.ini $POLYBAR_NAME > /dev/null 2>&1 &
-autotiling > /dev/null 2>&1
+autotiling & > /dev/null 2>&1
 
 ~/.xinitrc > /dev/null 2>&1
 sleep 0.5
