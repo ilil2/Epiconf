@@ -50,10 +50,10 @@ pkill polybar > /dev/null 2>&1
 echo "Setup config packages"
 config=~/afs/.confs/config
 
-picom --config $config/picom/picom.conf > /dev/null 2>&1 &
-polybar --config=$config/polybar/config.ini $POLYBAR_NAME > /dev/null 2>&1 &
-autotiling & > /dev/null 2>&1
+picom --config $config/picom/picom.conf > /dev/null 2>&1 & disown
+polybar --config=$config/polybar/config.ini $POLYBAR_NAME > /dev/null 2>&1 & disown
+autotiling > /dev/null 2>&1 & disown
 
 ~/.xinitrc > /dev/null 2>&1
-sleep 0.5
+sleep 0.5 
 echo "Epiconf is setup" > /tmp/xnotify.fifo
