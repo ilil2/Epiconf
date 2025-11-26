@@ -207,11 +207,11 @@ bindsym $mod+Shift+F exec "firefox"
 bindsym $mod+m exec $music
 bindsym Mod1+F4 exec "sh -x ~/afs/.confs/config/i3/screen.sh fullscreen"
 bindsym Mod1+Shift+F4 exec "sh -x ~/afs/.confs/config/i3/screen.sh screen"
-bindsym Ctrl+Mod1+r exec "rm /tmp/tmp_flag; sh ~/afs/.confs/epiconf/start.sh; touch /tmp/tmp_flag"
+bindsym Ctrl+Mod1+r exec "rm /tmp/tmp_flag; sh ~/afs/.confs/epiconf/start.sh update; touch /tmp/tmp_flag"
 
 exec_always "autotiling"
 
-exec --no-startup-id "feh --bg-fill ~/afs/.confs/config/wallpapers/*; alacritty -e sh -c 'clear; sh ~/afs/.confs/config/i3/start-nix.sh; sleep 1'; sh ~/afs/.confs/pkgs.sh setup; sleep 1; sh ~/afs/.confs/config/i3/start_service.sh"
+exec --no-startup-id "feh --bg-fill ~/afs/.confs/config/wallpapers/*; alacritty -e sh -c 'clear; sh ~/afs/.confs/config/i3/start-nix.sh; sleep 1'; sleep 1; sh ~/afs/.confs/config/i3/start_service.sh"
 
 default_border none
 gaps inner 7
