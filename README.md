@@ -59,6 +59,7 @@ You can change the main settings of the config in ````.confs/epiconf/config.ini`
 * `MOD` → Keycaps for I3 (Mod4 = Win, Mod1 = Alt)
 * `EPICONF_ASCII` → Write EPICONF in the top of shell
 * `INACTIVITY_TIME` → Time before auto i3lock (in second)
+* `START_AT_AFS` → Start all your shells in ~/afs
 
 ### Wallpaper
 
@@ -73,6 +74,10 @@ You can change the main settings of the config in ````.confs/epiconf/config.ini`
 * `MUSIC_LOADER` → Install Spotify and Deezer
 * `MUSIC` → Main music app (spotify, deezer)
 
+### Polybar
+
+* `POLYBAR_NAME` → Change your polybar
+
 ### Polybar Left
 
 * `xworkspaces` → Show active and used workspaces
@@ -83,6 +88,19 @@ You can change the main settings of the config in ````.confs/epiconf/config.ini`
 * `memory` → Show the RAM utilisation
 * `cpu` → Show the CPU utilisation
 * `date` → Show the date and hour
+
+### Vim
+
+* `MOUSE` → Add mouse in vim
+* `INSERT_AT_START` → Insert mode activate at start
+* `CLOSE_BRACKET` → Auto close brackets, quotes, ...
+* `SNIPPETS` → Activate snippets with @ in insert mode
+* `VSCODE` → Ctrl+Z do an undo and Ctrl+u do a `bg`
+
+### Keyboard
+
+* `START_KB` → Change your layout at start
+* `CAPS_TO` → If you want to remap caps lock (for example `escape`)
 
 ## 🖥️ i3 Configuration
 
@@ -103,6 +121,8 @@ Our custom i3 setup includes **autostart programs** and **useful keybindings**.
 * `Win + i` → Lock screen (i3lock)
 * `Ctrl + Shift + L` → Matrix i3lock
 * `Alt + Tab` → Switch workspace
+* `Win + Shift + D` → Show active windows
+* `Ctrl + Alt + r` → Reload Epiconf config
 
 ---
 
@@ -118,6 +138,7 @@ We have enhanced Vim with useful plugins and shortcuts.
 * [`completor`](https://github.com/maralla/completor.vim) → Auto completor
 * [`indentline`](https://github.com/Yggdroot/indentLine) → Indentation mark
 * [`vim-move`](github.com/matze/vim-move) → For move lines with good indentation
+* [`vim-clang-format`](https://github.com/rhysd/vim-clang-format) → Auto clang format when save
 
 ### Shortcuts
 
@@ -130,6 +151,10 @@ We have enhanced Vim with useful plugins and shortcuts.
 * `Ctrl + v` → Paste (in visual mode)
 * `Ctrl + t` → Toggle file tree
 * `Ctrl + f` → Clang-format file
+* `Shift + +` → Add new tabe (in normal mode)
+* `Shift + >` → Go to right tabe (in normal mode)
+* `Shift + <` → Go to left tabe (in normal mode)
+* `F-5` → Exectute `vim` rule in the Makefile
 * Type `{ ( [ " '` → Auto-pair brackets/quotes
 * Snippets:
   - `@for` → `for` syntax
@@ -145,6 +170,7 @@ We have enhanced Vim with useful plugins and shortcuts.
   - `@pd` → `printf` syntax
   - `@struct` → `struct` syntax
   - `@dbp` → `main` with `printf`
+  - `@com` → Add a pretty commentary
 
 ---
 
@@ -178,6 +204,8 @@ A new **top taskbar** displays:
 * Inactive windows are slightly transparent
 * Rounded corners
 * Smooth desktop switching animations
+* Add new dmenu (rofi)
+* Add autotiling
 
 ---
 
@@ -187,6 +215,7 @@ New features :
 
 * Cursor become a bar
 * Add auto completion
+* Colored `cat` and `man`
 
 Our shell prompt is inspired by Kali Linux and shows:
 
@@ -202,6 +231,7 @@ Our shell prompt is inspired by Kali Linux and shows:
 * `mkarchi` → Run all the above at once
 * `lunar` → Play Minecraft
 * `osu` → Play OSU
+* `doom` → Play DOOM
 * `nix-clear` → Remove orphaned libraries
 * `bluetooth` → Start Bluetooth manager
 * `cdclone` → Clone a git repository and go inside
@@ -212,6 +242,12 @@ Our shell prompt is inspired by Kali Linux and shows:
 * `carchi` → Create a directory, a .c and a .h
 * `lc` → Make a gcover
 * `config` → Show the config file
+* `gcw` → Run `gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla`
+* `mksh` → Create a bash chmod bash script with shebang
+* `rm` → Remove your file with -rf
+* `mr` → Undo removed files
+* `dbcommit` → Commit on 2 repository
+* `movie` → Start movie theater
 
 > Access to `.confs` is password protected for extra security.
 
