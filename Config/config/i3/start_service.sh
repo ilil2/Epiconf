@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Start process
-alacritty & firefox intra.forge.epita.fr
+alacritty & firefox intra.forge.epita.fr &
 
 config=~/afs/.confs/epiconf/config.ini
 
