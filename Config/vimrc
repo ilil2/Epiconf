@@ -64,7 +64,7 @@ set ts=4 sw=4
 :nnoremap <C-f> :ClangFormat<CR>
 :nnoremap <C-y> :redo<CR>
 
-:if $IMASHIT != "enable"
+:if $VSCODE == "enable"
 	:nnoremap <C-z> :u<CR>
 	:nnoremap <C-r> :sus<CR>
 :endif
