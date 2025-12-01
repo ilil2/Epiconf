@@ -197,6 +197,11 @@ let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 1
 let g:clang_format#enable_fallback_style = 0
 
+" Tab Completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
 " default vimrc
 
 " Misc
