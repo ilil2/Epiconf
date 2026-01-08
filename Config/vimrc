@@ -113,7 +113,7 @@ set ts=4 sw=4
 	:inoremap @dbp #include <stdio.h><CR>int main(void)<CR><BS>{<CR>printf("%\n",);<CR>return 0;<CR>}<Up><Up><Right><C-Right><Right><Right><Right>
     :inoremap --- ->
     :inoremap @com <Esc>:call Com()<CR><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
-
+    :inoremap @fcom /**<CR>@brief <CR><CR>@param <CR><CR>@return <CR>/<Up><Up><Up><Up><Up><Right><Right><Right><Right><Right><Right><Right>
 
     func! Com()
         if &filetype ==# "c"
