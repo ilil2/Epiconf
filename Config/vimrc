@@ -20,7 +20,6 @@ Plugin 'matze/vim-move'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'blp1526/eighty.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
