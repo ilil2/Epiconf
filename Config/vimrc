@@ -18,6 +18,8 @@ Plugin 'maralla/completor.vim'
 Plugin 'yggdroot/indentline'
 Plugin 'matze/vim-move'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -201,6 +203,12 @@ let g:clang_format#enable_fallback_style = 0
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+" Snippets completion
+let g:UltiSnipsExpandTrigger="<CR>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsEditSplit="vertical
 
 " Go to function def
 :nnoremap <C-d> :call completor#do('definition')<CR>
