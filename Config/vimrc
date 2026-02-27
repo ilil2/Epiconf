@@ -15,11 +15,16 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'preservim/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'maralla/completor.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'yggdroot/indentline'
 Plugin 'matze/vim-move'
 Plugin 'rhysd/vim-clang-format'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plugin 'johngrib/vim-game-snake'
+Plugin 'rbtnn/game_engine.vim'
+Plugin 'rbtnn/mario.vim'
+Plugin 'ilyachur/cmake4vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,7 +43,6 @@ autocmd Filetype make setlocal noexpandtab
 
 set list listchars=tab:»·,trail:·
 
-
 " per .git vim configs
 " just `git config vim.settings "expandtab sw=4 sts=4"` in a git repository
 " change syntax settings for this repository
@@ -46,7 +50,6 @@ let git_settings = system("git config --get vim.settings")
 if strlen(git_settings)
 	exe "set" git_settings
 endif
-
 
 " My config
 
@@ -117,6 +120,8 @@ set ts=4 sw=4
     :inoremap @com <Esc>:call Com()<CR><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
     :inoremap @fcom /**<CR>@brief <CR><CR>@param <CR><CR>@return <CR>/<Up><Up><Up><Up><Up><Right><Right><Right><Right><Right><Right><Right>
 
+    :inoremap @prag #pragma once<CR><CR>
+
     func! Com()
         if &filetype ==# "c"
             :normal i//
@@ -181,7 +186,12 @@ let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 1
 
 let g:syntastic_c_config_file='~/afs/.confs/vim/.syntastic_c_config_file'
+let g:syntastic_cpp_config_file='~/afs/.confs/vim/.syntastic_cpp_config_file'
 
+let g:syntastic_c_checkers = ['gcc', 'clang_check']
+let g:syntastic_cpp_checkers = ['gcc', 'clang_check']
+
+" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
@@ -195,28 +205,40 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
+" clang format
 let g:clang_format#detect_style_file = 1
 let g:clang_format#enable_fallback_style = 0
 if &filetype ==# "c" || &filetype ==# "cpp"
     let g:clang_format#auto_format = 1
 endif
 
-" Tab Completion
+" C++ lsp
+if &filetype ==# "cpp"
+    let g:completor_clang_binary = 'clang++'
+endif
+
+" tab completion
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-" Snippets completion
 let g:UltiSnipsExpandTrigger="<CR>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsEditSplit="vertical
+let g:UltiSnipsEditSplit="vertical"
 
-" Go to function def
+" go to function def
 :nnoremap <C-d> :call completor#do('definition')<CR>
 :inoremap <C-d> <Esc>:call completor#do('definition')<CR>
 
-" default vimrc
+" CMake
+let g:cmake_build_dir = "build"
+
+:nnoremap <F9> :CMakeResetAndReload<CR>
+:nnoremap <F10> :CMakeSelectTarget 
+:nnoremap <F11> :CMakeBuild<CR> :CMakeRun<CR><CR>
+
+" Default vimrc
 
 " Misc
 filetype indent on
