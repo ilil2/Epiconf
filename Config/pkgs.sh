@@ -14,6 +14,7 @@ if [ "$1" != "setup" ]; then
     nix-env -iA nixpkgs.rofi-power-menu > /dev/null 2>&1
     nix-env -iA nixpkgs.rip2 > /dev/null 2>&1
     nix-env -iA nixpkgs.bat > /dev/null 2>&1
+    nix-env -iA nixpkgs.neovim > /dev/null 2>&1
 
     # Package installation
     echo "Installing Other packages"
