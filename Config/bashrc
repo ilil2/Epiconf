@@ -215,3 +215,5 @@ alias mr='rip -u'
 bind -x '"\C-l":clear'
 
 alias rickroll='curl -sN http://rick.jachan.dev | bash'
+
+alias vim='nvim'
