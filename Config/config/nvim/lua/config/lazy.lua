@@ -1,24 +1,34 @@
--- Define lazy.nvim installation path
+-- Set up and install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
--- Clone lazy.nvim if not installed
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",
-        lazypath,
-    })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
-
--- Add lazy.nvim to runtime path
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim and load plugins
-require("lazy").setup({
-    spec = {
-        { import = "plugins" },
-    },
+-- Configurate lazy.nvim and import `plugins` repository
+require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp"} }, {
+  -- automatically check plugin updates without notifying
+  -- lualine will deal with displaying an icon
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+
+  -- theme used for plugin installation
+  install = { colorscheme = { "tokyonight" } },
+  -- disable startup notification
+
+  change_detection = {
+    notify = false,
+  },
 })
