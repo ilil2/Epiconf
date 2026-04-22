@@ -12,7 +12,7 @@ defaults:
     shell: sh
     working-directory: ./
 jobs:
-  send:
+  i3:
     name: Check i3
     runs-on: ubuntu-latest
     steps:
@@ -22,8 +22,7 @@ jobs:
           node-version: '20'
       - run: sudo apt install i3
       - run: i3 -c Config/config/i3/config -C
-jobs:
-  send:
+  nvim:
     name: Check nvim
     runs-on: ubuntu-latest
     steps:
@@ -33,8 +32,7 @@ jobs:
           node-version: '20'
       - run: sudo apt install nvim
       - run: [ -z "$(nvim -u Config/config/nvim/init.lua --headless "+q" 2>&1)" ]
-jobs:
-  send:
+  bashrc:
     name: Check bashrc
     runs-on: ubuntu-latest
     steps:
