@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: sudo apt install lua
+      - run: sudo apt install lua5.4
       - run: 'output="$(find Config/config/nvim -name "*.lua" -exec luac -p {} \; 2>&1)" && [ -z "$output" ] || (echo $output; exit 1)'
   bashrc:
     name: Check bashrc
