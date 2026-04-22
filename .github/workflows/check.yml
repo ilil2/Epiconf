@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - 'main'
+      - 'dev'
   push:
     tags:
       - 'check-*/*-*'
@@ -30,8 +31,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: sudo apt install neovim
-      - run: 'nvim -u Config/config/nvim/init.lua --headless --cmd "set rtp+=Config/config/nvim" "+q" >/dev/null 2>/tmp/stderr && [ -z "$(cat /tmp/stderr)" ] || (cat /tmp/stderr; exit 1)'
+      - run: 'output="$(find Config/config/nvim -name "*.lua" -exec luac -p {} \; 2>&1)" && [ -z "$output" ] || (echo $output; exit 1)'
   bashrc:
     name: Check bashrc
     runs-on: ubuntu-latest
