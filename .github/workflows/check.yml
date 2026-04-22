@@ -1,0 +1,44 @@
+name: make
+run-name: Check config
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'dev'
+  push:
+    tags:
+      - 'check-*/*-*'
+defaults:
+  run:
+    shell: sh
+    working-directory: ./
+jobs:
+  i3:
+    name: Check i3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: sudo apt install i3
+      - run: i3 -c Config/config/i3/config -C
+  nvim:
+    name: Check nvim
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: sudo apt install lua5.4
+      - run: 'output="$(find Config/config/nvim -name "*.lua" -exec luac -p {} \; 2>&1)" && [ -z "$output" ] || (echo $output; exit 1)'
+  bashrc:
+    name: Check bashrc
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: bash -xn Config/bashrc
