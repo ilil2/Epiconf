@@ -1,0 +1,45 @@
+name: make
+run-name: Check config
+on:
+  pull_request:
+    branches:
+      - 'main'
+  push:
+    tags:
+      - 'check-*/*-*'
+defaults:
+  run:
+    shell: sh
+    working-directory: ./
+jobs:
+  send:
+    name: Check i3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: sudo apt install i3
+      - run: i3 -c Config/config/i3/config -C
+jobs:
+  send:
+    name: Check nvim
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: sudo apt install nvim
+      - run: [ -z "$(nvim -u Config/config/nvim/init.lua --headless "+q" 2>&1)" ]
+jobs:
+  send:
+    name: Check bashrc
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: bash -xn Config/bashrc
