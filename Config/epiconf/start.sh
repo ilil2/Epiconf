@@ -9,8 +9,7 @@ if [ ! -f "$TMP_FLAG" ] && [ "$1" == "update" ]; then
     modif="yes"
 fi
 
-config=~/afs/.confs/config/i3/epiconf-vars.conf
-saveconf=~/afs/.confs/config/i3/config.bak
+config=~/afs/.confs/config/i3/config
 
 if [[ "$modif" == "yes" ]]; then
     cp "$template" "$preconfig"
@@ -72,7 +71,13 @@ while IFS= read -r line || [ -n "$line" ]; do
         fi
 
         if [[ "$modif" == "yes" ]]; then
-            sed -i "s|__$key\__|$value|g" "$config"
+            if [ "$key" -eq "MOD" ]; then
+                sed -i "s/set \$mod .*\n/set \$mod $value\n/g" "$config"
+            fi
+            if [ "$key" -eq "MUSIC" ]; then
+                sed -i "s/bindsym $mod+m exec .*\n/bindsym $mod+m exec $value\n/g" "$config"
+            fi
+            # sed -i "s|__$key\__|$value|g" "$config"
         fi
 
         declare "$var=$value"
@@ -93,7 +98,4 @@ if [[ "$modif" == "yes" ]]; then
     polybar --config=~/afs/.confs/config/polybar/config.ini $POLYBAR_NAME >/dev/null 2>&1 & disown
 fi
 
-if [ "$(test -s $config; echo $?)" == "1" ]; then
-    cp $saveconf $config
-    i3-msg restart
-fi
+i3-msg restart
