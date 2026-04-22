@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: sudo apt install nvim
+      - run: sudo apt install neovim
       - run: '[ -z "$(nvim -u Config/config/nvim/init.lua --headless "+q" 2>&1)" ]'
   bashrc:
     name: Check bashrc
