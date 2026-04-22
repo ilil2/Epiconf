@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '20'
       - run: sudo apt install neovim
-      - run: 'cd Config/config/nvim && output="$(nvim -u init.lua --headless "+q" 2>&1)" && [ -z "$output" ] || (echo $output; exit 1)'
+      - run: 'output="$(nvim -u Config/config/nvim/init.lua --headless --cmd "set rtp+=Config/config/nvim" "+q" 2>&1)" && [ -z "$output" ] || (echo $output; exit 1)'
   bashrc:
     name: Check bashrc
     runs-on: ubuntu-latest
