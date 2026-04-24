@@ -47,8 +47,6 @@ git_branch() {
 
 find ~/afs/.confs/bash -name '*.sh' -exec source {} \;
 
-alias start-serv='ip=$(ifconfig | grep "inet" | grep 255.255.255.0 | cut -d "t" -f2 | cut -d "n" -f1); echo "$ip"'
-
 alias nix-clear='nix-collect-garbage -d'
 alias bluetooth='blueman-manager &'
 alias run-polybar='polybar $POLYBAR_NAME 2&> /dev/null & disown'
@@ -82,9 +80,6 @@ alias cfe='function _cfe() {
 	rm .clang-format
 	cd $here
 }; _cfe'
-
-alias rm="~/afs/.confs/epiconf/remove_to_bin.sh"
-alias dbcommit="~/afs/.confs/epiconf/double_commit.sh"
 
 alias lc='_lc() {
 mkdir -p coverage
