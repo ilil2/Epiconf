@@ -97,5 +97,3 @@ if [[ "$modif" == "yes" ]]; then
     pkill polybar
     polybar --config=~/afs/.confs/config/polybar/config.ini $POLYBAR_NAME >/dev/null 2>&1 & disown
 fi
-
-i3-msg restart
