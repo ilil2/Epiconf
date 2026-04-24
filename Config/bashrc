@@ -47,36 +47,11 @@ git_branch() {
 
 find ~/afs/.confs/bash -name '*.sh' -exec source {} \;
 
-#Make .gitignore
-alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.user\">.gitignore"
-
-#Make README and AUTHORS
-alias ath='function _ath() {
-        fn=$(whoami | cut -d. -f1 | sed "s/\(.\)/\U\1/")
-        ln=$(whoami | cut -d. -f2 | sed "s/\(.\)/\U\1/")
-        echo -e "$fn\n$ln\n$(whoami)\n$(whoami)@epita.fr">AUTHORS
-};
-_ath'
-alias rdm="echo -e Hello World!>README"
-alias mkarchi="rdm && ath && gtg"
-
 alias start-serv='ip=$(ifconfig | grep "inet" | grep 255.255.255.0 | cut -d "t" -f2 | cut -d "n" -f1); echo "$ip"'
-
-if [ "$GAMES" == "enable" ]; then
-	alias lunar='nix-shell -p lunar-client --command lunar-client'
-	alias osu='nix-shell -p osu-lazer-bin --command exit && /nix/store/*-osu-lazer-bin-*/bin/osu!'
-    alias doom='wget "http://doomfactory.free.fr/NoHotLink/Doom.rar" -O ~/.doom.rar && nix-shell -p unrar --command "unrar x ~/.doom.rar <<< Y" && mv ~/Doom.wad ~/.doom.wad && nix-shell -p doomretro --command "doomretro -iwad ~/.doom.wad"'
-fi
 
 alias nix-clear='nix-collect-garbage -d'
 alias bluetooth='blueman-manager &'
 alias run-polybar='polybar $POLYBAR_NAME 2&> /dev/null & disown'
-
-alias cdclone='function _cdclone() {
-			name=$(basename "$1" .git)
-			git clone "$1"
-			cd "$name"
-}; _cdclone'
 
 alias add='function _add() {
 		git add "$1"
@@ -88,77 +63,14 @@ alias push='function _push() {
 		git push		
 }; _push'
 
-alias epiconf='mdcat ~/afs/EPICONF_HELPER.md'
-alias update-conf='~/afs/.confs/epiconf/update-confs.sh'
-alias reset-conf='curl -L https://raw.githubusercontent.com/Darkrentin/default-nixos-config-epita/refs/heads/main/installer.sh | sh -s && cp ~/afs/.confs/config/i3/config ~/config.temp && rm ~/afs/.confs/config/i3/* && mv ~/config.temp ~/afs/.confs/config/i3/config && rm -r ~/afs/.confs/epiconf && rm ~/afs/EPICONF_HELPER.md && rm ~/afs/.confs/pkgs.sh && rm ~/afs/.confs/.user && i3-msg restart && pkill polybar && pkill picom'
-
-alias config='$EDITOR ~/afs/.confs/epiconf/config.ini'
-
 alias spotify='spotify 2&> /dev/null & disown'
 alias deezer='deezer-enhanced 2&> /dev/null & disown'
-
-if [ "$EPICONF_ASCII" == "enable" ] || [ ! -f "$FLAG_FILE" ]; then
-	echo ''
-	echo -e '\e[0;34m  /$$$$$$$$           /$$  /$$$$$$                       /$$$$$$ '
-	echo ' | $$_____/          |__/ /$$__  $$                     /$$__  $$'
-	echo ' | $$        /$$$$$$  /$$| $$  \__/  /$$$$$$  /$$$$$$$ | $$  \__/'
-	echo ' | $$$$$    /$$__  $$| $$| $$       /$$__  $$| $$__  $$| $$$$    '
-	echo ' | $$__/   | $$  \ $$| $$| $$      | $$  \ $$| $$  \ $$| $$_/    '
-	echo ' | $$      | $$  | $$| $$| $$    $$| $$  | $$| $$  | $$| $$      '
-	echo ' | $$$$$$$$| $$$$$$$/| $$|  $$$$$$/|  $$$$$$/| $$  | $$| $$      '
-	echo ' |________/| $$____/ |__/ \______/  \______/ |__/  |__/|__/      '
-	echo '           | $$                                                  '
-	echo '           | $$                                                  '
-	echo '           |__/                                                  '
-	echo ''
-	echo -e ' by \e]8;;https://github.com/Darkrentin\e\\\e[4mDarkrentin\e[0m\e]8;;\e\\\e[0;34m, \e]8;;https://github.com/ilil2\e\\\e[4milil2\e[0m\e]8;;\e\\\e[0;34m, \e]8;;https://github.com/Narth42\e\\\e[4mNarth42\e[0m\e]8;;\e\\\e[0;34m, \e]8;;https://github.com/Otto303\e\\\e[4mOtto303\e[0m\e]8;;\e\\'
-	echo ''
-fi
-
-if [ ! -f "$FLAG_FILE" ]; then
-	echo -e ' \033[31mWrite "epiconf" for config help\033[0m'
-	echo ''
-	touch $FLAG_FILE
-fi
 
 alias i3lock='function _i3lock() {
 			if [[ "$1" == "--debug" ]]; then
 				i3lock
 			fi
 		}; _i3lock'
-
-hash_sha256() {
-	local input="$1"
-	echo -n "$input" | sha256sum | cut -d' ' -f1
-}
-
-pwd_ask() {
-	sleep 0.5
-	read -sp "Password : " PASSWORD
-	HASH_PASSWORD=$(hash_sha256 "$PASSWORD")
-	SECURE_PASSWORD=$(cat ~/afs/.confs/.user)
-	if [[ "$HASH_PASSWORD" == "$SECURE_PASSWORD" ]]; then
-		echo 0
-	else
-		echo 1
-	fi
-}
-
-trap_cmds() {
-	if [ -f ~/afs/.confs/.user ]; then
-		if [[ "$BASH_COMMAND" =~ \.c(o(n(f(s)?)?)?)?\*? || "$BASH_COMMAND" == *tag* ]]; then
-			OUTPUT=$(pwd_ask)
-			if [[ "$OUTPUT" == "1" ]]; then
-				echo
-				trap_cmds
-			else
-				echo
-			fi
-		fi
-	fi
-}
-
-trap 'trap_cmds' DEBUG
 
 alias gcw="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla"
 alias cf="clang-format -i"
@@ -171,8 +83,6 @@ alias cfe='function _cfe() {
 	cd $here
 }; _cfe'
 
-alias carchi="~/afs/.confs/epiconf/archi_c.sh"
-alias mksh="~/afs/.confs/epiconf/mksh.sh"
 alias rm="~/afs/.confs/epiconf/remove_to_bin.sh"
 alias dbcommit="~/afs/.confs/epiconf/double_commit.sh"
 
