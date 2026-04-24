@@ -11,10 +11,6 @@ fi
 
 config=~/afs/.confs/config/i3/config
 
-if [[ "$modif" == "yes" ]]; then
-    cp "$template" "$preconfig"
-fi
-
 section=""
 polybar_left=""
 polybar_center=""
@@ -71,11 +67,11 @@ while IFS= read -r line || [ -n "$line" ]; do
         fi
 
         if [[ "$modif" == "yes" ]]; then
-            if [ "$key" -eq "MOD" ]; then
-                sed -i "s/set \$mod .*\n/set \$mod $value\n/g" "$config"
+            if [ "$var" = "MOD" ]; then
+                sed -i "s/set \$mod .*/set \$mod $value/g" "$config"
             fi
-            if [ "$key" -eq "MUSIC" ]; then
-                sed -i "s/bindsym $mod+m exec .*\n/bindsym $mod+m exec $value\n/g" "$config"
+            if [ "$var" = "MUSIC" ]; then
+                sed -i "s/bindsym \$mod+m exec .*/bindsym \$mod+m exec $value/g" "$config"
             fi
             # sed -i "s|__$key\__|$value|g" "$config"
         fi
