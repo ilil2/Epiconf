@@ -45,7 +45,9 @@ git_branch() {
 	fi
 }
 
-find ~/afs/.confs/bash -name '*.sh' -exec source {} \;
+for file in $(ls ~/afs/.confs/bash/*.sh); do
+    source $file
+done
 
 alias i3lock='function _i3lock() {
 			if [[ "$1" == "--debug" ]]; then
