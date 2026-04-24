@@ -12,4 +12,6 @@ alias cat='bat --paging=never --style=plain'
 alias rm='rip'
 alias mr='rip -u'
 
-alias vim='nvim'
+if [ "$NVIM" = "enable" ]; then
+    alias vim='nvim'
+fi
