@@ -47,49 +47,11 @@ git_branch() {
 
 find ~/afs/.confs/bash -name '*.sh' -exec source {} \;
 
-alias nix-clear='nix-collect-garbage -d'
-alias bluetooth='blueman-manager &'
-alias run-polybar='polybar $POLYBAR_NAME 2&> /dev/null & disown'
-
-alias add='function _add() {
-		git add "$1"
-		git status
-}; _add'
-
-alias push='function _push() {
-		git commit -m "$1"
-		git push		
-}; _push'
-
-alias spotify='spotify 2&> /dev/null & disown'
-alias deezer='deezer-enhanced 2&> /dev/null & disown'
-
 alias i3lock='function _i3lock() {
 			if [[ "$1" == "--debug" ]]; then
 				i3lock
 			fi
 		}; _i3lock'
-
-alias gcw="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla"
-alias cf="clang-format -i"
-alias cfe='function _cfe() {
-	here=$(pwd)
-	cd $(git rev-parse --show-toplevel)
-	cp ~/afs/.confs/epiconf/.clang-format ./
-	clang-format-epita
-	rm .clang-format
-	cd $here
-}; _cfe'
-
-alias lc='_lc() {
-mkdir -p coverage
-gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla $@ -fPIC -coverage -lgcov -lcriterion
-./a.out
-lcov --capture --directory ./ --output-file coverage.info --ignore-errors empty --ignore-errors inconsistent
-genhtml coverage.info --output-directory coverage
-rm *.gcno *.gcda coverage.info a.out
-firefox coverage/index.html
-}; _lc'
 
 xfifo() {
     fifo=~/.fifo
@@ -106,19 +68,4 @@ xfifo() {
 
 xfifo &> /dev/null & disown
 
-alias movie="\i3lock; ssh -o StrictHostKeyChecking=no watch.ascii.theater && pkill i3lock"
-
-if [ "$START_AT_AFS" = "enable" ]; then
-    cd ~/afs
-fi
-
-export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat --paging=always -p -lman --theme=Coldark-Dark'"
-alias cat='bat --paging=never --style=plain'
-alias rm='rip'
-alias mr='rip -u'
-
 bind -x '"\C-l":clear'
-
-alias rickroll='curl -sN http://rick.jachan.dev | bash'
-
-alias vim='nvim'
