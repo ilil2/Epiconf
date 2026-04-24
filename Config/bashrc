@@ -45,7 +45,7 @@ git_branch() {
 	fi
 }
 
-source ~/afs/.confs/bash/ps1.sh
+find ~/afs/.confs/bash -name '*.sh' -exec source {} \;
 
 #Make .gitignore
 alias gtg="echo -e \"*.a\n*.lib\n*.o\n*.obj\n*.out\n.idea/\n*~\n.DotSettings.user\">.gitignore"
