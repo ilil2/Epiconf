@@ -15,8 +15,16 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'preservim/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'maralla/completor.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'yggdroot/indentline'
 Plugin 'matze/vim-move'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'johngrib/vim-game-snake'
+Plugin 'rbtnn/game_engine.vim'
+Plugin 'rbtnn/mario.vim'
+Plugin 'ilyachur/cmake4vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -35,7 +43,6 @@ autocmd Filetype make setlocal noexpandtab
 
 set list listchars=tab:»·,trail:·
 
-
 " per .git vim configs
 " just `git config vim.settings "expandtab sw=4 sts=4"` in a git repository
 " change syntax settings for this repository
@@ -43,7 +50,6 @@ let git_settings = system("git config --get vim.settings")
 if strlen(git_settings)
 	exe "set" git_settings
 endif
-
 
 " My config
 
@@ -58,26 +64,33 @@ set ts=4 sw=4
 :endif
 
 :nnoremap <C-x> :wq<CR>
+:nnoremap <C-s> :w<CR>
 :nnoremap <C-q> :q!<CR>
+:nnoremap <C-f> :ClangFormat<CR>
+:nnoremap <C-y> :redo<CR>
+
+:if $VSCODE == "enable"
+	:nnoremap <C-z> :u<CR>
+	:nnoremap <C-r> :sus<CR>
+:endif
 
 :inoremap <C-x> <Esc>:wq<CR>
-:inoremap <C-z> <Esc>:u<CR>i
-:inoremap <C-y> <Esc>:redo<CR>i
 :inoremap <C-s> <Esc>:w<CR>i
 :inoremap <C-q> <Esc>:q!<CR>
+:inoremap <C-f> <Esc>:ClangFormat<CR>i
+:inoremap <C-z> <Esc>:u<CR>i
+:inoremap <C-y> <Esc>:redo<CR>i
+:inoremap <C-r> <Esc>:sus<CR>
 
-:vnoremap <C-c> y
-:vnoremap <C-v> p
+:vnoremap <C-c> "+y
+:vnoremap <C-v> "+p
+:vnoremap <C-x> "+d
 :vnoremap <BS> d
-:inoremap <C-v> <Esc>vp<Esc>i
-:vnoremap cc "+y
+:inoremap <C-v> <Esc>v"+p<Esc>i
 
 :nnoremap < gT
 :nnoremap > gt
 :nnoremap + :tabe<CR>
-
-:nnoremap <C-f> :w<Enter>:!clang-format -i % <Enter><Enter>
-:inoremap <C-f> <Esc>:w<Enter>:!clang-format -i %<Enter><Enter>i
 
 :if $CLOSE_BRACKET == "enable"
 	:inoremap { {}<Left>
@@ -95,19 +108,43 @@ set ts=4 sw=4
 	:inoremap @if if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up>
 	:inoremap @elif else if ()<CR><BS>{<CR><BS>}<Up><CR>a<BS><Up><Up><Right><Right><Right><Right><Right>
 	:inoremap @else else<CR><BS>{<CR><BS>}<Up><CR>a<BS>
+	:inoremap @switch switch()<CR><BS>{<CR><BS>default:<CR>break;<CR><BS>}<Up><Up><Up><Up><Right><Right><Right><Right><Right><Right>
+	:inoremap @case case :<CR>break;<Up><Left>
 	:inoremap @marg int main(int argc, char *argv[])<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
 	:inoremap @main int main(void)<CR><BS>{<CR><BS>}<Left><CR><Up><Tab>return 0;<Up><CR>
 	:inoremap @std #include <stddef.h><CR>#include <stdio.h><CR>#include <stdlib.h><CR><CR>
 	:inoremap @pf printf("\n");<Left><Left><Left><Left><Left>
 	:inoremap @struct struct <CR>{<CR>};<Up><Up><Right><Right><Right><Right><Right>
-	:inoremap @dbp #include <stdio.h><CR>int main(void)<CR><BS>{<CR>printf("%\n",);<CR>}<Up><Right><C-Right><Right><Right><Right>
+	:inoremap @dbp #include <stdio.h><CR>int main(void)<CR><BS>{<CR>printf("%\n",);<CR>return 0;<CR>}<Up><Up><Right><C-Right><Right><Right><Right>
     :inoremap --- ->
+    :inoremap @com <Esc>:call Com()<CR><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>i
+    :inoremap @fcom /**<CR>@brief <CR><CR>@param <CR><CR>@return <CR>/<Up><Up><Up><Up><Up><Right><Right><Right><Right><Right><Right><Right>
+
+    :inoremap @prag #pragma once<CR><CR>
+
+    func! Com()
+        if &filetype ==# "c"
+            :normal i//
+        elseif &filetype ==# "java"
+            :normal i//
+        elseif &filetype ==# "python"
+            :normal i#
+        elseif &filetype ==# "sh"
+            :normal i#
+        endif
+        :normal a ##########  ##########
+    endfunc
 :endif
 
 :inoremap <C-t> <Esc>:NERDTreeToggle<CR>i
 :nnoremap <C-t> :NERDTreeToggle<CR>
 ":inoremap <C-F2> <Esc>:NERDTreeClose<CR>i
 ":nnoremap <C-F2> :NERDTreeClose<CR>i
+
+" Compile c files from vim
+" (adding i at the end of inoremap breaks it)
+:nnoremap <F5> :w !~/afs/.confs/epiconf/vimgcc.sh<CR>
+:inoremap <F5> <Esc>:w !~/afs/.confs/epiconf/vimgcc.sh<CR>
 
 " Highlight
 
@@ -149,8 +186,59 @@ let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 1
 
 let g:syntastic_c_config_file='~/afs/.confs/vim/.syntastic_c_config_file'
+let g:syntastic_cpp_config_file='~/afs/.confs/vim/.syntastic_cpp_config_file'
 
-" default vimrc
+let g:syntastic_c_checkers = ['gcc', 'clang_check']
+let g:syntastic_cpp_checkers = ['gcc', 'clang_check']
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+" clang format
+let g:clang_format#detect_style_file = 1
+let g:clang_format#enable_fallback_style = 0
+if &filetype ==# "c" || &filetype ==# "cpp"
+    let g:clang_format#auto_format = 1
+endif
+
+" C++ lsp
+if &filetype ==# "cpp"
+    let g:completor_clang_binary = 'clang++'
+endif
+
+" tab completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+let g:UltiSnipsExpandTrigger="<CR>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsEditSplit="vertical"
+
+" go to function def
+:nnoremap <C-d> :call completor#do('definition')<CR>
+:inoremap <C-d> <Esc>:call completor#do('definition')<CR>
+
+" CMake
+let g:cmake_build_dir = "build"
+
+:nnoremap <F9> :CMakeResetAndReload<CR>
+:nnoremap <F10> :CMakeSelectTarget 
+:nnoremap <F11> :CMakeBuild<CR> :CMakeRun<CR><CR>
+
+" Default vimrc
 
 " Misc
 filetype indent on

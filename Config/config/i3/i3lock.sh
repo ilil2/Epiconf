@@ -1,7 +1,7 @@
 #!/bin/sh
 
 WORK=$(i3-msg -t get_workspaces | grep -o '"name":"[^"]*".*"focused":true' | rev |cut -d '"' -f 6 | rev)
-alacritty -e cmatrix & sleep 0.2
+alacritty -e sh -c "sleep 1; cmatrix -s" & sleep 0.4
 i3-msg move workspace number 10
 i3-msg workspace number 10
 i3-msg fullscreen toggle

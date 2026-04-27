@@ -26,6 +26,7 @@ cp README.md $config/../EPICONF_HELPER.md
 rm $password_file
 
 find $config -type f -name "*.sh" -exec chmod +x {} \;
+chmod +x ~/afs/.confs/config/rofi/rofi-power-menu
 
 read -p "Do you want a password for protect your config files? (y/[n])" WANTED
 

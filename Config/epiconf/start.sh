@@ -1,23 +1,15 @@
 #!/bin/sh
 
 file=~/afs/.confs/epiconf/config.ini
-file2=~/afs/.confs/epiconf/.config
+TMP_FLAG=/tmp/tmp_flag
 
 modif="no"
 
-if [[ $(diff "$file" "$file2") != "" ]]; then
+if [ ! -f "$TMP_FLAG" ] && [ "$1" == "update" ]; then
     modif="yes"
 fi
 
-cp "$file" "$file2"
-
-template=~/afs/.confs/config/i3/config.template
-preconfig=~/afs/.confs/config/i3/preconfig
 config=~/afs/.confs/config/i3/config
-
-if [[ "$modif" == "yes" ]]; then
-    cp "$template" "$preconfig"
-fi
 
 section=""
 polybar_left=""
@@ -75,8 +67,13 @@ while IFS= read -r line || [ -n "$line" ]; do
         fi
 
         if [[ "$modif" == "yes" ]]; then
-            sed "s|__$key\__|$value|g" "$preconfig" > "$preconfig.tmp"
-            mv "$preconfig.tmp" "$preconfig"
+            if [ "$var" = "MOD" ]; then
+                sed -i "s/set \$mod .*/set \$mod $value/g" "$config"
+            fi
+            if [ "$var" = "MUSIC" ]; then
+                sed -i "s/bindsym \$mod+m exec .*/bindsym \$mod+m exec $value/g" "$config"
+            fi
+            # sed -i "s|__$key\__|$value|g" "$config"
         fi
 
         declare "$var=$value"
@@ -92,9 +89,7 @@ export polybar_center
 export polybar_right
 
 if [[ "$modif" == "yes" ]]; then
-    mv "$preconfig" "$config"
-
     i3-msg reload
     pkill polybar
-    nohup polybar --config=~/afs/.confs/config/polybar/config.ini >/dev/null 2>&1 &
+    polybar --config=~/afs/.confs/config/polybar/config.ini $POLYBAR_NAME >/dev/null 2>&1 & disown
 fi

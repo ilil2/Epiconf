@@ -1,10 +1,11 @@
 
 [colors.primary]
 #foreground = "#000000"
-background = "#222222"
+background = "#191919"
 
 [window]
 decorations           = "None"
+padding               = { x = 4, y = 4 }
 
 [cursor.style]
 shape                 = "Beam"
