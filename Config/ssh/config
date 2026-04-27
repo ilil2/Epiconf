@@ -1,6 +1,0 @@
-AddKeysToAgent yes
-SendEnv EDITOR
-
-#Host git.assistants.epita.fr
-#	User git
-#	IdentityFile ~/.ssh/<your-ssh-private-key-here>
