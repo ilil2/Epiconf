@@ -80,6 +80,9 @@ while IFS= read -r line || [ -n "$line" ]; do
             if [ "$var" = "FADING" ]; then
                 sed -i "s/fading = .*;/fading = $value;/g" "$picom"
             fi
+            if [ "$var" = "INACTIVE_OPACITY" ]; then
+                sed -i "s/inactive-opacity = .*;/inactive-opacity = $value;/g" "$picom"
+            fi
             # sed -i "s|__$key\__|$value|g" "$config"
         fi
 
