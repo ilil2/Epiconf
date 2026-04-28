@@ -73,6 +73,9 @@ while IFS= read -r line || [ -n "$line" ]; do
             if [ "$var" = "MUSIC" ]; then
                 sed -i "s/bindsym \$mod+m exec .*/bindsym \$mod+m exec $value/g" "$config"
             fi
+            if [ "$var" = "INNER" ]; then
+                sed -i "s/gaps inner .*/gaps inner $value/g" "$config"
+            fi
             # sed -i "s|__$key\__|$value|g" "$config"
         fi
 
