@@ -83,7 +83,7 @@ while IFS= read -r line || [ -n "$line" ]; do
             if [ "$var" = "INACTIVE_OPACITY" ]; then
                 sed -i "s/inactive-opacity = .*;/inactive-opacity = $value;/g" "$picom"
             fi
-            if [ "$var" = "CORNER_RADIDUS" ]; then
+            if [ "$var" = "CORNER_RADIUS" ]; then
                 sed -i "s/corner-radius = .*;/corner-radius = $value;/g" "$picom"
             fi
             if [ "$var" = "I3LOCK_OPACITY" ]; then
@@ -108,4 +108,7 @@ if [[ "$modif" == "yes" ]]; then
     i3-msg reload
     pkill polybar
     polybar --config=~/afs/.confs/config/polybar/config.ini $POLYBAR_NAME >/dev/null 2>&1 & disown
+    killall picom
+    sleep 0.2
+    picom --config "$picom" & disown
 fi
