@@ -24,7 +24,6 @@ if [ "$1" != "setup" ]; then
     nix-env -iA nixpkgs.blueman > /dev/null 2>&1
     nix-env -iA nixpkgs.mdcat > /dev/null 2>&1
     nix-env -iA nixpkgs.xprintidle > /dev/null 2>&1
-    nix-env -iA nixpkgs.xnotify > /dev/null 2>&1
     nix-env -iA nixpkgs.autotiling > /dev/null 2>&1
     nix-env -iA nixpkgs.screen > /dev/null 2>&1
 
@@ -64,7 +63,7 @@ autotiling &
 
 ~/.xinitrc;
 sleep 0.5;
-echo \"Epiconf is setup\" > /tmp/xnotify.fifo;
+echo \"Epiconf is setup\" # Notify;
 
 echo -n \"Press Enter to stop or Ctrl+A+D to exit this term\";
 read"
