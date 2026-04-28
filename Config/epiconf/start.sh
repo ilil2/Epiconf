@@ -10,6 +10,7 @@ if [ ! -f "$TMP_FLAG" ] && [ "$1" == "update" ]; then
 fi
 
 config=~/afs/.confs/config/i3/config
+picom=~/afs/.confs/config/picom/picom.conf
 
 section=""
 polybar_left=""
@@ -75,6 +76,9 @@ while IFS= read -r line || [ -n "$line" ]; do
             fi
             if [ "$var" = "INNER" ]; then
                 sed -i "s/gaps inner .*/gaps inner $value/g" "$config"
+            fi
+            if [ "$var" = "FADING" ]; then
+                sed -i "s/fading = .*;/fading = $value;/g" "$picom"
             fi
             # sed -i "s|__$key\__|$value|g" "$config"
         fi
