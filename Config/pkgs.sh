@@ -1,38 +1,43 @@
-if [ "$1" != "setup" ]; then
-    # Channel update
-    echo "Updating channel"
-    nix-channel --add https://nixos.org/channels/nixpkgs-unstable > /dev/null 2>&1
-    nix-channel --update > /dev/null 2>&1
+source ~/afs/.confs/epiconf/bash_loading_animations.sh
 
+if [ "$1" != "setup" ]; then
     # Clear Nix
-    echo "Clear garbage"
+    echo -ne "Clear garbage \e[7C"
+    BLA::start_loading_animation "${BLA_modern_metro[@]}"
     nix-collect-garbage -d > /dev/null 2>&1
+    BLA::stop_loading_animation
 
     # Priority package
-    echo "Installing Priority packages"
-    nix-env -iA nixpkgs.rofi > /dev/null 2>&1
-    nix-env -iA nixpkgs.rofi-power-menu > /dev/null 2>&1
-    nix-env -iA nixpkgs.rip2 > /dev/null 2>&1
-    nix-env -iA nixpkgs.bat > /dev/null 2>&1
-    nix-env -iA nixpkgs.neovim > /dev/null 2>&1
+    echo -ne "Installing Priority packages \e[7C"
+    BLA::start_loading_animation "${BLA_modern_metro[@]}"
+    nix profile add nixpkgs\#rofi > /dev/null 2>&1
+    nix profile add nixpkgs\#rofi-power-menu > /dev/null 2>&1
+    nix profile add nixpkgs\#rip2 > /dev/null 2>&1
+    nix profile add nixpkgs\#bat > /dev/null 2>&1
+    nix profile add nixpkgs\#neovim > /dev/null 2>&1
+    BLA::stop_loading_animation
 
     # Package installation
-    echo "Installing Other packages"
-    nix-env -iA nixpkgs.picom > /dev/null 2>&1
-    nix-env -iA nixpkgs.polybar > /dev/null 2>&1
-    nix-env -iA nixpkgs.cmatrix > /dev/null 2>&1
-    nix-env -iA nixpkgs.blueman > /dev/null 2>&1
-    nix-env -iA nixpkgs.mdcat > /dev/null 2>&1
-    nix-env -iA nixpkgs.dunst > /dev/null 2>&1
-    nix-env -iA nixpkgs.xprintidle > /dev/null 2>&1
-    nix-env -iA nixpkgs.autotiling > /dev/null 2>&1
-    nix-env -iA nixpkgs.screen > /dev/null 2>&1
+    echo -ne "Installing Other packages \e[7C"
+    BLA::start_loading_animation "${BLA_modern_metro[@]}"
+    nix profile add nixpkgs\#picom > /dev/null 2>&1
+    nix profile add nixpkgs\#polybar > /dev/null 2>&1
+    nix profile add nixpkgs\#cmatrix > /dev/null 2>&1
+    nix profile add nixpkgs\#blueman > /dev/null 2>&1
+    nix profile add nixpkgs\#mdcat > /dev/null 2>&1
+    nix profile add nixpkgs\#dunst > /dev/null 2>&1
+    nix profile add nixpkgs\#xprintidle > /dev/null 2>&1
+    nix profile add nixpkgs\#autotiling > /dev/null 2>&1
+    nix profile add nixpkgs\#screen > /dev/null 2>&1
+    BLA::stop_loading_animation
 
     # Music installation
     if [ "$MUSIC_LOADER" == "enable" ]; then
-        echo "Installing Music packages"
-        timeout 1m nix-env -iA nixpkgs.spotify > /dev/null 2>&1
-        timeout 1m nix-env -iA nixpkgs.deezer-enhanced > /dev/null 2>&1
+        echo -ne "Installing Music packages \e[7C"
+        BLA::start_loading_animation "${BLA_modern_metro[@]}"
+        timeout 1m nix profile add nixpkgs\#spotify > /dev/null 2>&1
+        timeout 1m nix profile add nixpkgs\#deezer-enhanced > /dev/null 2>&1
+        BLA::stop_loading_animation
     fi
 
     # Git-repositories installation
@@ -40,11 +45,13 @@ if [ "$1" != "setup" ]; then
     #make -C ~/.ble
 
     # Font installation
-    echo "Installing fonts"
-    nix-env -iA nixpkgs.siji > /dev/null 2>&1
-    nix-env -iA nixpkgs.noto-fonts > /dev/null 2>&1
-    nix-env -iA nixpkgs.ttf-dejavu > /dev/null 2>&1
-    nix-env -iA nixpkgs.nerd-fonts.jetbrains-mono > /dev/null 2>&1
+    echo -ne "Installing fonts \e[7C"
+    BLA::start_loading_animation "${BLA_modern_metro[@]}"
+    nix profile add nixpkgs\#siji > /dev/null 2>&1
+    nix profile add nixpkgs\#noto-fonts > /dev/null 2>&1
+    nix profile add nixpkgs\#ttf-dejavu > /dev/null 2>&1
+    nix profile add nixpkgs\#nerd-fonts.jetbrains-mono > /dev/null 2>&1
+    BLA::stop_loading_animation
 fi
 
 # Kill all
