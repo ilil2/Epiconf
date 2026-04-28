@@ -10,6 +10,7 @@ if [ ! -f "$TMP_FLAG" ] && [ "$1" == "update" ]; then
 fi
 
 config=~/afs/.confs/config/i3/config
+picom=~/afs/.confs/config/picom/picom.conf
 
 section=""
 polybar_left=""
@@ -73,6 +74,21 @@ while IFS= read -r line || [ -n "$line" ]; do
             if [ "$var" = "MUSIC" ]; then
                 sed -i "s/bindsym \$mod+m exec .*/bindsym \$mod+m exec $value/g" "$config"
             fi
+            if [ "$var" = "INNER" ]; then
+                sed -i "s/gaps inner .*/gaps inner $value/g" "$config"
+            fi
+            if [ "$var" = "FADING" ]; then
+                sed -i "s/fading = .*;/fading = $value;/g" "$picom"
+            fi
+            if [ "$var" = "INACTIVE_OPACITY" ]; then
+                sed -i "s/inactive-opacity = .*;/inactive-opacity = $value;/g" "$picom"
+            fi
+            if [ "$var" = "CORNER_RADIUS" ]; then
+                sed -i "s/corner-radius = .*;/corner-radius = $value;/g" "$picom"
+            fi
+            if [ "$var" = "I3LOCK_OPACITY" ]; then
+                sed -i "s/\".*:class_g = 'i3lock'\"/\"$value:class_g = 'i3lock'\"/g" "$picom"
+            fi
             # sed -i "s|__$key\__|$value|g" "$config"
         fi
 
@@ -92,4 +108,7 @@ if [[ "$modif" == "yes" ]]; then
     i3-msg reload
     pkill polybar
     polybar --config=~/afs/.confs/config/polybar/config.ini $POLYBAR_NAME >/dev/null 2>&1 & disown
+    killall picom
+    sleep 0.2
+    picom --config "$picom" & disown
 fi
