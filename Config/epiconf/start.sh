@@ -86,6 +86,9 @@ while IFS= read -r line || [ -n "$line" ]; do
             if [ "$var" = "CORNER_RADIDUS" ]; then
                 sed -i "s/corner-radius = .*;/corner-radius = $value;/g" "$picom"
             fi
+            if [ "$var" = "I3LOCK_OPACITY" ]; then
+                sed -i "s/\".*:class_g = 'i3lock'\"/\"$value:class_g = 'i3lock'\"/g" "$picom"
+            fi
             # sed -i "s|__$key\__|$value|g" "$config"
         fi
 
