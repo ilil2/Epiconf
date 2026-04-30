@@ -56,3 +56,8 @@ alias i3lock='function _i3lock() {
 		}; _i3lock'
 
 bind -x '"\C-l":clear'
+
+if [ -d /tmp/vgenv ]; then
+    source /tmp/vgenv/bin/activate &> /dev/null
+    alias valgrind="colour-valgrind"
+fi
