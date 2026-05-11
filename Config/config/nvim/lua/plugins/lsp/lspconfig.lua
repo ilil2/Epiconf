@@ -100,6 +100,10 @@ return {
       capabilities = capabilities,
     })
 
+    vim.lsp.config.vtsls = vim.tbl_deep_extend("force", vim.lsp.config.vtsls or {}, {
+      capabilities = capabilities,
+    })
+
     local notify = vim.lsp.handlers["textDocument/publishDiagnostics"]
     vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
       for _, diagnostic in ipairs(result.diagnostics) do
@@ -113,5 +117,6 @@ return {
     vim.lsp.enable("clangd")
     vim.lsp.enable("bashls")
     vim.lsp.enable("cmake")
+    vim.lsp.enable("vtsls")
   end,
 }
