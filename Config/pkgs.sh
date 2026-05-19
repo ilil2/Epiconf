@@ -69,7 +69,6 @@ screen -S epiconf -X quit
 screen -S epiconf -d -m sh -c "
 source ~/afs/.confs/epiconf/start.sh;
 
-nvim '+qa' &
 picom --config $config/picom/picom.conf &
 polybar --config=$config/polybar/config.ini \"$(cat $config/../epiconf/config.ini | grep 'POLYBAR_NAME' | cut -d';' -f1 | xargs | cut -d '=' -f2)\" &
 autotiling &
@@ -78,6 +77,7 @@ dunst &
 sleep 0.5;
 dunstify \"Epiconf is setup\";
 
+nvim '+qa'
 echo -n \"Press Enter to stop or Ctrl+A+D to exit this term\";
 read"
 sleep 1
