@@ -9,8 +9,6 @@ alias deezer='deezer-enhanced 2&> /dev/null & disown'
 
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat --paging=always -p -lman --theme=Coldark-Dark'"
 alias cat='bat --paging=never --style=plain'
-alias rm='rip'
-alias mr='rip -u'
 
 if [ "$NVIM" = "enable" ]; then
     alias vim='nvim'
