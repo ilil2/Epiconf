@@ -31,8 +31,6 @@ jobs:
           body: "**Automated pull request**"
           reviewer: ilil2
           assignee: ilil2
-          label: enhancement
-          milestone: My milestone
           draft: false
           get_diff: true
           ignore_users: "dependabot"
