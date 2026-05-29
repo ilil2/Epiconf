@@ -40,7 +40,7 @@ if [ "$1" != "setup" ]; then
     echo -ne "Installing fonts \e[7C"
     BLA::start_loading_animation "${BLA_modern_metro[@]}"
     nix profile install nixpkgs\#siji > /dev/null 2>&1
-    # nix profile install nixpkgs\#nerd-fonts.jetbrains-mono > /dev/null 2>&1
+    nix profile install nixpkgs\#nerd-fonts.jetbrains-mono > /dev/null 2>&1
     BLA::stop_loading_animation
 
     # Pip packages installation
