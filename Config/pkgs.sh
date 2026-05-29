@@ -75,7 +75,12 @@ dunstify \"Epiconf is setup\";
 (
     curl https://raw.githubusercontent.com/ilil2/Epiconf/main/Config/epiconf/info -o /tmp/info
     if [ -n \$(diff /tmp/info ~/afs/.confs/epiconf/info 2>/dev/null) ]; then
-        dunstify \"New Epiconf Update\" \"Try epiconf-updade command to update\"
+        if [ \"\$AUTO_UPDATE\" = \"enable\" ]; then
+            dunstify \"New Epiconf Update\" \"Download in progess...\"
+            ~/afs/.confs/epiconf/update-confs.sh
+        else
+            dunstify \"New Epiconf Update\" \"Try epiconf-updade command to update\"
+        fi
     fi
 ) &
 nvim '+qa'
