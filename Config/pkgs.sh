@@ -32,10 +32,6 @@ if [ "$1" != "setup" ]; then
         BLA::stop_loading_animation
     fi
 
-    # Git-repositories installation
-    #git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git ~/.ble
-    #make -C ~/.ble
-
     # Font installation
     echo -ne "Installing fonts \e[7C"
     BLA::start_loading_animation "${BLA_modern_metro[@]}"
