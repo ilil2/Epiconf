@@ -16,6 +16,10 @@ jobs:
     name: Deploy new release ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: devops-infra/action-pull-request@v1.2.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
