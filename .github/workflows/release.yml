@@ -1,0 +1,38 @@
+name: Release
+run-name: Publish release
+on:
+  pull_request:
+    branches:
+      - 'main'
+    types:
+      - 'closed'
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: sh
+    working-directory: ./
+
+jobs:
+  release:
+    name: Publish release
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Get version
+        id: version
+        run: echo "RELEASE_VERSION=$(echo ${{ github.event.pull_request.title }} | cut -d v -f 2)" >> $GITHUB_OUTPUT
+
+      - name: Create and Publish Release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version.outputs.RELEASE_VERSION }}
+          name: Epiconf V${{ steps.version.outputs.RELEASE_VERSION }}
+          draft: false
+          prerelease: false

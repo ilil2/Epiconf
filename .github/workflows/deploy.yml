@@ -1,0 +1,39 @@
+name: deploy
+run-name: New release
+on:
+  push:
+    tags:
+      - 'v*.*'
+permissions:
+  contents: read
+  pull-requests: write
+defaults:
+  run:
+    shell: sh
+    working-directory: ./
+jobs:
+  merge:
+    name: Deploy new release ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: devops-infra/action-pull-request@v1.2.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          repository_path: .
+          source_branch: dev
+          target_branch: main
+          title: Pull request for release ${{ github.ref_name }}
+          body: "**Automated pull request**"
+          reviewer: ilil2
+          assignee: ilil2
+          draft: false
+          get_diff: true
+          ignore_users: "dependabot"
+          allow_no_diff: false
+          max_body_bytes: 65000
+          max_diff_lines: 0

@@ -61,9 +61,6 @@ bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/afs/.conf
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-bindsym Control+Shift+L exec "chmod +x ~/afs/.confs/config/i3/i3lock.sh; ~/afs/.confs/config/i3/i3lock.sh"
-bindsym Control+Shift+U exec "chmod +x ~/afs/.confs/config/i3/shell-p.sh; ~/afs/.confs/config/i3/shell-p.sh"
-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -196,13 +193,18 @@ bar {
 
 #You've been nigled
 
+bindsym Control+Shift+L exec "i3lock"
 bindsym $mod+i exec "i3lock --pointer=default"
+
 bindsym Mod1+Tab workspace next
+
 bindsym Ctrl+b exec "blueman-manager"
 bindsym $mod+Shift+F exec "firefox"
 bindsym $mod+m exec $music
+
 bindsym Mod1+F4 exec "sh -x ~/afs/.confs/config/i3/screen.sh fullscreen"
 bindsym Mod1+Shift+F4 exec "sh -x ~/afs/.confs/config/i3/screen.sh screen"
+
 bindsym Ctrl+Mod1+r exec "rm /tmp/tmp_flag; sh ~/afs/.confs/epiconf/start.sh update; touch /tmp/tmp_flag"
 
 exec_always "autotiling"

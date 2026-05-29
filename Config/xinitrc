@@ -1,9 +1,0 @@
-pkill xnotify
-
-rm -f /tmp/xnotify.fifo
-mkfifo /tmp/xnotify.fifo
-xnotify -s 5 -g +0+30 </tmp/xnotify.fifo 3<>/tmp/xnotify.fifo &
-
-rm -f /tmp/xnotify-cmd.fifo
-mkfifo /tmp/xnotify-cmd.fifo
-xnotify -s 10 -g +0+30 </tmp/xnotify-cmd.fifo 3<>/tmp/xnotify-cmd.fifo > ~/.fifo &

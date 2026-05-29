@@ -55,19 +55,9 @@ alias i3lock='function _i3lock() {
 			fi
 		}; _i3lock'
 
-xfifo() {
-    fifo=~/.fifo
-    >$fifo
-    ~/.xinitrc
-    while true; do
-        while IFS= read -r line; do
-            $line
-            > $fifo
-        done < $fifo
-        sleep 0.2
-    done
-}
-
-xfifo &> /dev/null & disown
-
 bind -x '"\C-l":clear'
+
+if [ -d /tmp/vgenv ]; then
+    source /tmp/vgenv/bin/activate &> /dev/null
+    alias valgrind="colour-valgrind"
+fi
