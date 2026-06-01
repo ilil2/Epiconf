@@ -2,7 +2,7 @@
 
 dir=/tmp/epiconf
 
-function update_config_file() {
+update_config_file() {
     file=/tmp/config.ini
     config=~/afs/.confs/epiconf/config.ini
 
