@@ -50,4 +50,4 @@ reset-conf
 
 ---
 
-You can go en the Epiconf wiki for documentation
+You can go on the Epiconf wiki for documentation
