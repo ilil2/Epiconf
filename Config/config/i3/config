@@ -53,8 +53,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -show run -config ~/afs/.confs/config/rofi/config1.rasi"
-bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/afs/.confs/config/rofi/config1.rasi"
+bindsym $mod+d exec --no-startup-id "rofi -show run -config ~/afs/.confs/config/rofi/config_default.rasi"
+bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/afs/.confs/config/rofi/config_default.rasi"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -153,7 +153,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "rofi -show p -modi p:'~/afs/.confs/config/rofi/rofi-power-menu --no-symbols --choices logout/shutdown/reboot' -theme-str 'window {width: 250px;} listview {lines: 3;}' -config ~/afs/.confs/config/rofi/config1.rasi"
+bindsym $mod+Shift+e exec "rofi -show p -modi p:'~/afs/.confs/config/rofi/rofi-power-menu --no-symbols --choices logout/shutdown/reboot' -theme-str 'window {width: 250px;} listview {lines: 3;}' -config ~/afs/.confs/config/rofi/config_default.rasi"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
