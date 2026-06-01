@@ -6,7 +6,7 @@ update_config_file() {
     file=/tmp/config.ini
     config=~/afs/.confs/epiconf/config.ini
 
-    curl https://raw.githubusercontent.com/ilil2/Epiconf/main/Config/epiconf/config.ini -o $file
+    curl https://raw.githubusercontent.com/ilil2/Epiconf/dev/Config/epiconf/config.ini -o $file
 
     declare -A ref_vars
     declare -A sections
