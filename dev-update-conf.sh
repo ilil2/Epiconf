@@ -86,22 +86,21 @@ update_config_file() {
             fi
 
             if [ -n "${ref_vars[$var]}" ]; then
-                unset ref_vars["$var"]=$value
+                unset ref_vars["$var"]
             fi
         fi
     done < "$config"
 
-
-    for var in "${!ref_vars[$@]}"; do
-        section="${missing%%_*}"
+    for var in "${!ref_vars[@]}"; do
+        section="${var%%_*}"
         variable="${ref_vars["$var"]}"
 
-        if [ -n "${sections["$section"]}" ]; then
-            sed -i "/^\[$m_section\]$/a\\
-$line_to_add" "$FILE_USER"
+        if [ -n "${sections[$section]}" ]; then
+            sed -i "/^\[$section\]$/a\\
+$variable" "$config"
         else
-            echo -e "\n[$m_section]\n$line_to_add" >> "$FILE_USER"
-            sections["$section"]=1
+            echo -e "\n[$section]\n$variable" >> "$config"
+            sections[$section]=1
         fi
     done
 }
