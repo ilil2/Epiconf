@@ -1,3 +1,5 @@
+@theme "colors_default"
+
 #window {
     background-color: @background-color;
     border:           3;
