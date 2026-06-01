@@ -7,4 +7,5 @@ configuration {
     disable-history: false;
 }
 
+@theme "config_theme"
 @theme "theme_default"
