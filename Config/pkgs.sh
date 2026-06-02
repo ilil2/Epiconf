@@ -16,7 +16,6 @@ if [ "$1" != "setup" ]; then
     BLA::start_loading_animation "${BLA_modern_metro[@]}"
     nix profile install nixpkgs\#picom > /dev/null 2>&1
     nix profile install nixpkgs\#polybar > /dev/null 2>&1
-    nix profile install nixpkgs\#mdcat > /dev/null 2>&1
     nix profile install nixpkgs\#dunst > /dev/null 2>&1
     nix profile install nixpkgs\#xprintidle > /dev/null 2>&1
     nix profile install nixpkgs\#autotiling > /dev/null 2>&1
