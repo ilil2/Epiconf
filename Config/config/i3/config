@@ -53,7 +53,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -show run -config ~/afs/.confs/config/rofi/config_default.rasi"
+bindsym $mod+d exec --no-startup-id "rofi -show drun -config ~/afs/.confs/config/rofi/config_default.rasi"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show window -config ~/afs/.confs/config/rofi/config_default.rasi"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
